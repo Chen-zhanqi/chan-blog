@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>DRF 通用视图-视图工具类-视图集以及路由 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="DRF 通用视图-视图工具类-视图集以及路由" />
+<meta property="og:description" content=":::tip Django REST Framework. Generic Views, MixIns, ViewSets and Routers ::: 基本信息 源码仓库 rest_framework.views rest_framework.generics rest_framework.viewsets rest_framework.routers 官方文档 API Guide-Generic views API Guide-ViewSets API Guide-Routers 关系图 ::: details View继承图与View图谱 ::: AIPView-API视图类 APIView 是" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-21T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DRF 通用视图-视图工具类-视图集以及路由"/>
+<meta name="twitter:description" content=":::tip Django REST Framework. Generic Views, MixIns, ViewSets and Routers ::: 基本信息 源码仓库 rest_framework.views rest_framework.generics rest_framework.viewsets rest_framework.routers 官方文档 API Guide-Generic views API Guide-ViewSets API Guide-Routers 关系图 ::: details View继承图与View图谱 ::: AIPView-API视图类 APIView 是"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" /><link rel="prev" href="http://example.org/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" /><link rel="next" href="http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DRF 通用视图-视图工具类-视图集以及路由",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2020\/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1\/"
+        },"genre": "posts","keywords": "框架, Django, DRF","wordcount":  3370 ,
+        "url": "http:\/\/example.org\/posts\/2020\/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1\/","datePublished": "2020-06-21T00:00:00+00:00","dateModified": "2020-06-21T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DRF 通用视图-视图工具类-视图集以及路由</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-06-21">2020-06-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3370 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本信息">基本信息</a>
+      <ul>
+        <li><a href="#源码仓库">源码仓库</a></li>
+        <li><a href="#官方文档">官方文档</a></li>
+      </ul>
+    </li>
+    <li><a href="#关系图">关系图</a></li>
+    <li><a href="#heading">::: details View继承图与View图谱
+<img src="https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE1.png" alt="1">
+<img src="https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE2.jpg" alt="2">
+:::</a></li>
+    <li><a href="#aipview-api视图类">AIPView-API视图类</a>
+      <ul>
+        <li><a href="#aipview-对比-django-view">AIPView 对比 Django View</a></li>
+        <li><a href="#重要类属性">重要类属性</a></li>
+        <li><a href="#示例">示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#genericapiview-通用api视图类">GenericAPIView-通用API视图类</a>
+      <ul>
+        <li><a href="#genericapiview-对比-apiview">GenericAPIView 对比 APIView</a></li>
+        <li><a href="#重要类属性-1">重要类属性</a></li>
+        <li><a href="#重要类方法">重要类方法</a></li>
+        <li><a href="#get_serializer-源码">get_serializer 源码</a></li>
+        <li><a href="#示例-1">示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#xxxmodelmixin-视图类的模型工具集">xxxModelMixin-视图类的模型工具集</a>
+      <ul>
+        <li><a href="#作用">作用</a></li>
+        <li><a href="#使用">使用</a></li>
+        <li><a href="#五大模型工具类">五大模型工具类</a></li>
+        <li><a href="#示例-2">示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#xxxapiview-功能性子视图类">xxxAPIView-功能性子视图类</a>
+      <ul>
+        <li><a href="#各大功能子视图类">各大功能子视图类</a></li>
+      </ul>
+    </li>
+    <li><a href="#xxxviewset-视图集">xxxViewset-视图集</a>
+      <ul>
+        <li><a href="#常用视图集父类">常用视图集父类</a></li>
+        <li><a href="#源码分析">源码分析</a></li>
+        <li><a href="#genericviewset-示例代码">GenericViewSet 示例代码</a></li>
+        <li><a href="#genericviewset-与-viewset">GenericViewSet 与 ViewSet</a></li>
+        <li><a href="#modelviewset-示例代码">ModelViewSet 示例代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#路由组件">路由组件</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>:::tip
+Django REST Framework. Generic Views, MixIns, ViewSets and Routers
+:::</p>
+<!-- raw HTML omitted -->
+<h2 id="基本信息">基本信息</h2>
+<h3 id="源码仓库">源码仓库</h3>
+<p><a href="https://github.com/encode/django-rest-framework/blob/master/rest_framework/views.py" target="_blank" rel="noopener noreffer ">rest_framework.views</a></p>
+<p><a href="https://github.com/encode/django-rest-framework/blob/master/rest_framework/generics.py" target="_blank" rel="noopener noreffer ">rest_framework.generics</a></p>
+<p><a href="https://github.com/encode/django-rest-framework/blob/master/rest_framework/viewsets.py" target="_blank" rel="noopener noreffer ">rest_framework.viewsets</a></p>
+<p><a href="https://github.com/encode/django-rest-framework/blob/master/rest_framework/routers.py" target="_blank" rel="noopener noreffer ">rest_framework.routers</a></p>
+<h3 id="官方文档">官方文档</h3>
+<p><a href="https://www.django-rest-framework.org/api-guide/generic-views/" target="_blank" rel="noopener noreffer ">API Guide-Generic views</a></p>
+<p><a href="https://www.django-rest-framework.org/api-guide/viewsets/" target="_blank" rel="noopener noreffer ">API Guide-ViewSets</a></p>
+<p><a href="https://www.django-rest-framework.org/api-guide/routers/" target="_blank" rel="noopener noreffer ">API Guide-Routers</a></p>
+<h2 id="关系图">关系图</h2>
+<h2 id="heading">::: details View继承图与View图谱
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE1.png"
+        data-srcset="https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE1.png, https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE1.png 1.5x, https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE1.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE1.png"
+        title="1" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE2.jpg"
+        data-srcset="https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE2.jpg, https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE2.jpg 1.5x, https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE2.jpg 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/chen-zq/bgimages/raw/master/img/20201204_drf%E8%A7%86%E5%9B%BE%E9%9B%86%E5%9B%BE2.jpg"
+        title="2" />
+:::</h2>
+<h2 id="aipview-api视图类">AIPView-API视图类</h2>
+<blockquote>
+<p><strong>APIView 是 Django REST Framework 提供的所有视图的基类，继承自 Django 的 View 父类</strong></p>
+</blockquote>
+<h3 id="aipview-对比-django-view">AIPView 对比 Django View</h3>
+<ol>
+<li>传入到视图方法中的是 REST framework 的 Request 对象，而不是 Django 的 HttpRequeset 对象</li>
+<li>视图方法可以返回 REST framework 的 Response 对象，视图会为响应数据设置（render）符合前端要求的格式</li>
+<li>任何 APIException 异常都会被捕获到，并且处理成合适的响应信息</li>
+<li>在进行 dispatch() 分发前，会对请求进行身份认证、权限检查、流量控制</li>
+</ol>
+<h3 id="重要类属性">重要类属性</h3>
+<p>AIPView 有如下可设置的重要类属性：</p>
+<ul>
+<li>authentication_classes：列表或元祖，身份认证类</li>
+<li>permissoin_classes：    列表或元祖，权限检查类</li>
+<li>throttle_classes：      列表或元祖，流量控制类</li>
+</ul>
+<h3 id="示例">示例</h3>
+<p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">Goods</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">serializers</span> <span class="kn">import</span> <span class="n">GoodsSerializer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GoodListView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">goods</span> <span class="o">=</span> <span class="n">Goods</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">serializer</span> <span class="o">=</span> <span class="n">GoodsSerializer</span><span class="p">(</span><span class="n">goods</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></div><p>serializers.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GoodsSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># category = CategorySerializer()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># images = GoodsImageSerializer(many=True)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">Goods</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fields</span> <span class="o">=</span> <span class="s2">&#34;__all__&#34;</span>
+</span></span></code></pre></div><h2 id="genericapiview-通用api视图类">GenericAPIView-通用API视图类</h2>
+<blockquote>
+<p><strong>通用 API 视图类 GenericAPIView 继承自 APIView，完全兼容 APIView，主要增加了操作序列化器和数据库查询的方法，作用是为下面 Mixin 扩展类的执行提供基础类支持。通常在使用时，可以配合一个或多个 Mixin 扩展类。</strong></p>
+</blockquote>
+<h3 id="genericapiview-对比-apiview">GenericAPIView 对比 APIView</h3>
+<ol>
+<li>get_queryset()：  从类属性 queryset中获得 model 的 queryset 数据。群操作就走 get_queryset() 方法 (包括群查，群增等)。</li>
+<li>get_object()：    从类属性 queryset 中获得 model 的 queryset 数据，再通过有名分组 pk 确定唯一操作对象。单操作就走 get_object() 方法（包括单查，单增等）。</li>
+<li>get_serializer()：从类属性 serializer_class 中获得 serializer 的序列化类。</li>
+</ol>
+<h3 id="重要类属性-1">重要类属性</h3>
+<ul>
+<li>列表视图与详情视图共用
+<ul>
+<li>queryset：          指明视图需要的数据（model 查询数据）</li>
+<li>permissoin_classes：指明视图使用的序列化器</li>
+</ul>
+</li>
+<li>列表视图使用
+<ul>
+<li>pagination_class：指定分页控制类</li>
+<li>filter_backends： 指定过滤控制后端</li>
+</ul>
+</li>
+<li>详情页视图使用
+<ul>
+<li>lookup_field：    自定义主键，有名分组的查询，默认是 pk</li>
+<li>lookup_url_kwarg：查询单一数据时 url 中的参数关键字名称，默认与 look_field 相同</li>
+</ul>
+</li>
+</ul>
+<h3 id="重要类方法">重要类方法</h3>
+<ul>
+<li>get_queryset()：  从类属性 queryset 中获得 model 的 queryset 数据　　</li>
+<li>get_object()：    从类属性 queryset 中获得 model 的 queryset 数据，再通过有名分组 pk 来确定唯一操作对象</li>
+<li>get_serializer()：从类属性 serializer_class 中获得 serializer 的序列化类，主要用来提供给 Mixin 扩展类使用</li>
+</ul>
+<h3 id="get_serializer-源码">get_serializer 源码</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_serializer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Return the serializer instance that should be used for validating and
+</span></span></span><span class="line"><span class="cl"><span class="s2">    deserializing input, and for serializing output.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    返回应该用于验证和反序列化输入以及序列化输出的序列化器实例。
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_serializer_class</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_serializer_context</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">serializer_class</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="示例-1">示例</h3>
+<p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GoodGenericAPIView</span><span class="p">(</span><span class="n">GenericAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Good</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">GoodModelSerializer</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lookup_field</span> <span class="o">=</span> <span class="s1">&#39;pk&#39;</span>  <span class="c1"># 先定义好，单查可以使用，默认是pk  自定义主键的有名分组，如果路由有名分组不是pk,这个属性就要自己设置了</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 群取</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">good_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span>  <span class="c1"># 获取queryset数据（model查询数据）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">good_ser</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_serializer</span><span class="p">(</span><span class="n">good_query</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">good_data</span> <span class="o">=</span> <span class="n">good_ser</span><span class="o">.</span><span class="n">data</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">APIResponse</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="n">good_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># # 单取</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># def get(self, request, *args, **kwargs):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#     good_query = self.get_object()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#     good_ser = self.get_serializer(good_query)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#     good_data = good_ser.data</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#     return APIResponse(results=good_data)</span>
+</span></span></code></pre></div><p>urls.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;v2/goods/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">GoodGenericAPIView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;v2/goods/&lt;pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">GoodGenericAPIView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><h2 id="xxxmodelmixin-视图类的模型工具集">xxxModelMixin-视图类的模型工具集</h2>
+<h3 id="作用">作用</h3>
+<ul>
+<li>提供了几种后端视图（对数据资源的增删改查）处理流程的实现，如果需要编写的视图属于这五种，则视图可以通过继承相应的扩展类来复用代码，减少自己编写的代码量。</li>
+<li>mixins 有五个工具类文件，一共提供了五个工具类，六个工具方法：单查、群查、单增、单删、单整体改、单局部改</li>
+</ul>
+<h3 id="使用">使用</h3>
+<ul>
+<li>继承工具类可以简化请求函数的实现体，但是必须继承 GenericAPIView，需要 GenericAPIView 类提供序列化器与数据库查询的方法 (见上方 GenericAPIView 基类知识点)</li>
+<li>工具类的工具方法返回值都是 Response 类型对象，如果要格式化数据格式再返回给前台，可以通过 response.data 拿到工具方法返回的 Response 类型对象的响应数据</li>
+</ul>
+<h3 id="五大模型工具类">五大模型工具类</h3>
+<ul>
+<li>ListModelMixin 群查
+<ul>
+<li>列表视图扩展类，提供 list 方法快速实现查询视图</li>
+<li>返回 200 状态码</li>
+<li>除了查询，该 list 方法会对数据进行过滤和分页</li>
+</ul>
+</li>
+<li>CreateModelMixin 单增
+<ul>
+<li>创建视图扩展类，提供 create 方法快速创建资源的视图，成功返回 201 的状态码</li>
+<li>没有群增的方法，需要自己手动写</li>
+</ul>
+</li>
+<li>RetrieveModelMixin 单查
+<ul>
+<li>详情视图扩展类，提供 retrieve 方法，可以快速实现返回一个存在的数据对象</li>
+</ul>
+</li>
+<li>UpdateModelMixin 更新 / 修改
+<ul>
+<li>更新视图扩展类，提供 update 方法，可以快速实现更新一个存在的数据对象，同时也提供 partial_update 方法，可以实现局部更新</li>
+<li>只有单整体改和单局部改，没有群整体改和群局部改</li>
+</ul>
+</li>
+<li>DestoryModelMixin 删除
+<ul>
+<li>删除视图扩展类，提供 destory 方法，可以快速实现删除一个存在数据对象</li>
+<li>一般不怎么用到，因为实际开发中并不会真的删除数据，而是修改是否可用的标记</li>
+</ul>
+</li>
+</ul>
+<h3 id="示例-2">示例</h3>
+<p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.mixins</span> <span class="kn">import</span> <span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">CreateModelMixin</span><span class="p">,</span> <span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GoodMixinGenericAPIView</span><span class="p">(</span><span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">CreateModelMixin</span><span class="p">,</span> <span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">UpdateModelMixin</span><span class="p">,</span> <span class="n">GenericAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># GenericAPIView提供的序列化器和查询的数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Good</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">GoodModelSerializer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 单查和群查</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;pk&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 单查  RetrieveModelMixin方法</span>
+</span></span><span class="line"><span class="cl">            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># mixins提供的list方法的响应对象是Response，将该对象格式化为自定义的APIResponse</span>
+</span></span><span class="line"><span class="cl">            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># 群查 ListModelMixin</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># response的数据都存放在response.data中</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">APIResponse</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 单增</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>    <span class="c1"># CreateModelMixin方法</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">APIResponse</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 单整体修改</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>    <span class="c1"># UpdateModelMixin</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">APIResponse</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 单局部修改</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">patch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">partial_update</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">APIResponse</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></div><p>urls.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;v3/goods/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">GoodMixinGenericAPIView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;v3/goods/&lt;pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">GoodMixinGenericAPIView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><h2 id="xxxapiview-功能性子视图类">xxxAPIView-功能性子视图类</h2>
+<blockquote>
+<p><strong>功能性子视图类继承了 GenericAPIView 和各种 Mixins 工具类</strong></p>
+</blockquote>
+<ol>
+<li>功能性视图类都是 GenericAPIView 的子类，且不同的子类继承了不同的工具类</li>
+<li>功能性视图类的功能可以满足需求，只需要继承工具视图，并且提供 queryset 与 serializer_class 即可</li>
+</ol>
+<h3 id="各大功能子视图类">各大功能子视图类</h3>
+<table>
+<thead>
+<tr>
+<th>视图</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:right">请求类型</th>
+<th style="text-align:right">父类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ListAPIView</td>
+<td style="text-align:center">查询多条数据</td>
+<td style="text-align:right">get</td>
+<td style="text-align:right">GenericAPIView ListModelMixin</td>
+</tr>
+<tr>
+<td>CreateAPIView</td>
+<td style="text-align:center">新增一条数据</td>
+<td style="text-align:right">post</td>
+<td style="text-align:right">GenericAPIView CreateModelMixin</td>
+</tr>
+<tr>
+<td>RetrieveAPIView</td>
+<td style="text-align:center">查询一条数据</td>
+<td style="text-align:right">get</td>
+<td style="text-align:right">GenericAPIView RetrieveModelMixin</td>
+</tr>
+<tr>
+<td>UpdateAPIView</td>
+<td style="text-align:center">修改一条数据</td>
+<td style="text-align:right">put patch</td>
+<td style="text-align:right">GenericAPIView UpdateModelMixin</td>
+</tr>
+<tr>
+<td>DestroyAPIView</td>
+<td style="text-align:center">删除一条数据</td>
+<td style="text-align:right">delete</td>
+<td style="text-align:right">GenericAPIView DestroyModelMixin</td>
+</tr>
+<tr>
+<td>RetrieveUpdateAPIView</td>
+<td style="text-align:center">单查 更新一条</td>
+<td style="text-align:right">get put patch</td>
+<td style="text-align:right">GenericAPIView RetrieveModelMixin UpdateModelMixin</td>
+</tr>
+<tr>
+<td>RetrieveUpdateDestroyAPIView</td>
+<td style="text-align:center">单查 更新删除一条</td>
+<td style="text-align:right">get put patch delete</td>
+<td style="text-align:right">GenericAPIView RetrieveModelMixin UpdateModelMixin DestroyModelMixin</td>
+</tr>
+<tr>
+<td>ListCreateAPIView</td>
+<td style="text-align:center">群查 更新一条</td>
+<td style="text-align:right">get post</td>
+<td style="text-align:right">GenericAPIView ListModelMixin mixins.CreateModelMixin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="xxxviewset-视图集">xxxViewset-视图集</h2>
+<h3 id="常用视图集父类">常用视图集父类</h3>
+<h4 id="viewsetmixin">ViewSetMixin</h4>
+<p>ViewSetMixin 主要是自定义了 as_view 方法，使可以通过其参数指定 HTTP_METHOD 与函数的映射关系，如 view = MyViewSet.as_view({&lsquo;get&rsquo;: &rsquo;list&rsquo;, &lsquo;post&rsquo;: &lsquo;create&rsquo;})</p>
+<h4 id="viewset">ViewSet</h4>
+<p>继承自 APIView 和 ViewSetMixin，没有提供任何方法，需要自己写</p>
+<h4 id="genericviewset">GenericViewSet</h4>
+<p>继承 GenericAPIView 和 ViewSetMixin，其中 GenericAPIView 提供了基础方法，可以直接搭配 Mixin 扩展类使用，因此比较常用</p>
+<h4 id="modelviewset">ModelViewSet　　</h4>
+<p>继承 GenericViewset，但同时也包括 ListModelMixin、CreateModelMixin 等 mixin 扩展类</p>
+<h3 id="源码分析">源码分析</h3>
+<ol>
+<li>视图集都是默认优先继承 ViewSetMixin 类，再继承一个视图类（GenericAPIView 或 APIView）</li>
+<li>ViewSetMixin 提供了重写的 as_view() 方法，继承视图集的视图类，配置路由时调用 as_view() 必须传入 请求名 - 函数名 映射关系字典</li>
+</ol>
+<p>例如:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># 表示 get 请求会交给 my_get_list 视图函数处理</span>
+</span></span><span class="line"><span class="cl"><span class="n">path</span><span class="p">(</span><span class="s1">&#39;v5/books/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">BookGenericViewSet</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s1">&#39;get&#39;</span><span class="p">:</span> <span class="s1">&#39;my_get_list&#39;</span><span class="p">})),</span>
+</span></span></code></pre></div><h3 id="genericviewset-示例代码">GenericViewSet 示例代码</h3>
+<p>urls.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># View的as_view()：将get请求映射到视图类的get方法</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ViewSet的as_view({&#39;get&#39;: &#39;my_get_list&#39;})：将get请求映射到视图类的my_get_list方法</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;v5/books/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">BookGenericViewSet</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s1">&#39;get&#39;</span><span class="p">:</span> <span class="s1">&#39;my_get_list&#39;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;v5/books/&lt;pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">BookGenericViewSet</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s1">&#39;get&#39;</span><span class="p">:</span> <span class="s1">&#39;my_get_obj&#39;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.viewsets</span> <span class="kn">import</span> <span class="n">GenericViewSet</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">mixins</span>  <span class="c1">#工具集 可以使用list, retrieve等方法</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">BookGenericViewSet</span><span class="p">(</span><span class="n">RetrieveModelMixin</span><span class="p">,</span> <span class="n">ListModelMixin</span><span class="p">,</span> <span class="n">GenericViewSet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">BookModelSerializer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">my_get_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">my_get_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="genericviewset-与-viewset">GenericViewSet 与 ViewSet</h3>
+<h4 id="异同"><strong>异同</strong></h4>
+<ol>
+<li>GenericViewSet 和 ViewSet 都继承了 ViewSetMixin，as_view 都可以配置 请求 - 函数 映射</li>
+<li>GenericViewSet 继承的是 GenericAPIView 视图类，用来完成标准的 model 类操作接口</li>
+<li>ViewSet 继承的是 APIView 视图类，用来完成不需要 model 类参与，或是非标准的 model 类操作接口，如
+<ul>
+<li>post 请求在标准的 model 类操作下就是新增接口，登陆的 post 不满足。登陆的 post 请求，并不是完成数据的新增，只是用 post 提交数据，得到的结果也不是登陆的用户信息，而是登陆的认证信息</li>
+<li>post 请求验证码的接口，不需要 model 类的参与</li>
+</ul>
+</li>
+</ol>
+<h4 id="源码"><strong>源码</strong></h4>
+<p><strong>GenericViewSet</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># viewsets.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GenericViewSet</span><span class="p">(</span><span class="n">ViewSetMixin</span><span class="p">,</span> <span class="n">generics</span><span class="o">.</span><span class="n">GenericAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    The GenericViewSet class does not provide any actions by default,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    but does include the base set of generic view behavior, such as
+</span></span></span><span class="line"><span class="cl"><span class="s2">    the `get_object` and `get_queryset` methods.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    默认情况下，GenericViewSet类不提供任何操作，但是包含通用视图行为的基本集，比如get ohiect和get queryset方法
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># generics.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GenericAPIView</span><span class="p">(</span><span class="n">views</span><span class="o">.</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># vies.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">APIView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ...</span>
+</span></span></code></pre></div><p><strong>ViewSet</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ViewSet</span><span class="p">(</span><span class="n">ViewSetMixin</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">APIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    The base ViewSet class does not provide any actions by default.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    默认情况下，基本ViewSet类不提供任何操作。
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># vies.py</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">APIView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ...</span>
+</span></span></code></pre></div><h3 id="modelviewset-示例代码">ModelViewSet 示例代码</h3>
+<p>urls.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;v6/books/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">BookModelViewSet</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s1">&#39;get&#39;</span><span class="p">:</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">:</span> <span class="s1">&#39;create&#39;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;v6/books/&lt;pk&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">BookModelViewSet</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s1">&#39;get&#39;</span><span class="p">:</span> <span class="s1">&#39;retrieve&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span><span class="p">:</span> <span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">:</span> <span class="s1">&#39;partial_update&#39;</span><span class="p">,</span> <span class="s1">&#39;delete&#39;</span><span class="p">:</span> <span class="s1">&#39;destroy&#39;</span><span class="p">})),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">BookModelViewSet</span><span class="p">(</span><span class="n">ModelViewSet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">BookModelSerializer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 删不是数据库，而是该记录中的修改is_delete的值，因此重写默认的destroy函数</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">()</span>          <span class="c1"># type: models.Book</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">instance</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">APIResponse</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;删除失败&#39;</span><span class="p">)</span>  <span class="c1"># 实际操作，在此之前就做了判断</span>
+</span></span><span class="line"><span class="cl">        <span class="n">instance</span><span class="o">.</span><span class="n">is_delete</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">APIResponse</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;删除成功&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="路由组件">路由组件</h2>
+<p>因为具有局限性，所以在开发复杂接口时并不是首选。</p>
+<p>示例代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.routers</span> <span class="kn">import</span> <span class="n">SimpleRouter</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">router</span> <span class="o">=</span> <span class="n">SimpleRouter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 所有路由与ViewSet视图类的都可以注册，会产生 &#39;v7/books/&#39; 和 &#39;v7/books/&lt;pk&gt;/&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;v7/books&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">BookModelViewSet</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># router.urls 添加方法一</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># path(&#39;&#39;, include(router.urls)),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># router.urls 添加方法二</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># urlpatterns += router.urls</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-06-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" data-title="DRF 通用视图-视图工具类-视图集以及路由" data-hashtags="框架,Django,DRF"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" data-hashtag="框架"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" data-title="DRF 通用视图-视图工具类-视图集以及路由"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" data-title="DRF 通用视图-视图工具类-视图集以及路由"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" data-title="DRF 通用视图-视图工具类-视图集以及路由"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>,&nbsp;<a href="/tags/django/">Django</a>,&nbsp;<a href="/tags/drf/">DRF</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="prev" rel="prev" title="VUE搭建后台管理系统"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>VUE搭建后台管理系统</a>
+            <a href="/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" class="next" rel="next" title="DRF 过滤器组件">DRF 过滤器组件<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

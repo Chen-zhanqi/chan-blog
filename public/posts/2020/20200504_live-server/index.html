@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Live Server 实时服务器 - Chan-技术与生活</title><meta name="Description" content="实时服务器"><meta property="og:title" content="Live Server 实时服务器" />
+<meta property="og:description" content="实时服务器" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2020/20200504_live-server/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-05-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Live Server 实时服务器"/>
+<meta name="twitter:description" content="实时服务器"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2020/20200504_live-server/" /><link rel="prev" href="http://example.org/posts/2020/20200423_%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95/" /><link rel="next" href="http://example.org/posts/2020/20200511_js-%E9%80%86%E5%90%91-python-%E8%B0%83%E7%94%A8js%E4%BB%A3%E7%A0%81/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Live Server 实时服务器",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2020\/20200504_live-server\/"
+        },"genre": "posts","keywords": "web, 前端","wordcount":  1069 ,
+        "url": "http:\/\/example.org\/posts\/2020\/20200504_live-server\/","datePublished": "2020-05-04T00:00:00+00:00","dateModified": "2020-05-04T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": "实时服务器"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Live Server 实时服务器</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-05-04">2020-05-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1069 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#安装">安装</a>
+      <ul>
+        <li><a href="#npm方式">Npm方式</a></li>
+        <li><a href="#手动方式">手动方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用">使用</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>:::tip
+一个具有实时重新加载功能的小型开发服务器
+:::</p>
+<!-- raw HTML omitted -->
+<h2 id="简介">简介</h2>
+<p>这是一个具有实时重新加载功能的小型开发服务器。使用它来入侵您的HTML / JavaScript / CSS文件，而不是用于部署最终站点。</p>
+<p>使用此文件有两个原因：</p>
+<ol>
+<li>file://由于安全限制，AJAX请求不适用于该协议，即，如果您的站点通过JavaScript获取内容，则您需要一台服务器。</li>
+<li>文件更改后自动重新加载页面可以加快开发速度</li>
+</ol>
+<h2 id="安装">安装</h2>
+<p>您需要node.js和npm。您可能应该在全局范围内安装它。</p>
+<h3 id="npm方式">Npm方式</h3>
+<p><code>npm install -g live-server</code></p>
+<h3 id="手动方式">手动方式</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tapio</span><span class="o">/</span><span class="n">live</span><span class="o">-</span><span class="n">server</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">live</span><span class="o">-</span><span class="n">server</span>
+</span></span><span class="line"><span class="cl"><span class="n">npm</span> <span class="n">install</span> <span class="c1"># Local dependencies if you want to hack</span>
+</span></span><span class="line"><span class="cl"><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="c1"># Install globally</span>
+</span></span></code></pre></div><h2 id="使用">使用</h2>
+<p>live-server 在项目目录中发出命令。或者，可以添加路径以用作命令行参数。</p>
+<p>这将自动启动默认浏览器。当您对任何文件进行更改时，浏览器都会重新加载页面-除非它是CSS文件，否则在不重新加载的情况下应用更改。</p>
+<p>命令行参数：</p>
+<ul>
+<li>
+<p>&ndash;port=NUMBER -选择要使用的端口，默认：PORT env var或8080</p>
+</li>
+<li>
+<p>&ndash;host=ADDRESS -选择要绑定到的主机地址，默认情况下：IP env var或0.0.0.0（“任何地址”）</p>
+</li>
+<li>
+<p>&ndash;no-browser -禁止自动启动Web浏览器</p>
+</li>
+<li>
+<p>&ndash;browser=BROWSER -指定要使用的浏览器，而不是系统默认值</p>
+</li>
+<li>
+<p>&ndash;quiet | -q -禁止记录</p>
+</li>
+<li>
+<p>&ndash;verbose | -V -更多日志记录（记录所有请求，显示所有侦听的IPv4接口，等等）</p>
+</li>
+<li>
+<p>&ndash;open=PATH -将浏览器启动到PATH而不是服务器根目录</p>
+</li>
+<li>
+<p>&ndash;watch=PATH -以逗号分隔的路径字符串，专门用于监视更改（默认值：监视所有内容）</p>
+</li>
+<li>
+<p>&ndash;ignore=PATH-逗号分隔的路径字符串，可以忽略（anymatch兼容定义）</p>
+</li>
+<li>
+<p>&ndash;ignorePattern=RGXP-文件的正则表达式忽略（即.*.jade）（不推荐使用赞成&ndash;ignore）</p>
+</li>
+<li>
+<p>&ndash;no-css-inject -在CSS更改时重新加载页面，而不是注入更改的CSS</p>
+</li>
+<li>
+<p>&ndash;middleware=PATH-导出要添加的中间件功能的.js文件的路径；可以是没有路径的名称，也不能是引用middleware文件夹中捆绑的中间件的扩展名</p>
+</li>
+<li>
+<p>&ndash;entry-file=PATH -提供此文件（相对于服务器根目录的文件）代替丢失的文件（对于单页应用程序很有用）</p>
+</li>
+<li>
+<p>&ndash;mount=ROUTE:PATH -在定义的路线下投放路径内容（可能有多个定义）</p>
+</li>
+<li>
+<p>&ndash;spa -将请求从/ abc转换为/＃/ abc（对于单页应用程序非常方便）</p>
+</li>
+<li>
+<p>&ndash;wait=MILLISECONDS -（默认100ms）等待所有更改，然后重新加载</p>
+</li>
+<li>
+<p>&ndash;htpasswd=PATH -启用位于PATH的http-auth期望htpasswd文件</p>
+</li>
+<li>
+<p>&ndash;cors -为任何来源启用CORS（反映请求来源，支持带有凭据的请求）</p>
+</li>
+<li>
+<p>&ndash;https=PATH -HTTPS配置模块的路径</p>
+</li>
+<li>
+<p>&ndash;https-module=MODULE_NAME-自定义HTTPS模块（例如spdy）</p>
+</li>
+<li>
+<p>&ndash;proxy=ROUTE:URL -将所有对ROUTE的请求代理到URL</p>
+</li>
+<li>
+<p>&ndash;help | -h -显示简洁的使用提示并退出</p>
+</li>
+<li>
+<p>&ndash;version | -v -显示版本并退出</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-05-04</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2020/20200504_live-server/" data-title="Live Server 实时服务器" data-hashtags="web,前端"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2020/20200504_live-server/" data-hashtag="web"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2020/20200504_live-server/" data-title="Live Server 实时服务器"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2020/20200504_live-server/" data-title="Live Server 实时服务器"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2020/20200504_live-server/" data-title="Live Server 实时服务器"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/web/">web</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/20200423_%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95/" class="prev" rel="prev" title="中国联通工单系统登录"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>中国联通工单系统登录</a>
+            <a href="/posts/2020/20200511_js-%E9%80%86%E5%90%91-python-%E8%B0%83%E7%94%A8js%E4%BB%A3%E7%A0%81/" class="next" rel="next" title="JS逆向 - Python调用JS代码">JS逆向 - Python调用JS代码<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

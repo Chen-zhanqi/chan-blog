@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Django - Tag - Chan-技术与生活</title>
+        <link>http://example.org/tags/django/</link>
+        <description>Django - Tag - Chan-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Thu, 25 Jun 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/django/" rel="self" type="application/rss+xml" /><item>
+    <title>Django服务器端跨域</title>
+    <link>http://example.org/posts/2020/20200625_django%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%A8%E5%9F%9F/</link>
+    <pubDate>Thu, 25 Jun 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200625_django%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%A8%E5%9F%9F/</guid>
+    <description><![CDATA[:::tip 服务器端解决跨域问题: django-cors-headers ::: 文档 django-cors-headers 安装 pip install -i https://pypi.douban.com/simple django-cors-headers 配置 settings.py 添加到已安装的应用程序中： INSTALLED_APPS = [ ... &#39;corsheaders&#39;， ... ] 确保]]></description>
+</item>
+<item>
+    <title>DRF 过滤器组件</title>
+    <link>http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/</link>
+    <pubDate>Mon, 22 Jun 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/</guid>
+    <description><![CDATA[:::tip Django REST Framework. Filters ::: 基本信息 源码 rest_framework.filters 官方文档 DRF API Guide-Filtering django-filter DRF 过滤组件 DRF 搜索过滤组件 urls.py from django.urls import path from . import views urlpatterns = [ path(&#39;cars/&#39;, views.CarListAPIView.as_view()), # SearchFilter ] views.py # drf的SearchFilter # 第]]></description>
+</item>
+<item>
+    <title>DRF 通用视图-视图工具类-视图集以及路由</title>
+    <link>http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/</link>
+    <pubDate>Sun, 21 Jun 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/</guid>
+    <description><![CDATA[:::tip Django REST Framework. Generic Views, MixIns, ViewSets and Routers ::: 基本信息 源码仓库 rest_framework.views rest_framework.generics rest_framework.viewsets rest_framework.routers 官方文档 API Guide-Generic views API Guide-ViewSets API Guide-Routers 关系图 ::: details View继承图与View图谱 ::: AIPView-API视图类 APIView 是]]></description>
+</item>
+</channel>
+</rss>

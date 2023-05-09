@@ -1,0 +1,56 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>工具 - Tag - Chan-技术与生活</title>
+        <link>http://example.org/tags/%E5%B7%A5%E5%85%B7/</link>
+        <description>工具 - Tag - Chan-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Thu, 06 May 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+    <title>Liunx Navicat premium 15 激活</title>
+    <link>http://example.org/posts/2021/20210506_liunx-navicat-premium-15-%E6%BF%80%E6%B4%BB/</link>
+    <pubDate>Thu, 06 May 2021 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2021/20210506_liunx-navicat-premium-15-%E6%BF%80%E6%B4%BB/</guid>
+    <description><![CDATA[一、相关工具 navicat15-premium-cs.AppImage：Navicat 15 premium 官方简体中文试用版 navicat-patcher：]]></description>
+</item>
+<item>
+    <title>PyQt5安装与PyCharm配置</title>
+    <link>http://example.org/posts/2020/20200526_pyqt5%E5%AE%89%E8%A3%85%E4%B8%8Epycharm%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Tue, 26 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200526_pyqt5%E5%AE%89%E8%A3%85%E4%B8%8Epycharm%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[:::tip PyQt5安装与Qt Designer，PyUIC在 PyCharm 中配置 ::: PyQt5,Qt Designer安装 pip install sip pip install PyQt5 pip install PyQt5-tools 安装完成后，在python安装目录下可]]></description>
+</item>
+<item>
+    <title>中国联通工单系统登录</title>
+    <link>http://example.org/posts/2020/20200423_%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95/</link>
+    <pubDate>Thu, 23 Apr 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200423_%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95/</guid>
+    <description><![CDATA[:::tip 联通内网工单登录系统破解流程 ::: 记录使用tkinter + python完成中国联通工单系统的抓取程序。使用VPN + fiddler + postman分析系统单]]></description>
+</item>
+<item>
+    <title>PyQt5多线程模块QThread使用</title>
+    <link>http://example.org/posts/2020/20200420_pyqt5%E4%B8%AD%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9D%97qthread%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+    <pubDate>Mon, 20 Apr 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200420_pyqt5%E4%B8%AD%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9D%97qthread%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+    <description><![CDATA[:::tip PyQt5中使用多线程QThread模块 ::: 多线程模块QThread基本原理 QThread是Qt的线程类中最核心的底层类。由于PyQt的的跨]]></description>
+</item>
+<item>
+    <title>Selenium Python 自动化</title>
+    <link>http://example.org/posts/2019/20190530_selenium-python-%E8%87%AA%E5%8A%A8%E5%8C%96/</link>
+    <pubDate>Thu, 30 May 2019 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2019/20190530_selenium-python-%E8%87%AA%E5%8A%A8%E5%8C%96/</guid>
+    <description><![CDATA[准备工作 安装seleniumm pip install selenium 下载浏览器驱动 Firefox浏览器驱动：geckodriver Chrome浏览器驱动：chromedri]]></description>
+</item>
+<item>
+    <title>selenium启动Chrome配置参数</title>
+    <link>http://example.org/posts/2019/20190530_selenium%E5%90%AF%E5%8A%A8chrome%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0/</link>
+    <pubDate>Thu, 30 May 2019 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2019/20190530_selenium%E5%90%AF%E5%8A%A8chrome%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0/</guid>
+    <description><![CDATA[:::tip selenium配置 ::: 每次当selenium启动chrome浏览器的时候，chrome浏览器很干净，没有插件、没有收藏、没有历史记录，这是]]></description>
+</item>
+</channel>
+</rss>

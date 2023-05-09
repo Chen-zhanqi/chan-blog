@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Dockerfile 命令记录 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="Dockerfile 命令记录" />
+<meta property="og:description" content=":::tip Dockerfile 命令 ::: Dockerfile 指令详解 1 FROM 指定基础镜像 FROM 指令用于指定其后构建新镜像所使用的基础镜像。FROM 指令必是 Dockerfile 文件中的首条命令，启动构建流程后，Doc" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-06-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dockerfile 命令记录"/>
+<meta name="twitter:description" content=":::tip Dockerfile 命令 ::: Dockerfile 指令详解 1 FROM 指定基础镜像 FROM 指令用于指定其后构建新镜像所使用的基础镜像。FROM 指令必是 Dockerfile 文件中的首条命令，启动构建流程后，Doc"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" /><link rel="prev" href="http://example.org/posts/2019/20190530_selenium-python-%E8%87%AA%E5%8A%A8%E5%8C%96/" /><link rel="next" href="http://example.org/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Dockerfile 命令记录",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2019\/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3\/"
+        },"genre": "posts","keywords": "Docker, 记录","wordcount":  4126 ,
+        "url": "http:\/\/example.org\/posts\/2019\/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3\/","datePublished": "2019-06-05T00:00:00+00:00","dateModified": "2019-06-05T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Dockerfile 命令记录</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2019/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2019</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-06-05">2019-06-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4126 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#dockerfile-指令详解">Dockerfile 指令详解</a>
+      <ul>
+        <li><a href="#1-from-指定基础镜像">1 FROM 指定基础镜像</a></li>
+        <li><a href="#2-run-执行命令">2 RUN 执行命令</a></li>
+        <li><a href="#3-copy-复制文件">3 COPY 复制文件</a></li>
+        <li><a href="#4-add-更高级的复制文件">4 ADD 更高级的复制文件</a></li>
+        <li><a href="#5-env-设置环境变量">5 ENV 设置环境变量</a></li>
+        <li><a href="#6-expose">6 EXPOSE</a></li>
+        <li><a href="#7-volume-定义匿名卷">7 VOLUME 定义匿名卷</a></li>
+        <li><a href="#8-workdir-指定工作目录">8 WORKDIR 指定工作目录</a></li>
+        <li><a href="#9-user-指定当前用户">9 USER 指定当前用户</a></li>
+        <li><a href="#10-cmd">10 CMD</a></li>
+        <li><a href="#11-entrypoint">11 ENTRYPOINT</a></li>
+        <li><a href="#12-label">12 LABEL</a></li>
+        <li><a href="#13-arg">13 ARG</a></li>
+        <li><a href="#14-onbuild">14 ONBUILD</a></li>
+        <li><a href="#15-stopsignal">15 STOPSIGNAL</a></li>
+        <li><a href="#16-shell">16 SHELL</a></li>
+      </ul>
+    </li>
+    <li><a href="#dockerfile-示例">Dockerfile 示例</a>
+      <ul>
+        <li><a href="#构建nginx运行环境">构建Nginx运行环境</a></li>
+        <li><a href="#构建tomcat-环境">构建tomcat 环境</a></li>
+        <li><a href="#结尾">结尾</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>:::tip
+Dockerfile 命令
+:::</p>
+<!-- raw HTML omitted -->
+<h2 id="dockerfile-指令详解">Dockerfile 指令详解</h2>
+<h3 id="1-from-指定基础镜像">1 FROM 指定基础镜像</h3>
+<blockquote>
+<p><em>FROM</em> 指令用于指定其后构建新镜像所使用的基础镜像。FROM 指令必是 Dockerfile 文件中的首条命令，启动构建流程后，Docker 将会基于该镜像构建新镜像，FROM 后的命令也会基于这个基础镜像。</p>
+</blockquote>
+<p>FROM语法格式为：</p>
+<pre tabindex="0"><code>FROM &lt;image&gt;
+OR
+FROM &lt;image&gt;:&lt;tag&gt;
+OR
+FROM &lt;image&gt;:&lt;digest&gt;
+</code></pre><p>通过 FROM 指定的镜像，可以是任何有效的基础镜像。FROM 有以下限制：</p>
+<p><strong><em>FROM</em> 必须 是 <em>Dockerfile</em> 中第一条非注释命令</strong></p>
+<p>在一个 Dockerfile 文件中创建多个镜像时，FROM 可以多次出现。只需在每个新命令 FROM 之前，记录提交上次的镜像 ID。</p>
+<p><em>tag</em> 或 <em>digest</em> 是可选的，如果不使用这两个值时，会使用 latest 版本的基础镜像</p>
+<h3 id="2-run-执行命令">2 RUN 执行命令</h3>
+<p>在镜像的构建过程中执行特定的命令，并生成一个中间镜像。格式:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># shell格式</span>
+</span></span><span class="line"><span class="cl">RUN &lt;command&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># exec格式</span>
+</span></span><span class="line"><span class="cl">RUN <span class="o">[</span><span class="s2">&#34;executable&#34;</span>, <span class="s2">&#34;param1&#34;</span>, <span class="s2">&#34;param2&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><p><em>RUN</em> 命令将在当前 image 中执行任意合法命令并提交执行结果。命令执行提交后，就会自动执行 Dockerfile 中的下一个指令。</p>
+<p>层级 RUN 指令和生成提交是符合 Docker 核心理念的做法。它允许像版本控制那样，在任意一个点，对 image 镜像进行定制化构建。</p>
+<p>RUN 指令创建的中间镜像会被缓存，并会在下次构建中使用。如果不想使用这些缓存镜像，可以在构建时指定 <em>&ndash;no-cache</em> 参数，如：docker build &ndash;no-cache。</p>
+<h3 id="3-copy-复制文件">3 COPY 复制文件</h3>
+<p>格式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">COPY &lt;源路径&gt;... &lt;目标路径&gt;
+</span></span><span class="line"><span class="cl">COPY <span class="o">[</span><span class="s2">&#34;&lt;源路径1&gt;&#34;</span>,... <span class="s2">&#34;&lt;目标路径&gt;&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><p>和 RUN 指令一样，也有两种格式，一种类似于命令行，一种类似于函数调用。COPY 指令将从构建上下文目录中 &lt;源路径&gt; 的文件/目录复制到新的一层的镜像内的<code>&lt;目标路径&gt;</code>位置。比如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">COPY package.json /usr/src/app/
+</span></span></code></pre></div><p>&lt;源路径&gt;可以是多个，甚至可以是通配符，其通配符规则要满足 Go 的 filepath.Match 规则，如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">COPY hom* /mydir/
+</span></span><span class="line"><span class="cl">COPY hom?.txt /mydir/
+</span></span></code></pre></div><p>&lt;目标路径&gt;可以是容器内的绝对路径，也可以是相对于工作目录的相对路径（工作目录可以用 WORKDIR 指令来指定）。目标路径不需要事先创建，如果目录不存在会在复制文件前先行创建缺失目录。</p>
+<p>此外，还需要注意一点，<strong>使用 COPY 指令，源文件的各种元数据都会保留</strong>。比如读、写、执行权限、文件变更时间等。这个特性对于镜像定制很有用。特别是构建相关文件都在使用 Git 进行管理的时候。</p>
+<h3 id="4-add-更高级的复制文件">4 ADD 更高级的复制文件</h3>
+<blockquote>
+<p>ADD 指令和 COPY 的格式和性质基本一致。但是在 COPY 基础上增加了一些功能。比如&lt;源路径&gt;可以是一个 URL，这种情况下，Docker 引擎会试图去下载这个链接的文件放到&lt;目标路径&gt;去。</p>
+</blockquote>
+<p>在构建镜像时，复制上下文中的文件到镜像内，格式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ADD &lt;源路径&gt;... &lt;目标路径&gt;
+</span></span><span class="line"><span class="cl">ADD <span class="o">[</span><span class="s2">&#34;&lt;源路径&gt;&#34;</span>,... <span class="s2">&#34;&lt;目标路径&gt;&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><p>注意
+<strong>如果 docker 发现文件内容被改变，则接下来的指令都不会再使用缓存。关于复制文件时需要处理的/，基本跟正常的 copy 一致</strong></p>
+<h3 id="5-env-设置环境变量">5 ENV 设置环境变量</h3>
+<p>格式有两种：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ENV &lt;key&gt; &lt;value&gt;
+</span></span><span class="line"><span class="cl">ENV &lt;key1&gt;<span class="o">=</span>&lt;value1&gt; &lt;key2&gt;<span class="o">=</span>&lt;value2&gt;...
+</span></span></code></pre></div><p>这个指令很简单，就是设置环境变量而已，无论是后面的其它指令，如 RUN，还是运行时的应用，都可以直接使用这里定义的环境变量。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ENV <span class="nv">VERSION</span><span class="o">=</span>1.0 <span class="nv">DEBUG</span><span class="o">=</span>on <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">NAME</span><span class="o">=</span><span class="s2">&#34;Happy Feet&#34;</span>
+</span></span></code></pre></div><p>这个例子中演示了如何换行，以及对含有空格的值用双引号括起来的办法，这和 Shell 下的行为是一致的。</p>
+<h3 id="6-expose">6 EXPOSE</h3>
+<p>为构建的镜像设置监听端口，使容器在运行时监听。格式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">EXPOSE &lt;port&gt; <span class="o">[</span>&lt;port&gt;...<span class="o">]</span>
+</span></span></code></pre></div><p>EXPOSE 指令并不会让容器监听 host 的端口，如果需要，需要在 docker run 时使用 -p、-P 参数来发布容器端口到 host 的某个端口上。</p>
+<h3 id="7-volume-定义匿名卷">7 VOLUME 定义匿名卷</h3>
+<p>VOLUME用于创建挂载点，即向基于所构建镜像创始的容器添加卷：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">VOLUME <span class="o">[</span><span class="s2">&#34;/data&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><p>一个卷可以存在于一个或多个容器的指定目录，该目录可以绕过联合文件系统，并具有以下功能：</p>
+<p>卷可以容器间共享和重用</p>
+<p>容器并不一定要和其它容器共享卷</p>
+<p>修改卷后会立即生效</p>
+<p>对卷的修改不会对镜像产生影响</p>
+<p>卷会一直存在，直到没有任何容器在使用它</p>
+<p>VOLUME 让我们可以将源代码、数据或其它内容添加到镜像中，而又不并提交到镜像中，并使我们可以多个容器间共享这些内容。</p>
+<h3 id="8-workdir-指定工作目录">8 WORKDIR 指定工作目录</h3>
+<p>WORKDIR用于在容器内设置一个工作目录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">WORKDIR /path/to/workdir
+</span></span></code></pre></div><p>通过WORKDIR设置工作目录后，Dockerfile 中其后的命令 RUN、CMD、ENTRYPOINT、ADD、COPY 等命令都会在该目录下执行。</p>
+<p>如，使用WORKDIR设置工作目录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">WORKDIR /a
+</span></span><span class="line"><span class="cl">WORKDIR b
+</span></span><span class="line"><span class="cl">WORKDIR c
+</span></span><span class="line"><span class="cl">RUN <span class="nb">pwd</span>
+</span></span></code></pre></div><p>在以上示例中，pwd 最终将会在 /a/b/c 目录中执行。在使用 docker run 运行容器时，可以通过-w参数覆盖构建时所设置的工作目录。</p>
+<h3 id="9-user-指定当前用户">9 USER 指定当前用户</h3>
+<p>USER 用于指定运行镜像所使用的用户：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">USER daemon
+</span></span></code></pre></div><p>使用USER指定用户时，可以使用用户名、UID 或 GID，或是两者的组合。以下都是合法的指定试：</p>
+<pre tabindex="0"><code>USER user
+USER user:group
+USER uid
+USER uid:gid
+USER user:gid
+USER uid:group
+</code></pre><p>使用USER指定用户后，Dockerfile 中其后的命令 RUN、CMD、ENTRYPOINT 都将使用该用户。</p>
+<p>镜像构建完成后，通过 docker run 运行容器时，可以通过 -u 参数来覆盖所指定的用户。</p>
+<h3 id="10-cmd">10 CMD</h3>
+<p>CMD用于指定在容器启动时所要执行的命令。CMD 有以下三种格式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">CMD <span class="o">[</span><span class="s2">&#34;executable&#34;</span>,<span class="s2">&#34;param1&#34;</span>,<span class="s2">&#34;param2&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">CMD <span class="o">[</span><span class="s2">&#34;param1&#34;</span>,<span class="s2">&#34;param2&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">CMD <span class="nb">command</span> param1 param2
+</span></span></code></pre></div><p>省略可执行文件的 exec 格式，这种写法使 CMD 中的参数当做 ENTRYPOINT 的默认参数，此时 ENTRYPOINT 也应该是 exec 格式，具体与 ENTRYPOINT 的组合使用，参考 ENTRYPOINT。</p>
+<p>注意与 RUN 指令的区别：
+<strong>RUN 在构建的时候执行，并生成一个新的镜像，CMD 在容器运行的时候执行，在构建时不进行任何操作。</strong></p>
+<h3 id="11-entrypoint">11 ENTRYPOINT</h3>
+<p>ENTRYPOINT 用于给容器配置一个可执行程序。也就是说，每次使用镜像创建容器时，通过 ENTRYPOINT 指定的程序都会被设置为默认程序。ENTRYPOINT 有以下两种形式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ENTRYPOINT <span class="o">[</span><span class="s2">&#34;executable&#34;</span>, <span class="s2">&#34;param1&#34;</span>, <span class="s2">&#34;param2&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">ENTRYPOINT <span class="nb">command</span> param1 param2
+</span></span></code></pre></div><p>ENTRYPOINT 与 CMD 非常类似，不同的是通过docker run执行的命令不会覆盖 ENTRYPOINT，而docker run命令中指定的任何参数，都会被当做参数再次传递给 ENTRYPOINT。</p>
+<p>Dockerfile 中只允许有一个 ENTRYPOINT 命令，多指定时会覆盖前面的设置，而只执行最后的 ENTRYPOINT 指令。</p>
+<p>docker run运行容器时指定的参数都会被传递给 ENTRYPOINT ，且会覆盖 CMD 命令指定的参数。</p>
+<p>如，执行<code>docker run &lt;image&gt; -d</code>时，-d 参数将被传递给入口点。</p>
+<p>也可以通过<code>docker run --entrypoint</code>重写 ENTRYPOINT 入口点。</p>
+<p>如：可以像下面这样指定一个容器执行程序：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ENTRYPOINT <span class="o">[</span><span class="s2">&#34;/usr/bin/nginx&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><p>完整构建代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Version: 0.0.3</span>
+</span></span><span class="line"><span class="cl">FROM ubuntu:16.04
+</span></span><span class="line"><span class="cl">MAINTAINER 何民三 <span class="s2">&#34;cn.liuht@gmail.com&#34;</span>
+</span></span><span class="line"><span class="cl">RUN apt-get update
+</span></span><span class="line"><span class="cl">RUN apt-get install -y nginx
+</span></span><span class="line"><span class="cl">RUN <span class="nb">echo</span> <span class="s1">&#39;Hello World, 我是个容器&#39;</span> <span class="se">\ </span>
+</span></span><span class="line"><span class="cl">   &gt; /var/www/html/index.html
+</span></span><span class="line"><span class="cl">ENTRYPOINT <span class="o">[</span><span class="s2">&#34;/usr/sbin/nginx&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">EXPOSE <span class="m">80</span>
+</span></span></code></pre></div><p>使用docker build构建镜像，并将镜像指定为 itbilu/test：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker build -t<span class="o">=</span><span class="s2">&#34;itbilu/test&#34;</span> .
+</span></span></code></pre></div><p>构建完成后，使用itbilu/test启动一个容器：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -i -t  itbilu/test -g <span class="s2">&#34;daemon off;&#34;</span>
+</span></span></code></pre></div><p>在运行容器时，我们使用了 -g &ldquo;daemon off;&quot;，这个参数将会被传递给 ENTRYPOINT，最终在容器中执行的命令为 /usr/sbin/nginx -g &ldquo;daemon off;&quot;。</p>
+<h3 id="12-label">12 LABEL</h3>
+<p>LABEL用于为镜像添加元数据，元数以键值对的形式指定：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">LABEL &lt;key&gt;<span class="o">=</span>&lt;value&gt; &lt;key&gt;<span class="o">=</span>&lt;value&gt; &lt;key&gt;<span class="o">=</span>&lt;value&gt; ...
+</span></span></code></pre></div><p>使用LABEL指定元数据时，一条LABEL指定可以指定一或多条元数据，指定多条元数据时不同元数据之间通过空格分隔。推荐将所有的元数据通过一条LABEL指令指定，以免生成过多的中间镜像。</p>
+<p>如，通过LABEL指定一些元数据：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">LABEL <span class="nv">version</span><span class="o">=</span><span class="s2">&#34;1.0&#34;</span> <span class="nv">description</span><span class="o">=</span><span class="s2">&#34;这是一个Web服务器&#34;</span> <span class="nv">by</span><span class="o">=</span><span class="s2">&#34;IT笔录&#34;</span>
+</span></span></code></pre></div><p>指定后可以通过docker inspect查看：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker inspect itbilu/test
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;Labels&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;1.0&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;这是一个Web服务器&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;by&#34;</span>: <span class="s2">&#34;IT笔录&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>,
+</span></span></code></pre></div><h3 id="13-arg">13 ARG</h3>
+<p>ARG用于指定传递给构建运行时的变量：</p>
+<pre tabindex="0"><code>ARG &lt;name&gt;[=&lt;default value&gt;]
+</code></pre><p>如，通过ARG指定两个变量：</p>
+<pre tabindex="0"><code>ARG site
+ARG build_user=IT笔录
+</code></pre><p>以上我们指定了 site 和 build_user 两个变量，其中 build_user 指定了默认值。在使用 docker build 构建镜像时，可以通过 &ndash;build-arg <!-- raw HTML omitted -->=<!-- raw HTML omitted --> 参数来指定或重设置这些变量的值。</p>
+<pre tabindex="0"><code>docker build --build-arg site=itiblu.com -t itbilu/test .
+</code></pre><p>这样我们构建了 itbilu/test 镜像，其中site会被设置为 itbilu.com，由于没有指定 build_user，其值将是默认值 IT 笔录。</p>
+<h3 id="14-onbuild">14 ONBUILD</h3>
+<p>ONBUILD用于设置镜像触发器：</p>
+<pre tabindex="0"><code>ONBUILD [INSTRUCTION]
+</code></pre><p>当所构建的镜像被用做其它镜像的基础镜像，该镜像中的触发器将会被钥触发。</p>
+<p>如，当镜像被使用时，可能需要做一些处理：</p>
+<pre tabindex="0"><code>[...]
+ONBUILD ADD . /app/src
+ONBUILD RUN /usr/local/bin/python-build --dir /app/src
+[...]
+</code></pre><h3 id="15-stopsignal">15 STOPSIGNAL</h3>
+<p>STOPSIGNAL用于设置停止容器所要发送的系统调用信号：</p>
+<pre tabindex="0"><code>STOPSIGNAL signal
+</code></pre><p>所使用的信号必须是内核系统调用表中的合法的值，如：SIGKILL。</p>
+<h3 id="16-shell">16 SHELL</h3>
+<p>SHELL用于设置执行命令（shell式）所使用的的默认 shell 类型：</p>
+<pre tabindex="0"><code>SHELL [&#34;executable&#34;, &#34;parameters&#34;]
+</code></pre><p>SHELL在Windows环境下比较有用，Windows 下通常会有 cmd 和 powershell 两种 shell，可能还会有 sh。这时就可以通过 SHELL 来指定所使用的 shell 类型：</p>
+<pre tabindex="0"><code>FROM microsoft/windowsservercore
+
+# Executed as cmd /S /C echo default
+RUN echo default
+
+# Executed as cmd /S /C powershell -command Write-Host default
+RUN powershell -command Write-Host default
+
+# Executed as powershell -command Write-Host hello
+SHELL [&#34;powershell&#34;, &#34;-command&#34;]
+RUN Write-Host hello
+
+# Executed as cmd /S /C echo hello
+SHELL [&#34;cmd&#34;, &#34;/S&#34;&#34;, &#34;/C&#34;]
+RUN echo hello
+</code></pre><h2 id="dockerfile-示例">Dockerfile 示例</h2>
+<h3 id="构建nginx运行环境">构建Nginx运行环境</h3>
+<pre tabindex="0"><code># 指定基础镜像
+FROM sameersbn/ubuntu:14.04.20161014
+
+# 维护者信息
+MAINTAINER sameer@damagehead.com
+
+# 设置环境
+ENV RTMP_VERSION=1.1.10 \
+    NPS_VERSION=1.11.33.4 \
+    LIBAV_VERSION=11.8 \
+    NGINX_VERSION=1.10.1 \
+    NGINX_USER=www-data \
+    NGINX_SITECONF_DIR=/etc/nginx/sites-enabled \
+    NGINX_LOG_DIR=/var/log/nginx \
+    NGINX_TEMP_DIR=/var/lib/nginx \
+    NGINX_SETUP_DIR=/var/cache/nginx
+
+# 设置构建时变量，镜像建立完成后就失效
+ARG BUILD_LIBAV=false
+ARG WITH_DEBUG=false
+ARG WITH_PAGESPEED=true
+ARG WITH_RTMP=true
+
+# 复制本地文件到容器目录中
+COPY setup/ ${NGINX_SETUP_DIR}/
+RUN bash ${NGINX_SETUP_DIR}/install.sh
+
+# 复制本地配置文件到容器目录中
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY entrypoint.sh /sbin/entrypoint.sh
+
+# 运行指令
+RUN chmod 755 /sbin/entrypoint.sh
+
+# 允许指定的端口
+EXPOSE 80/tcp 443/tcp 1935/tcp
+
+# 指定网站目录挂载点
+VOLUME [&#34;${NGINX_SITECONF_DIR}&#34;]
+
+ENTRYPOINT [&#34;/sbin/entrypoint.sh&#34;]
+CMD [&#34;/usr/sbin/nginx&#34;]
+</code></pre><h3 id="构建tomcat-环境">构建tomcat 环境</h3>
+<pre tabindex="0"><code># 指定基于的基础镜像
+FROM ubuntu:13.10  
+
+# 维护者信息
+MAINTAINER zhangjiayang &#34;zhangjiayang@sczq.com.cn&#34;  
+  
+# 镜像的指令操作
+# 获取APT更新的资源列表
+RUN echo &#34;deb http://archive.ubuntu.com/ubuntu precise main universe&#34;&gt; /etc/apt/sources.list
+# 更新软件
+RUN apt-get update  
+  
+# Install curl  
+RUN apt-get -y install curl  
+  
+# Install JDK 7  
+RUN cd /tmp &amp;&amp;  curl -L &#39;http://download.oracle.com/otn-pub/java/jdk/7u65-b17/jdk-7u65-linux-x64.tar.gz&#39; -H &#39;Cookie: oraclelicense=accept-securebackup-cookie; gpw_e24=Dockerfile&#39; | tar -xz  
+RUN mkdir -p /usr/lib/jvm  
+RUN mv /tmp/jdk1.7.0_65/ /usr/lib/jvm/java-7-oracle/  
+  
+# Set Oracle JDK 7 as default Java  
+RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-oracle/bin/java 300     
+RUN update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-7-oracle/bin/javac 300     
+
+# 设置系统环境
+ENV JAVA_HOME /usr/lib/jvm/java-7-oracle/  
+  
+# Install tomcat7  
+RUN cd /tmp &amp;&amp; curl -L &#39;http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.8/bin/apache-tomcat-7.0.8.tar.gz&#39; | tar -xz  
+RUN mv /tmp/apache-tomcat-7.0.8/ /opt/tomcat7/  
+  
+ENV CATALINA_HOME /opt/tomcat7  
+ENV PATH $PATH:$CATALINA_HOME/bin  
+
+# 复件tomcat7.sh到容器中的目录 
+ADD tomcat7.sh /etc/init.d/tomcat7  
+RUN chmod 755 /etc/init.d/tomcat7  
+  
+# Expose ports.  指定暴露的端口
+EXPOSE 8080  
+  
+# Define default command.  
+ENTRYPOINT service tomcat7 start &amp;&amp; tail -f /opt/tomcat7/logs/catalina.out
+</code></pre><h3 id="结尾">结尾</h3>
+<ul>
+<li>
+<p>容器轻量化。从镜像中产生的容器应该尽量轻量化，能在足够短的时间内停止、销毁、重新生成并替换原来的容器。</p>
+</li>
+<li>
+<p>使用 .gitignore。在大部分情况下，Dockerfile 会和构建所需的文件放在同一个目录中，为了提高构建的性能，应该使用 .gitignore 来过滤掉不需要的文件和目录。</p>
+</li>
+<li>
+<p>为了减少镜像的大小，减少依赖，仅安装需要的软件包。</p>
+</li>
+<li>
+<p>一个容器只做一件事。解耦复杂的应用，分成多个容器，而不是所有东西都放在一个容器内运行。如一个 Python Web 应用，可能需要 Server、DB、Cache、MQ、Log 等几个容器。一个更加极端的说法：One process per container。</p>
+</li>
+<li>
+<p>减少镜像的图层。不要多个 Label、ENV 等标签。</p>
+</li>
+<li>
+<p>对续行的参数按照字母表排序，特别是使用apt-get install -y安装包的时候。</p>
+</li>
+<li>
+<p>使用构建缓存。如果不想使用缓存，可以在构建的时候使用参数&ndash;no-cache=true来强制重新生成中间镜像。</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-06-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" data-title="Dockerfile 命令记录" data-hashtags="Docker,记录"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" data-hashtag="Docker"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" data-title="Dockerfile 命令记录"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" data-title="Dockerfile 命令记录"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" data-title="Dockerfile 命令记录"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2019/20190530_selenium-python-%E8%87%AA%E5%8A%A8%E5%8C%96/" class="prev" rel="prev" title="Selenium Python 自动化"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Selenium Python 自动化</a>
+            <a href="/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" class="next" rel="next" title="Elasticsearch介绍与Python实现">Elasticsearch介绍与Python实现<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

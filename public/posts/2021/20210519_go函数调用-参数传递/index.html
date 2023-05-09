@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>GO参数传递 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="GO参数传递" />
+<meta property="og:description" content="参数传递 Go在传递参数时是传值还是传引用，不同的选择会影响我们在函数中修改入参时是否会影响调用方看到的数据。 ::: tip 传值和传引用两者的区别 传值：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-19T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GO参数传递"/>
+<meta name="twitter:description" content="参数传递 Go在传递参数时是传值还是传引用，不同的选择会影响我们在函数中修改入参时是否会影响调用方看到的数据。 ::: tip 传值和传引用两者的区别 传值："/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" /><link rel="prev" href="http://example.org/posts/2021/20210506_liunx-navicat-premium-15-%E6%BF%80%E6%B4%BB/" /><link rel="next" href="http://example.org/posts/2021/20210609_golang%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "GO参数传递",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2021\/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92\/"
+        },"genre": "posts","keywords": "golang","wordcount":  873 ,
+        "url": "http:\/\/example.org\/posts\/2021\/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92\/","datePublished": "2021-05-19T00:00:00+00:00","dateModified": "2021-05-19T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">GO参数传递</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2021/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2021</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-05-19">2021-05-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;873 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#参数传递">参数传递</a>
+      <ul>
+        <li><a href="#整型和数组">整型和数组</a></li>
+        <li><a href="#结构体和指针">结构体和指针</a></li>
+        <li><a href="#传值">传值</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="参数传递">参数传递</h2>
+<p>  Go在传递参数时是传值还是传引用，不同的选择会影响我们在函数中修改入参时是否会影响调用方看到的数据。</p>
+<p>::: tip 传值和传引用两者的区别</p>
+<ul>
+<li>传值：函数调用时会对参数进行拷贝，被调用方和调用方两者持有不相关的两份数据；</li>
+<li>传引用：函数调用时会传递参数的指针，被调用方和调用方两者持有相同的数据，任意一方做出的修改都会影响另一方；
+:::</li>
+</ul>
+<p>  不同语言会选择不同的方式传递参数，Go 选择了传值的方式，<strong>无论是传递基本类型、结构体还是指针，都会对传递的参数进行拷贝</strong>。</p>
+<h3 id="整型和数组">整型和数组</h3>
+<p>  函数 myFunction 接收了两个参数，整型变量 i 和数组 arr，这个函数会将传入的两个参数的地址打印出来，在最外层的主函数也会在 myFunction 函数调用前后分别打印两个参数的地址：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">myFunction</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">arr</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;in my_funciton - i=(%d, %p) arr=(%v, %p)\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">,</span> <span class="nx">arr</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">i</span> <span class="o">:=</span> <span class="mi">30</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">66</span><span class="p">,</span> <span class="mi">77</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;before calling - i=(%d, %p) arr=(%v, %p)\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">,</span> <span class="nx">arr</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">myFunction</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;after  calling - i=(%d, %p) arr=(%v, %p)\n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">,</span> <span class="nx">arr</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="k">go</span> <span class="nx">run</span> <span class="nx">main</span><span class="p">.</span><span class="k">go</span>
+</span></span><span class="line"><span class="cl"><span class="nx">before</span> <span class="nx">calling</span> <span class="o">-</span> <span class="nx">i</span><span class="p">=(</span><span class="mi">30</span><span class="p">,</span> <span class="mh">0xc00009a000</span><span class="p">)</span> <span class="nx">arr</span><span class="p">=([</span><span class="mi">66</span> <span class="mi">77</span><span class="p">],</span> <span class="mh">0xc00009a010</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">in</span> <span class="nx">my_funciton</span> <span class="o">-</span> <span class="nx">i</span><span class="p">=(</span><span class="mi">30</span><span class="p">,</span> <span class="mh">0xc00009a008</span><span class="p">)</span> <span class="nx">arr</span><span class="p">=([</span><span class="mi">66</span> <span class="mi">77</span><span class="p">],</span> <span class="mh">0xc00009a020</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">after</span>  <span class="nx">calling</span> <span class="o">-</span> <span class="nx">i</span><span class="p">=(</span><span class="mi">30</span><span class="p">,</span> <span class="mh">0xc00009a000</span><span class="p">)</span> <span class="nx">arr</span><span class="p">=([</span><span class="mi">66</span> <span class="mi">77</span><span class="p">],</span> <span class="mh">0xc00009a010</span><span class="p">)</span>
+</span></span></code></pre></div><p>main 函数和被调用者 myFunction 中参数的地址完全不同。</p>
+<p>main 函数的角度来看，在调用 myFunction 前后，整数 i 和数组 arr 两个参数的地址都没有变化。</p>
+<p>如果在 myFunction 函数内部对参数进行修改, 也仅仅影响了当前函数, 并没有影响调用方 main 函数。</p>
+<p>::: tip 结论
+<strong>Go 语言的整型和数组类型都是值传递的</strong>，也就是在调用函数时会对内容进行拷贝。
+:::</p>
+<p>::: warning
+需要注意的是如果当前数组的大小非常的大，这种传值的方式会对性能造成比较大的影响。
+:::</p>
+<h3 id="结构体和指针">结构体和指针</h3>
+<p>  定义了一个结构体 MyStruct 以及接受两个参数的 myFunction 方法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyStruct</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">i</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">myFunction</span><span class="p">(</span><span class="nx">a</span> <span class="nx">MyStruct</span><span class="p">,</span> <span class="nx">b</span> <span class="o">*</span><span class="nx">MyStruct</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">a</span><span class="p">.</span><span class="nx">i</span> <span class="p">=</span> <span class="mi">31</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">b</span><span class="p">.</span><span class="nx">i</span> <span class="p">=</span> <span class="mi">41</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;in my_function - a=(%d, %p) b=(%v, %p)\n&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">a</span> <span class="o">:=</span> <span class="nx">MyStruct</span><span class="p">{</span><span class="nx">i</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">b</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">MyStruct</span><span class="p">{</span><span class="nx">i</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;before calling - a=(%d, %p) b=(%v, %p)\n&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">myFunction</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;after calling  - a=(%d, %p) b=(%v, %p)\n&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">$</span> <span class="k">go</span> <span class="nx">run</span> <span class="nx">main</span><span class="p">.</span><span class="k">go</span>
+</span></span><span class="line"><span class="cl"><span class="nx">before</span> <span class="nx">calling</span> <span class="o">-</span> <span class="nx">a</span><span class="p">=({</span><span class="mi">30</span><span class="p">},</span> <span class="mh">0xc000018178</span><span class="p">)</span> <span class="nx">b</span><span class="p">=(</span><span class="o">&amp;</span><span class="p">{</span><span class="mi">40</span><span class="p">},</span> <span class="mh">0xc00000c028</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">in</span> <span class="nx">my_function</span> <span class="o">-</span> <span class="nx">a</span><span class="p">=({</span><span class="mi">31</span><span class="p">},</span> <span class="mh">0xc000018198</span><span class="p">)</span> <span class="nx">b</span><span class="p">=(</span><span class="o">&amp;</span><span class="p">{</span><span class="mi">41</span><span class="p">},</span> <span class="mh">0xc00000c038</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">after</span> <span class="nx">calling</span>  <span class="o">-</span> <span class="nx">a</span><span class="p">=({</span><span class="mi">30</span><span class="p">},</span> <span class="mh">0xc000018178</span><span class="p">)</span> <span class="nx">b</span><span class="p">=(</span><span class="o">&amp;</span><span class="p">{</span><span class="mi">41</span><span class="p">},</span> <span class="mh">0xc00000c028</span><span class="p">)</span>
+</span></span></code></pre></div><p>::: tip 结论</p>
+<ul>
+<li>传递结构体时：会拷贝结构体中的全部内容；</li>
+<li>传递结构体指针时：会拷贝结构体指针；
+:::</li>
+</ul>
+<p>  修改结构体指针是改变了指针指向的结构体，b.i 可以被理解成 (*b).i，也就是我们先获取指针 b 背后的结构体，再修改结构体的成员变量。</p>
+<h3 id="传值">传值</h3>
+<p>  Go 语言在传递参数时使用了传值的方式，接收方收到参数时会对这些参数进行复制；在传递数组或者内存占用非常大的结构体时，尽量使用指针作为参数类型来避免发生数据拷贝进而影响性能。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-05-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" data-title="GO参数传递" data-hashtags="golang"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" data-hashtag="golang"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" data-title="GO参数传递"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" data-title="GO参数传递"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" data-title="GO参数传递"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/golang/">golang</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2021/20210506_liunx-navicat-premium-15-%E6%BF%80%E6%B4%BB/" class="prev" rel="prev" title="Liunx Navicat premium 15 激活"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Liunx Navicat premium 15 激活</a>
+            <a href="/posts/2021/20210609_golang%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="next" rel="next" title="Golang问题汇总 - (持续更新...)">Golang问题汇总 - (持续更新...)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

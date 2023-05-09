@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>配置 - Tag - Chan-技术与生活</title>
+        <link>http://example.org/tags/%E9%85%8D%E7%BD%AE/</link>
+        <description>配置 - Tag - Chan-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Tue, 26 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/%E9%85%8D%E7%BD%AE/" rel="self" type="application/rss+xml" /><item>
+    <title>PyQt5安装与PyCharm配置</title>
+    <link>http://example.org/posts/2020/20200526_pyqt5%E5%AE%89%E8%A3%85%E4%B8%8Epycharm%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Tue, 26 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200526_pyqt5%E5%AE%89%E8%A3%85%E4%B8%8Epycharm%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[:::tip PyQt5安装与Qt Designer，PyUIC在 PyCharm 中配置 ::: PyQt5,Qt Designer安装 pip install sip pip install PyQt5 pip install PyQt5-tools 安装完成后，在python安装目录下可]]></description>
+</item>
+</channel>
+</rss>

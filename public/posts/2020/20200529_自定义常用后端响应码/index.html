@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>自定义常用后端响应码 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="自定义常用后端响应码" />
+<meta property="og:description" content=":::tip 后端常用响应码 ::: &#34;&#34;&#34;共用的一些数字约定含义&#34;&#34;&#34; class RET: OK = &#34;0&#34; DBERR = &#34;4001&#34; NODATA = &#34;4002&#34; DATAEXIST = &#34;4003&#34; DATAERR = &#34;4004&#34; SESSIONERR = &#34;4101&#34;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-05-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自定义常用后端响应码"/>
+<meta name="twitter:description" content=":::tip 后端常用响应码 ::: &#34;&#34;&#34;共用的一些数字约定含义&#34;&#34;&#34; class RET: OK = &#34;0&#34; DBERR = &#34;4001&#34; NODATA = &#34;4002&#34; DATAEXIST = &#34;4003&#34; DATAERR = &#34;4004&#34; SESSIONERR = &#34;4101&#34;"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/" /><link rel="prev" href="http://example.org/posts/2020/20200526_pyqt5%E5%AE%89%E8%A3%85%E4%B8%8Epycharm%E9%85%8D%E7%BD%AE/" /><link rel="next" href="http://example.org/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "自定义常用后端响应码",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2020\/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81\/"
+        },"genre": "posts","keywords": "web","wordcount":  419 ,
+        "url": "http:\/\/example.org\/posts\/2020\/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81\/","datePublished": "2020-05-29T00:00:00+00:00","dateModified": "2020-05-29T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">自定义常用后端响应码</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-05-29">2020-05-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;419 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><p>:::tip
+后端常用响应码
+:::</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;共用的一些数字约定含义&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">RET</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">OK</span>                  <span class="o">=</span> <span class="s2">&#34;0&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DBERR</span>               <span class="o">=</span> <span class="s2">&#34;4001&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">NODATA</span>              <span class="o">=</span> <span class="s2">&#34;4002&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DATAEXIST</span>           <span class="o">=</span> <span class="s2">&#34;4003&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DATAERR</span>             <span class="o">=</span> <span class="s2">&#34;4004&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SESSIONERR</span>          <span class="o">=</span> <span class="s2">&#34;4101&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LOGINERR</span>            <span class="o">=</span> <span class="s2">&#34;4102&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PARAMERR</span>            <span class="o">=</span> <span class="s2">&#34;4103&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">USERERR</span>             <span class="o">=</span> <span class="s2">&#34;4104&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ROLEERR</span>             <span class="o">=</span> <span class="s2">&#34;4105&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PWDERR</span>              <span class="o">=</span> <span class="s2">&#34;4106&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">REQERR</span>              <span class="o">=</span> <span class="s2">&#34;4201&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">IPERR</span>               <span class="o">=</span> <span class="s2">&#34;4202&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">THIRDERR</span>            <span class="o">=</span> <span class="s2">&#34;4301&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">IOERR</span>               <span class="o">=</span> <span class="s2">&#34;4302&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SERVERERR</span>           <span class="o">=</span> <span class="s2">&#34;4500&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UNKOWNERR</span>           <span class="o">=</span> <span class="s2">&#34;4501&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">error_map</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">OK</span>                    <span class="p">:</span> <span class="s2">&#34;成功&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">DBERR</span>                 <span class="p">:</span> <span class="s2">&#34;数据库查询错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">NODATA</span>                <span class="p">:</span> <span class="s2">&#34;无数据&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">DATAEXIST</span>             <span class="p">:</span> <span class="s2">&#34;数据已存在&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">DATAERR</span>               <span class="p">:</span> <span class="s2">&#34;数据错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">SESSIONERR</span>            <span class="p">:</span> <span class="s2">&#34;用户未登录&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">LOGINERR</span>              <span class="p">:</span> <span class="s2">&#34;用户登录失败&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">PARAMERR</span>              <span class="p">:</span> <span class="s2">&#34;参数错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">USERERR</span>               <span class="p">:</span> <span class="s2">&#34;用户不存在或未激活&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">ROLEERR</span>               <span class="p">:</span> <span class="s2">&#34;用户身份错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">PWDERR</span>                <span class="p">:</span> <span class="s2">&#34;密码错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">REQERR</span>                <span class="p">:</span> <span class="s2">&#34;非法请求或请求次数受限&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">IPERR</span>                 <span class="p">:</span> <span class="s2">&#34;IP受限&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">THIRDERR</span>              <span class="p">:</span> <span class="s2">&#34;第三方系统错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">IOERR</span>                 <span class="p">:</span> <span class="s2">&#34;文件读写错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">SERVERERR</span>             <span class="p">:</span> <span class="s2">&#34;内部错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">RET</span><span class="o">.</span><span class="n">UNKOWNERR</span>             <span class="p">:</span> <span class="s2">&#34;未知错误&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-05-29</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/" data-title="自定义常用后端响应码" data-hashtags="web"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/" data-hashtag="web"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/" data-title="自定义常用后端响应码"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/" data-title="自定义常用后端响应码"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/" data-title="自定义常用后端响应码"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/web/">web</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/20200526_pyqt5%E5%AE%89%E8%A3%85%E4%B8%8Epycharm%E9%85%8D%E7%BD%AE/" class="prev" rel="prev" title="PyQt5安装与PyCharm配置"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>PyQt5安装与PyCharm配置</a>
+            <a href="/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/" class="next" rel="next" title="SQLAlchemy字段默认值">SQLAlchemy字段默认值<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

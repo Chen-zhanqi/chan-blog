@@ -1,0 +1,90 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Chan-技术与生活</title>
+        <link>http://example.org/</link>
+        <description>Chan-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate>
+            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>ChatGPT接入微信机器人</title>
+    <link>http://example.org/posts/2022/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
+    <description><![CDATA[网页版体验 微信小程序体验 如果没有编程基础，可以直接WX扫码使用封装好ChatGPT的小程序体验 1. OpenAI账号注册 OpenAI注册地址需要]]></description>
+</item>
+<item>
+    <title>CS系统相关</title>
+    <link>http://example.org/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</guid>
+    <description><![CDATA[cs gocron web&amp;node gocron-web nohup ./gocron-linux-amd64/gocron web &gt; /opt/server/gocron/log/gocron_web.log 2&gt;&amp;1 &amp; gocron-node nohup sudo -u gocron ./gocron-node-linux-amd64/gocron-node &gt; /opt/server/gocron/log/gocron_node.log 2&gt;&amp;1 &amp; cs web vue cd /opt/docker/nginx/html/gin-web/ git pull docker restart nginx cs server gin cd /opt/server/gin-server git pull ps -ax | grep go kill *** nohup go run . &gt;/dev/null 2&gt;&amp;1 &amp; cs cccf-spider cd /opt/server/cccf-spider git pull]]></description>
+</item>
+<item>
+    <title>docker-postgresql数据库备份与恢复</title>
+    <link>http://example.org/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
+    <description><![CDATA[备份脚本 #!/bin/sh # 备份存放位置 BACKUP_DIR=/data/backup/pg/ file=$BACKUP_DIR&#34;gin_server_$(date +&#34;%Y%m%d&#34;).sql&#34; docker exec -t postgres pg_dump -U pq_user -d db_name &gt; &#34;${file}&#34; # 删除7天之前的备份 deleteDIR=$BACKUP_DIR&#34;gin_server_$(date --date=&#39;7 day ago&#39; +%Y%m%d).sql&#34; rm -rf $deleteDIR 恢复数据 正式数据库 cat gin_server_20190801.sql| docker exec -i postgres psql -U pq_user 其他数据库 创建数]]></description>
+</item>
+<item>
+    <title>Docker容器下PHP扩展操作</title>
+    <link>http://example.org/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</guid>
+    <description><![CDATA[常用操作 docker容器下的PHP有自己特有的安装扩展方法： 进入php容器$：docker exec -it php /bin/bash docker-php-source： //在]]></description>
+</item>
+<item>
+    <title>Golang 接口请求高并发</title>
+    <link>http://example.org/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/</guid>
+    <description><![CDATA[采用两级 channel，一级是将用户请求数据放入到 chan Job 中，这个 channel job 相当于待处理的任务队列。 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan]]></description>
+</item>
+<item>
+    <title>Nginx 优化静态文件访问</title>
+    <link>http://example.org/posts/2022/nginx-%E4%BC%98%E5%8C%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE-/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/nginx-%E4%BC%98%E5%8C%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE-/</guid>
+    <description><![CDATA[Nginx 对于处理静态文件的效率要远高于 Web 框架，因为可以使用 gzip 压缩协议，减小静态文件的体积加快静态文件的加载速度、开启缓存和超时时间减少请求静态文件]]></description>
+</item>
+<item>
+    <title>postgresql-创建主键自增的表</title>
+    <link>http://example.org/posts/2022/postgresql-%E5%88%9B%E5%BB%BA%E4%B8%BB%E9%94%AE%E8%87%AA%E5%A2%9E%E7%9A%84%E8%A1%A8/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/postgresql-%E5%88%9B%E5%BB%BA%E4%B8%BB%E9%94%AE%E8%87%AA%E5%A2%9E%E7%9A%84%E8%A1%A8/</guid>
+    <description><![CDATA[方法一： CREATE TABLE test_a ( id serial, name character varying(128), constraint pk_test_a_id primary key( id) ); 方法二： CREATE TABLE test_b( id serial PRIMARY KEY, name character varying(128) ); 这两种方法用的是pg的serial类型实现自增，drop表的时候指定的序]]></description>
+</item>
+<item>
+    <title>win10系统激活提示无法连接到你组织的激活服务器</title>
+    <link>http://example.org/posts/2022/win10%E7%B3%BB%E7%BB%9F%E6%BF%80%E6%B4%BB%E6%8F%90%E7%A4%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BD%A0%E7%BB%84%E7%BB%87%E7%9A%84%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8-/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/win10%E7%B3%BB%E7%BB%9F%E6%BF%80%E6%B4%BB%E6%8F%90%E7%A4%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BD%A0%E7%BB%84%E7%BB%87%E7%9A%84%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8-/</guid>
+    <description><![CDATA[终端（管理员）输入： slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX slmgr /skms kms.03k.org slmgr /ato]]></description>
+</item>
+<item>
+    <title>数据样例</title>
+    <link>http://example.org/posts/2022/%E6%95%B0%E6%8D%AE%E6%A0%B7%E4%BE%8B/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/%E6%95%B0%E6%8D%AE%E6%A0%B7%E4%BE%8B/</guid>
+    <description><![CDATA[采集数据样例]]></description>
+</item>
+<item>
+    <title>Go实现封装HttpRequest方法</title>
+    <link>http://example.org/posts/2021/20210620_go%E5%B0%81%E8%A3%85httprequest%E6%96%B9%E6%B3%95/</link>
+    <pubDate>Sun, 20 Jun 2021 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2021/20210620_go%E5%B0%81%E8%A3%85httprequest%E6%96%B9%E6%B3%95/</guid>
+    <description><![CDATA[package utils import ( &#34;bytes&#34; &#34;encoding/json&#34; &#34;io/ioutil&#34; &#34;net/http&#34; &#34;time&#34; ) func HttpRequest(method string, url string, data interface{}, result interface{}, header map[string]interface{}, queryParams map[string]interface{}) (response *http.Response, resMap interface{}, err error) { var client = http.Client{ Timeout: 3 * time.Second, } buf := bytes.NewBuffer(nil) encoder := json.NewEncoder(buf) if err = encoder.Encode(data); err != nil { return nil, nil, err } request, err := http.NewRequest(method, url, buf) if err != nil { return]]></description>
+</item>
+</channel>
+</rss>

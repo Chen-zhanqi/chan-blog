@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>nginx - Tag - Chan-技术与生活</title>
+        <link>http://example.org/tags/nginx/</link>
+        <description>nginx - Tag - Chan-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/nginx/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx 优化静态文件访问</title>
+    <link>http://example.org/posts/2022/nginx-%E4%BC%98%E5%8C%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE-/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/nginx-%E4%BC%98%E5%8C%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE-/</guid>
+    <description><![CDATA[Nginx 对于处理静态文件的效率要远高于 Web 框架，因为可以使用 gzip 压缩协议，减小静态文件的体积加快静态文件的加载速度、开启缓存和超时时间减少请求静态文件]]></description>
+</item>
+<item>
+    <title>SCP-文件传输</title>
+    <link>http://example.org/posts/2021/20210326_scp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</link>
+    <pubDate>Fri, 26 Mar 2021 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2021/20210326_scp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</guid>
+    <description><![CDATA[将本机文件复制到远程服务器上 # scp /home/administrator/news.txt root@127.0.0.1:/etc/squid /home/administrator/ 本地文件的绝对路径 news.txt 要复制到服务器上的本地文件 root 通过root用户登录到远程服务器（也可以使用其他拥有同]]></description>
+</item>
+<item>
+    <title>Nginx常见配置记录</title>
+    <link>http://example.org/posts/2021/20210305_nginx%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</link>
+    <pubDate>Fri, 05 Mar 2021 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2021/20210305_nginx%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</guid>
+    <description><![CDATA[禁止ip访问 server { listen 80 default; server_name _; return 500; } or server { listen 80 dufault; server_name _; rewrite ^(.*) http://www.xxx.cn permanent; } or server { listen 80 default; server_name _; server_name xxx.cn return 500; } 域名重定向 server { listen 80; server_name xxx.cn; if ($host = &#39;xxx.cn&#39; ) { rewrite ^/(.*)$ http://xx.xxx.com/$1 permanent; } }]]></description>
+</item>
+</channel>
+</rss>

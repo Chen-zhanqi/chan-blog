@@ -1,0 +1,80 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>记录 - Tag - Chan-技术与生活</title>
+        <link>http://example.org/tags/%E8%AE%B0%E5%BD%95/</link>
+        <description>记录 - Tag - Chan-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml" /><item>
+    <title>CS系统相关</title>
+    <link>http://example.org/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</guid>
+    <description><![CDATA[cs gocron web&amp;node gocron-web nohup ./gocron-linux-amd64/gocron web &gt; /opt/server/gocron/log/gocron_web.log 2&gt;&amp;1 &amp; gocron-node nohup sudo -u gocron ./gocron-node-linux-amd64/gocron-node &gt; /opt/server/gocron/log/gocron_node.log 2&gt;&amp;1 &amp; cs web vue cd /opt/docker/nginx/html/gin-web/ git pull docker restart nginx cs server gin cd /opt/server/gin-server git pull ps -ax | grep go kill *** nohup go run . &gt;/dev/null 2&gt;&amp;1 &amp; cs cccf-spider cd /opt/server/cccf-spider git pull]]></description>
+</item>
+<item>
+    <title>win10系统激活提示无法连接到你组织的激活服务器</title>
+    <link>http://example.org/posts/2022/win10%E7%B3%BB%E7%BB%9F%E6%BF%80%E6%B4%BB%E6%8F%90%E7%A4%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BD%A0%E7%BB%84%E7%BB%87%E7%9A%84%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8-/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/win10%E7%B3%BB%E7%BB%9F%E6%BF%80%E6%B4%BB%E6%8F%90%E7%A4%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BD%A0%E7%BB%84%E7%BB%87%E7%9A%84%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8-/</guid>
+    <description><![CDATA[终端（管理员）输入： slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX slmgr /skms kms.03k.org slmgr /ato]]></description>
+</item>
+<item>
+    <title>数据样例</title>
+    <link>http://example.org/posts/2022/%E6%95%B0%E6%8D%AE%E6%A0%B7%E4%BE%8B/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2022/%E6%95%B0%E6%8D%AE%E6%A0%B7%E4%BE%8B/</guid>
+    <description><![CDATA[采集数据样例]]></description>
+</item>
+<item>
+    <title>linux防火墙端口设置</title>
+    <link>http://example.org/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/</link>
+    <pubDate>Sat, 06 Jun 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/</guid>
+    <description><![CDATA[关闭某个端口 firewall-cmd --permanent --zone=public --remove-port=8080/tcp 打开某个端口 firewall-cmd --permanent --add-port=10086/tcp 重新加载防火墙策略 firewall-cmd --reload 查看防火墙端口开放情况 firewall-cmd --list-ports]]></description>
+</item>
+<item>
+    <title>SQLAlchemy字段默认值</title>
+    <link>http://example.org/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/</link>
+    <pubDate>Fri, 29 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/</guid>
+    <description><![CDATA[:::tip Flask SQLAlchemy字段默认值参数 server_default 与 default 区别 ::: defult 这种方法不会在数据库里面设置默认值，是使用了SQLAlchemy Model类提交数据时添]]></description>
+</item>
+<item>
+    <title>macOS安装Homebrew问题</title>
+    <link>http://example.org/posts/2020/20200401_macos%E5%AE%89%E8%A3%85homebrew%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Wed, 01 Apr 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200401_macos%E5%AE%89%E8%A3%85homebrew%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能 问题： macOS安装Homebrew]]></description>
+</item>
+<item>
+    <title>Dockerfile 命令记录</title>
+    <link>http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Wed, 05 Jun 2019 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[:::tip Dockerfile 命令 ::: Dockerfile 指令详解 1 FROM 指定基础镜像 FROM 指令用于指定其后构建新镜像所使用的基础镜像。FROM 指令必是 Dockerfile 文件中的首条命令，启动构建流程后，Doc]]></description>
+</item>
+<item>
+    <title>PyQt5桌面程序记录</title>
+    <link>http://example.org/posts/2019/20190515_pyqt5%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F%E8%AE%B0%E5%BD%95/</link>
+    <pubDate>Wed, 15 May 2019 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2019/20190515_pyqt5%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F%E8%AE%B0%E5%BD%95/</guid>
+    <description><![CDATA[:::tip PyQt5编程 ::: 工具 记录为公司人员写的便携操作数据库房源数据程序, UI与逻辑层分离，使用 Qt Designer + PyQt5完成。pycharm配置PyUIC]]></description>
+</item>
+<item>
+    <title>服务器项目命令记录</title>
+    <link>http://example.org/posts/2019/20190502_%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/</link>
+    <pubDate>Thu, 02 May 2019 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2019/20190502_%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/</guid>
+    <description><![CDATA[RYP有限公司 Flask workon flaskvir [root@izwz94gdegum84cnrx9rtoz ~]# cd pythoncode/mysqlinit [root@izwz94gdegum84cnrx9rtoz mysqlinit]# pwd /root/pythoncode/mysqlinit [root@izwz94gdegum84cnrx9rtoz mysqlinit]# ls dump.rdb infos logs manage.py migrations __pycache__ requirements.txt utils [root@izwz94gdegum84cnrx9rtoz mysqlinit]# ps -ef | grep gunicorn root 4319 1 0 Nov18 ? 00:01:39 /root/.env/flaskvir/bin/python3.7 /root/.env/flaskvir/bin/gunicorn -w 20 -b 0.0.0.0:5000 manage:app root 4726 4319 0 Nov18 ? 00:00:21 /root/.env/flaskvir/bin/python3.7 /root/.env/flaskvir/bin/gunicorn -w 20 -b 0.0.0.0:5000 manage:app [root@izwz94gdegum84cnrx9rtoz mysqlinit]# kill PID [root@izwz94gdegum84cnrx9rtoz mysqlinit]#]]></description>
+</item>
+</channel>
+</rss>

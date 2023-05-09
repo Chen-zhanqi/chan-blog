@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>PyQt5多页面跳转 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="PyQt5多页面跳转" />
+<meta property="og:description" content="::: tip Qt designer 和 代码进行 Qt 开发实现页面跳转不同，本文记录 designer 开发 ::: PyQt5 多页面跳转 借助一个 Controller 控制器来实现，大体思路如下 # 利用一个控制器来控制页面的跳转 class" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2020/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PyQt5多页面跳转"/>
+<meta name="twitter:description" content="::: tip Qt designer 和 代码进行 Qt 开发实现页面跳转不同，本文记录 designer 开发 ::: PyQt5 多页面跳转 借助一个 Controller 控制器来实现，大体思路如下 # 利用一个控制器来控制页面的跳转 class"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2020/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/" /><link rel="prev" href="http://example.org/posts/2020/20200710_mysql%E8%BF%9E%E6%8E%A5%E6%B1%A0/" /><link rel="next" href="http://example.org/posts/2020/20200810_%E7%A0%B4%E8%A7%A3%E6%9F%90%E6%B3%95%E9%99%A2%E7%BD%91sign%E7%AD%BE%E5%90%8D/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "PyQt5多页面跳转",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2020\/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC\/"
+        },"genre": "posts","keywords": "python, mysql","wordcount":  534 ,
+        "url": "http:\/\/example.org\/posts\/2020\/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC\/","datePublished": "2020-07-20T00:00:00+00:00","dateModified": "2020-07-20T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">PyQt5多页面跳转</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-07-20">2020-07-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;534 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#pyqt5-多页面跳转">PyQt5 多页面跳转</a></li>
+    <li><a href="#代码编写">代码编写</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>::: tip
+Qt designer 和 代码进行 Qt 开发实现页面跳转不同，本文记录 designer 开发
+:::</p>
+<h2 id="pyqt5-多页面跳转">PyQt5 多页面跳转</h2>
+<p>借助一个 Controller 控制器来实现，大体思路如下</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># 利用一个控制器来控制页面的跳转</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Controller</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_A</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1"># 创建 A 窗口对象并显示</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1"># 关闭其余窗口对象</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_B</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1"># 创建 B 窗口对象并显示</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1"># 关闭其余窗口对象</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_C</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1"># 创建 C 窗口对象并显示</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1"># 关闭其余窗口对象</span>
+</span></span></code></pre></div><p>情景:</p>
+<ul>
+<li>用 Qt designer 设计三个页面：hello.py、login.py、operate.py</li>
+<li>hello.py 中有一个 Id 为 loginBuuton 的按钮，用于跳转到 login.py 窗口</li>
+<li>hello.py 中还有一个 Id 为 operateButton 的按钮，用于跳转到 operate.py 窗口</li>
+</ul>
+<h2 id="代码编写">代码编写</h2>
+<p>导入需要的模块：系统模块 和 利用designer设计的页面</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtCore</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 导入 Qt designer 设计的页面</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">hello</span> <span class="kn">import</span> <span class="n">Ui_MainWindow</span> <span class="k">as</span> <span class="n">Hello_Ui</span> 
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">login</span> <span class="kn">import</span> <span class="n">Ui_MainWindow</span> <span class="k">as</span> <span class="n">Login_Ui</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">operate</span> <span class="kn">import</span> <span class="n">Ui_MainWindow</span> <span class="k">as</span> <span class="n">Operate_Ui</span>
+</span></span></code></pre></div><p>写页面对应的窗口类，实现 一个页面往其他页面的跳转；</p>
+<p>实现跳转的逻辑主要都在 HelloWindow 类中，其他窗口类仅仅做了初始化：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># 主窗口</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HelloWindow</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">,</span> <span class="n">Hello_Ui</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">switch_window1</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">pyqtSignal</span><span class="p">()</span> <span class="c1"># 跳转信号</span>
+</span></span><span class="line"><span class="cl">    <span class="n">switch_window2</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">pyqtSignal</span><span class="p">()</span> <span class="c1"># 跳转信号</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">HelloWindow</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">queryButton</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">goOperate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">manageButton</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">goLogin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">goLogin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">switch_window1</span><span class="o">.</span><span class="n">emit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">goOperate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">switch_window2</span><span class="o">.</span><span class="n">emit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 登录窗口</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">LoginWindow</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">,</span> <span class="n">Login_Ui</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">LoginWindow</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 操作窗口</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">OperateWindow</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">,</span> <span class="n">Operate_Ui</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">OperateWindow</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span></span></code></pre></div><p>控制器用来控制页面的跳转：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># 利用一个控制器来控制页面的跳转</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Controller</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 跳转到 hello 窗口</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="n">HelloWindow</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">hello</span><span class="o">.</span><span class="n">switch_window1</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">show_login</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">hello</span><span class="o">.</span><span class="n">switch_window2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">show_operate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">hello</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 跳转到 login 窗口, 注意关闭原页面</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">login</span> <span class="o">=</span> <span class="n">LoginWindow</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">hello</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="c1"># 跳转到 operate 窗口, 注意关闭原页面</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">show_operate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">operate</span> <span class="o">=</span> <span class="n">OperateWindow</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">hello</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">operate</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><p>启动项目:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">controller</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span> <span class="c1"># 控制器实例</span>
+</span></span><span class="line"><span class="cl">    <span class="n">controller</span><span class="o">.</span><span class="n">show_hello</span><span class="p">()</span> <span class="c1"># 默认展示的是 hello 页面</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-07-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2020/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/" data-title="PyQt5多页面跳转" data-hashtags="python,mysql"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2020/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/" data-hashtag="python"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2020/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/" data-title="PyQt5多页面跳转"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2020/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/" data-title="PyQt5多页面跳转"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2020/20200720_pyqt5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC/" data-title="PyQt5多页面跳转"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">python</a>,&nbsp;<a href="/tags/mysql/">mysql</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/20200710_mysql%E8%BF%9E%E6%8E%A5%E6%B1%A0/" class="prev" rel="prev" title="MySQL连接池"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>MySQL连接池</a>
+            <a href="/posts/2020/20200810_%E7%A0%B4%E8%A7%A3%E6%9F%90%E6%B3%95%E9%99%A2%E7%BD%91sign%E7%AD%BE%E5%90%8D/" class="next" rel="next" title="破解某法院网sign签名">破解某法院网sign签名<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

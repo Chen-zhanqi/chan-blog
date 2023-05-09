@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>微信小程序登录详解及Flask API实现 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="微信小程序登录详解及Flask API实现" />
+<meta property="og:description" content=":::tip 微信小程序登录API实现 ::: 小程序登录流程 小程序端调用 wx.login 判断用户是否授权 小程序端访问 wx.getUserInfo 小程序端js代码 wx.login({ success: resp =&gt; { // 发送 res.code 到后台换取 openId, sessionKey, unionId console.log(resp); var" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-05-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="微信小程序登录详解及Flask API实现"/>
+<meta name="twitter:description" content=":::tip 微信小程序登录API实现 ::: 小程序登录流程 小程序端调用 wx.login 判断用户是否授权 小程序端访问 wx.getUserInfo 小程序端js代码 wx.login({ success: resp =&gt; { // 发送 res.code 到后台换取 openId, sessionKey, unionId console.log(resp); var"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" /><link rel="prev" href="http://example.org/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" /><link rel="next" href="http://example.org/posts/2020/20200526_pyqt5%E5%AE%89%E8%A3%85%E4%B8%8Epycharm%E9%85%8D%E7%BD%AE/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "微信小程序登录详解及Flask API实现",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2020\/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95\/"
+        },"genre": "posts","keywords": "web","wordcount":  729 ,
+        "url": "http:\/\/example.org\/posts\/2020\/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95\/","datePublished": "2020-05-23T00:00:00+00:00","dateModified": "2020-05-23T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">微信小程序登录详解及Flask API实现</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-05-23">2020-05-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;729 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#小程序登录流程">小程序登录流程</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>:::tip
+微信小程序登录API实现
+:::</p>
+<!-- raw HTML omitted -->
+<h2 id="小程序登录流程">小程序登录流程</h2>
+<ol>
+<li>小程序端调用 wx.login</li>
+<li>判断用户是否授权</li>
+<li>小程序端访问 wx.getUserInfo</li>
+<li>小程序端js代码</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">wx</span><span class="p">.</span><span class="nx">login</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">success</span><span class="o">:</span> <span class="nx">resp</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 发送 res.code 到后台换取 openId, sessionKey, unionId
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">resp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 获取用户信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">wx</span><span class="p">.</span><span class="nx">getSetting</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">success</span><span class="o">:</span> <span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">authSetting</span><span class="p">[</span><span class="s1">&#39;scope.userInfo&#39;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">wx</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">success</span><span class="o">:</span> <span class="nx">userResult</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">var</span> <span class="nx">platUserInfoMap</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">platUserInfoMap</span><span class="p">[</span><span class="s2">&#34;encryptedData&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">userResult</span><span class="p">.</span><span class="nx">encryptedData</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">platUserInfoMap</span><span class="p">[</span><span class="s2">&#34;iv&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">userResult</span><span class="p">.</span><span class="nx">iv</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">wx</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">			      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://127.0.0.1:5000/user/wxlogin&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			      <span class="nx">data</span><span class="o">:</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">			        <span class="nx">platCode</span><span class="o">:</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">platUserInfoMap</span><span class="o">:</span> <span class="nx">platUserInfoMap</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			      <span class="nx">header</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			        <span class="s2">&#34;Content-Type&#34;</span><span class="o">:</span> <span class="s2">&#34;application/json&#34;</span>
+</span></span><span class="line"><span class="cl">			      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			      <span class="nx">dataType</span><span class="o">:</span><span class="s1">&#39;json&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			      <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                  	<span class="nx">wx</span><span class="p">.</span><span class="nx">setStorageSync</span><span class="p">(</span><span class="s2">&#34;userinfo&#34;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">userinfo</span><span class="p">)</span> <span class="c1">//设置本地缓存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">			      <span class="nx">fail</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="p">},</span><span class="c1">//请求失败
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			      <span class="nx">complete</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="p">}</span><span class="c1">//请求完成后执行的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span></code></pre></div><ol start="5">
+<li>后端服务器访问 code2session，通过 code2Session 这个api接口来获取真正需要的微信用户的登录态 session_ke y和 openid 和 unionid.</li>
+<li>后端服务器校验用户信息，对 encryptedData 解密
+微信小程序登录后获得 session_key 后，返回了encryptedData，iv 的数据，其中 encryptedData 解密后包含了用户的信息，解密后的json格式如下：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;openId&#34;</span><span class="p">:</span> <span class="s2">&#34;OPENID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;nickName&#34;</span><span class="p">:</span> <span class="s2">&#34;NICKNAME&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;gender&#34;</span><span class="p">:</span> <span class="n">GENDER</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;city&#34;</span><span class="p">:</span> <span class="s2">&#34;CITY&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;province&#34;</span><span class="p">:</span> <span class="s2">&#34;PROVINCE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;country&#34;</span><span class="p">:</span> <span class="s2">&#34;COUNTRY&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;avatarUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;AVATARURL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;unionId&#34;</span><span class="p">:</span> <span class="s2">&#34;UNIONID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;watermark&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;appid&#34;</span><span class="p">:</span><span class="s2">&#34;APPID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;timestamp&#34;</span><span class="p">:</span><span class="n">TIMESTAMP</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="7">
+<li>解密文件 —— WXBizDataCrypt.py</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">WXBizDataCrypt</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">appId</span><span class="p">,</span> <span class="n">sessionKey</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">appId</span> <span class="o">=</span> <span class="n">appId</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">sessionKey</span> <span class="o">=</span> <span class="n">sessionKey</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encryptedData</span><span class="p">,</span> <span class="n">iv</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># base64 decode</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sessionKey</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sessionKey</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">encryptedData</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">encryptedData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">iv</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">iv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">sessionKey</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CBC</span><span class="p">,</span> <span class="n">iv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">decrypted</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unpad</span><span class="p">(</span><span class="n">cipher</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">encryptedData</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">decrypted</span><span class="p">[</span><span class="s1">&#39;watermark&#39;</span><span class="p">][</span><span class="s1">&#39;appid&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">appId</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid Buffer&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">decrypted</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_unpad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="nb">ord</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:])]</span>
+</span></span></code></pre></div><ol start="8">
+<li>Flask 的 wxlogin API</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">WXBizDataCrypt</span> <span class="kn">import</span> <span class="n">WXBizDataCrypt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/user/wxlogin&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">user_wxlogin</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">appID</span> <span class="o">=</span> <span class="s1">&#39;appID&#39;</span>         <span class="c1"># 开发者关于微信小程序的appID</span>
+</span></span><span class="line"><span class="cl">    <span class="n">appSecret</span> <span class="o">=</span> <span class="s1">&#39;appSecret&#39;</span> <span class="c1"># 开发者关于微信小程序的appSecret</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>  <span class="c1"># 将前端Json数据转为字典</span>
+</span></span><span class="line"><span class="cl">    <span class="n">code</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;platCode&#39;</span><span class="p">]</span>  <span class="c1"># 前端POST过来的微信临时登录凭证code</span>
+</span></span><span class="line"><span class="cl">    <span class="n">encryptedData</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;platUserInfoMap&#39;</span><span class="p">][</span><span class="s1">&#39;encryptedData&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">iv</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;platUserInfoMap&#39;</span><span class="p">][</span><span class="s1">&#39;iv&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">req_params</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;appid&#39;</span><span class="p">:</span> <span class="n">appID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;secret&#39;</span><span class="p">:</span> <span class="n">appSecret</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;js_code&#39;</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;grant_type&#39;</span><span class="p">:</span> <span class="s1">&#39;authorization_code&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">wx_login_api</span> <span class="o">=</span> <span class="s1">&#39;https://api.weixin.qq.com/sns/jscode2session&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response_data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">wx_login_api</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">req_params</span><span class="p">)</span>  <span class="c1"># 向API发起GET请求</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resData</span> <span class="o">=</span> <span class="n">response_data</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">openid</span> <span class="o">=</span> <span class="n">resData</span><span class="p">[</span><span class="s1">&#39;openid&#39;</span><span class="p">]</span>            <span class="c1"># 得到用户关于当前小程序的OpenID</span>
+</span></span><span class="line"><span class="cl">    <span class="n">session_key</span> <span class="o">=</span> <span class="n">resData</span><span class="p">[</span><span class="s1">&#39;session_key&#39;</span><span class="p">]</span>  <span class="c1"># 得到用户关于当前小程序的会话密钥session_key</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pc</span> <span class="o">=</span> <span class="n">WXBizDataCrypt</span><span class="p">(</span><span class="n">appID</span><span class="p">,</span> <span class="n">session_key</span><span class="p">)</span>  <span class="c1">#对用户信息进行解密</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">encryptedData</span><span class="p">,</span> <span class="n">iv</span><span class="p">)</span>     <span class="c1">#获得用户信息</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">userinfo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    通过判断数据库中用户是否存在来确定添加或返回自定义登录态
+</span></span></span><span class="line"><span class="cl"><span class="s1">    若用户不存在则添加；若用户存在，返回用户信息）
+</span></span></span><span class="line"><span class="cl"><span class="s1">    数据库中对用户进行操作
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&#34;登录成功&#34;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-05-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" data-title="微信小程序登录详解及Flask API实现" data-hashtags="web"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" data-hashtag="web"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" data-title="微信小程序登录详解及Flask API实现"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" data-title="微信小程序登录详解及Flask API实现"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" data-title="微信小程序登录详解及Flask API实现"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/web/">web</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" class="prev" rel="prev" title="Scrapy同时运行多个爬虫"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Scrapy同时运行多个爬虫</a>
+            <a href="/posts/2020/20200526_pyqt5%E5%AE%89%E8%A3%85%E4%B8%8Epycharm%E9%85%8D%E7%BD%AE/" class="next" rel="next" title="PyQt5安装与PyCharm配置">PyQt5安装与PyCharm配置<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

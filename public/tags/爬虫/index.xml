@@ -1,0 +1,88 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>爬虫 - Tag - Chan-技术与生活</title>
+        <link>http://example.org/tags/%E7%88%AC%E8%99%AB/</link>
+        <description>爬虫 - Tag - Chan-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 10 Aug 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/%E7%88%AC%E8%99%AB/" rel="self" type="application/rss+xml" /><item>
+    <title>破解某法院网sign签名</title>
+    <link>http://example.org/posts/2020/20200810_%E7%A0%B4%E8%A7%A3%E6%9F%90%E6%B3%95%E9%99%A2%E7%BD%91sign%E7%AD%BE%E5%90%8D/</link>
+    <pubDate>Mon, 10 Aug 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200810_%E7%A0%B4%E8%A7%A3%E6%9F%90%E6%B3%95%E9%99%A2%E7%BD%91sign%E7%AD%BE%E5%90%8D/</guid>
+    <description><![CDATA[::: tip 记录采集 XX法院网 反爬虫sign验证签名 ::: 签名验证反爬虫 签名验证的结果 签名是根据数据源进行计算或加密的过程，签名的结果是一个具有唯一性和]]></description>
+</item>
+<item>
+    <title>Scrapy同时运行多个爬虫</title>
+    <link>http://example.org/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/</link>
+    <pubDate>Tue, 19 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/</guid>
+    <description><![CDATA[多种实现方案: 开启多个命令行，分别执行scrapy cralw xxxx 编写脚本，执行工程下的所有爬虫 #!/usr/bin/env python # -*- coding:utf-8 -*- &#34;&#34;&#34; @file: run.py @time: 2020/05/19 9:49 @desc: None @Author: Chenzq @Wechat: * @contact: czq181020@gmail.com &#34;&#34;&#34; from scrapy.utils.project import get_project_settings from scrapy.crawler import]]></description>
+</item>
+<item>
+    <title>安居客字体解密</title>
+    <link>http://example.org/posts/2020/20200516_%E5%AE%89%E5%B1%85%E5%AE%A2%E5%AD%97%E4%BD%93%E8%A7%A3%E5%AF%86/</link>
+    <pubDate>Sat, 16 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200516_%E5%AE%89%E5%B1%85%E5%AE%A2%E5%AD%97%E4%BD%93%E8%A7%A3%E5%AF%86/</guid>
+    <description><![CDATA[:::tip 安居客网页价格字体加密问题 ::: 问题 由js生成的fangchan-secret自定义字体，每隔几秒钟变化fangchan-secret的key]]></description>
+</item>
+<item>
+    <title>重载Scrapy下载中间件及Cookie池</title>
+    <link>http://example.org/posts/2020/20200515_%E9%87%8D%E5%86%99scrapy%E4%B8%8B%E8%BD%BD%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+    <pubDate>Fri, 15 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200515_%E9%87%8D%E5%86%99scrapy%E4%B8%8B%E8%BD%BD%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+    <description><![CDATA[:::tip scrapy中间件重构 ::: 官方文档：Downloader Middleware 重写 import json # 处理json的包 import redis # Python操作redis的包 import random # 随机选择 from .useragent import]]></description>
+</item>
+<item>
+    <title>JS逆向 - Python调用JS代码</title>
+    <link>http://example.org/posts/2020/20200511_js-%E9%80%86%E5%90%91-python-%E8%B0%83%E7%94%A8js%E4%BB%A3%E7%A0%81/</link>
+    <pubDate>Mon, 11 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200511_js-%E9%80%86%E5%90%91-python-%E8%B0%83%E7%94%A8js%E4%BB%A3%E7%A0%81/</guid>
+    <description><![CDATA[:::tip 使用python执行JS代码 ::: 简介 对于简单的 JS 来说，可以通过 Python 代码，直接重写，轻轻松松的就能搞定。 而对于复的 JS 代码，由于代码过于复杂，重写]]></description>
+</item>
+<item>
+    <title>中国联通工单系统登录</title>
+    <link>http://example.org/posts/2020/20200423_%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95/</link>
+    <pubDate>Thu, 23 Apr 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200423_%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95/</guid>
+    <description><![CDATA[:::tip 联通内网工单登录系统破解流程 ::: 记录使用tkinter + python完成中国联通工单系统的抓取程序。使用VPN + fiddler + postman分析系统单]]></description>
+</item>
+<item>
+    <title>模拟登录TB与Cookies序列化</title>
+    <link>http://example.org/posts/2020/20200415_python-%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95%E6%B7%98%E5%AE%9D%E4%B8%8Ecookies%E5%BA%8F%E5%88%97%E5%8C%96/</link>
+    <pubDate>Wed, 15 Apr 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200415_python-%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95%E6%B7%98%E5%AE%9D%E4%B8%8Ecookies%E5%BA%8F%E5%88%97%E5%8C%96/</guid>
+    <description><![CDATA[:::tip TB网页登录流程解析，使用Python代码实现登录后保存Cookie信息 ::: 一、淘宝登录流程 淘宝ua参数：ua(User-Agent)故名用]]></description>
+</item>
+<item>
+    <title>Scrapy-Splash的使用</title>
+    <link>http://example.org/posts/2020/20200409_scrapy-splash%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Thu, 09 Apr 2020 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2020/20200409_scrapy-splash%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[scrapy-splash的介绍 Scrapy没有JS engine, 无法爬取JavaScript生成的动态网页，只能爬取静态网页，而在现代的网络世界中，大]]></description>
+</item>
+<item>
+    <title>某考研查询微信小程序爬虫</title>
+    <link>http://example.org/posts/2019/20190620_xxx%E8%80%83%E7%A0%94%E6%9F%A5%E8%AF%A2%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E8%99%AB/</link>
+    <pubDate>Thu, 20 Jun 2019 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2019/20190620_xxx%E8%80%83%E7%A0%94%E6%9F%A5%E8%AF%A2%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E8%99%AB/</guid>
+    <description><![CDATA[:::tip 解决某考研查询某小程序jwt权限认证与采集 ::: 前言 日常采集数据时, 有很多需要登录才能获取的数据, 不能解决权限认证这个问题, 就无法获取到想要采]]></description>
+</item>
+<item>
+    <title>Redis代理IP池</title>
+    <link>http://example.org/posts/2019/20190425_redis%E4%BB%A3%E7%90%86ip%E6%B1%A0/</link>
+    <pubDate>Thu, 25 Apr 2019 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/posts/2019/20190425_redis%E4%BB%A3%E7%90%86ip%E6%B1%A0/</guid>
+    <description><![CDATA[:::tip Redis搭建爬虫代理IP池 ::: # -*- coding: utf-8 -*- &#34;&#34;&#34; @file: proxy.py @desc: 爬虫IP代理池 @Author: Chenzq @Wechat: 15690833097 @contact: czq181020@gmail.com &#34;&#34;&#34; import json import requests import redis import datetime, time from taobao_sale.settings import (REDIS_HOST, REDIS_PORT, REDIS_PASSWORD, PROXY_POOL_COUNT, PROXY_PULL_COUNT, PROXY_URL) class RedisClient(object): def __init__(self, host=REDIS_HOST, port=REDIS_PORT): if REDIS_PASSWORD: self._db = redis.StrictRedis(host=host, port=port, password=REDIS_PASSWORD)]]></description>
+</item>
+</channel>
+</rss>

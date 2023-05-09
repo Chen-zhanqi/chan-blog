@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>DRF 过滤器组件 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="DRF 过滤器组件" />
+<meta property="og:description" content=":::tip Django REST Framework. Filters ::: 基本信息 源码 rest_framework.filters 官方文档 DRF API Guide-Filtering django-filter DRF 过滤组件 DRF 搜索过滤组件 urls.py from django.urls import path from . import views urlpatterns = [ path(&#39;cars/&#39;, views.CarListAPIView.as_view()), # SearchFilter ] views.py # drf的SearchFilter # 第" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DRF 过滤器组件"/>
+<meta name="twitter:description" content=":::tip Django REST Framework. Filters ::: 基本信息 源码 rest_framework.filters 官方文档 DRF API Guide-Filtering django-filter DRF 过滤组件 DRF 搜索过滤组件 urls.py from django.urls import path from . import views urlpatterns = [ path(&#39;cars/&#39;, views.CarListAPIView.as_view()), # SearchFilter ] views.py # drf的SearchFilter # 第"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" /><link rel="prev" href="http://example.org/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" /><link rel="next" href="http://example.org/posts/2020/20200625_jsonwebtoken%E5%9F%BA%E7%A1%80/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DRF 过滤器组件",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2020\/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6\/"
+        },"genre": "posts","keywords": "框架, Django, DRF","wordcount":  1082 ,
+        "url": "http:\/\/example.org\/posts\/2020\/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6\/","datePublished": "2020-06-22T00:00:00+00:00","dateModified": "2020-06-22T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DRF 过滤器组件</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-06-22">2020-06-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1082 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本信息">基本信息</a>
+      <ul>
+        <li><a href="#源码">源码</a></li>
+        <li><a href="#官方文档">官方文档</a></li>
+      </ul>
+    </li>
+    <li><a href="#drf-过滤组件">DRF 过滤组件</a>
+      <ul>
+        <li><a href="#drf-搜索过滤组件">DRF 搜索过滤组件</a></li>
+        <li><a href="#drf-排序过滤组件">DRF 排序过滤组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义过滤器">自定义过滤器</a></li>
+    <li><a href="#过滤器插件-django-filter">过滤器插件 django-filter</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>:::tip
+Django REST Framework. Filters
+:::</p>
+<!-- raw HTML omitted -->
+<h2 id="基本信息">基本信息</h2>
+<h3 id="源码">源码</h3>
+<p><a href="https://github.com/encode/django-rest-framework/blob/master/rest_framework/filters.py" target="_blank" rel="noopener noreffer ">rest_framework.filters</a></p>
+<h3 id="官方文档">官方文档</h3>
+<p><a href="https://www.django-rest-framework.org/api-guide/filtering/" target="_blank" rel="noopener noreffer ">DRF API Guide-Filtering</a></p>
+<p><a href="https://django-filter.readthedocs.io/en/stable/" target="_blank" rel="noopener noreffer ">django-filter</a></p>
+<h2 id="drf-过滤组件">DRF 过滤组件</h2>
+<h3 id="drf-搜索过滤组件">DRF 搜索过滤组件</h3>
+<p>urls.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;cars/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">CarListAPIView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>     <span class="c1"># SearchFilter</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># drf的SearchFilter</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 第一步： 搜索过滤</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.filters</span> <span class="kn">import</span> <span class="n">SearchFilter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CarListAPIView</span><span class="p">(</span><span class="n">ListAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Car</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CarModelSerializer</span>  <span class="c1">#自定义认证</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 第二步：局部配置 过滤类 们（全局配置用DEFAULT_FILTER_BACKENDS）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filter_backends</span> <span class="o">=</span> <span class="p">[</span><span class="n">SearchFilter</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 第三步：SearchFilter过滤类依赖的过滤条件 =&gt; 接口：/cars/?search=...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>  <span class="c1">#筛选字段</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># eg：/cars/?search=1，name和price中包含1的数据都会被查询出</span>
+</span></span></code></pre></div><h3 id="drf-排序过滤组件">DRF 排序过滤组件</h3>
+<p>urls.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;cars2/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">CarListAPIView2</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>   <span class="c1"># OrderingFilter</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># 第一步：drf的OrderingFilter - 排序过滤</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rest_framework.filters</span> <span class="kn">import</span> <span class="n">OrderingFilter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CarListAPIView2</span><span class="p">(</span><span class="n">ListAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Car</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CarModelSerializer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 第二步：局部配置 过滤类 们（全局配置用DEFAULT_FILTER_BACKENDS）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filter_backends</span> <span class="o">=</span> <span class="p">[</span><span class="n">OrderingFilter</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 第三步：OrderingFilter过滤类依赖的过滤条件 =&gt; 接口：/cars/?ordering=...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ordering_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pk&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># eg：/cars/?ordering=-price,pk，先按price降序，如果出现price相同，再按pk升序</span>
+</span></span></code></pre></div><h2 id="自定义过滤器">自定义过滤器</h2>
+<p>urls.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;cars3/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">CarListAPIView3</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>   <span class="c1"># 自定义fitler</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>filters.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">models</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 自定义过滤器，接口：?limit=显示的条数</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">LimitFilter</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">filter_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 前台固定用 ?limit=... 传递过滤参数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">limit</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;limit&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">limit</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">limit</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">queryset</span><span class="p">[:</span><span class="n">limit</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">queryset</span>
+</span></span></code></pre></div><p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># 自定义fitler</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.filters</span> <span class="kn">import</span> <span class="n">LimitFilter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CarListAPIView3</span><span class="p">(</span><span class="n">ListAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 如果queryset没有过滤条件，就必须 .all()，不然分页会出问题</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Car</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CarModelSerializer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 局部配置 过滤类 们（全局配置用DEFAULT_FILTER_BACKENDS）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filter_backends</span> <span class="o">=</span> <span class="p">[</span><span class="n">LimitFilter</span><span class="p">]</span>
+</span></span></code></pre></div><h2 id="过滤器插件-django-filter">过滤器插件 django-filter</h2>
+<p>urls.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;cars4/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">CarListAPIView4</span><span class="o">.</span><span class="n">as_view</span><span class="p">()),</span>   <span class="c1"># 插件django-filter</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>filters.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># django-fitler插件：自定义过滤字段</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django_filters</span> <span class="kn">import</span> <span class="n">filters</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django_filters.rest_framework.filterset</span> <span class="kn">import</span> <span class="n">FilterSet</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CarFilterSet</span><span class="p">(</span><span class="n">FilterSet</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">min_price</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">NumberFilter</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;gte&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_price</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">NumberFilter</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;lte&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">top_category</span> <span class="o">=</span> <span class="n">django_filters</span><span class="o">.</span><span class="n">NumberFilter</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;top_category_filter&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">top_category_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">category_id</span><span class="o">=</span><span class="n">value</span><span class="p">)</span><span class="o">|</span><span class="n">Q</span><span class="p">(</span><span class="n">category__parent_category_id</span><span class="o">=</span><span class="n">value</span><span class="p">)</span><span class="o">|</span><span class="n">Q</span><span class="p">(</span><span class="n">category__parent_category__parent_category_id</span><span class="o">=</span><span class="n">value</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Car</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;brand&#39;</span><span class="p">,</span> <span class="s1">&#39;min_price&#39;</span><span class="p">,</span> <span class="s1">&#39;max_price&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># brand是model中存在的字段，一般都是可以用于分组的字段</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># min_price、max_price是自定义字段，需要自己自定义过滤条件</span>
+</span></span></code></pre></div><p>views.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># django-filter插件过滤器</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">django_filters.rest_framework</span> <span class="kn">import</span> <span class="n">DjangoFilterBackend</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.filters</span> <span class="kn">import</span> <span class="n">CarFilterSet</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CarListAPIView4</span><span class="p">(</span><span class="n">ListAPIView</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queryset</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Car</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CarModelSerializer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 局部配置 过滤类 们（全局配置用DEFAULT_FILTER_BACKENDS）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filter_backends</span> <span class="o">=</span> <span class="p">[</span><span class="n">DjangoFilterBackend</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># django-filter过滤器插件使用</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#filter_class = CarFilterSet</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filterset_class</span> <span class="o">=</span> <span class="n">CarFilterSet</span>  <span class="c1"># 旧版写作filter_class, 新版写作fitlerset_class</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 接口：?brand=...&amp;min_price=...&amp;max_price=...</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># eg:?brand=宝马&amp;min_price=5&amp;max_price=10 =&gt; 5~10间的宝马牌汽车</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-06-22</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" data-title="DRF 过滤器组件" data-hashtags="框架,Django,DRF"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" data-hashtag="框架"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" data-title="DRF 过滤器组件"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" data-title="DRF 过滤器组件"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/" data-title="DRF 过滤器组件"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>,&nbsp;<a href="/tags/django/">Django</a>,&nbsp;<a href="/tags/drf/">DRF</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/" class="prev" rel="prev" title="DRF 通用视图-视图工具类-视图集以及路由"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>DRF 通用视图-视图工具类-视图集以及路由</a>
+            <a href="/posts/2020/20200625_jsonwebtoken%E5%9F%BA%E7%A1%80/" class="next" rel="next" title="JSON Web Token">JSON Web Token<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

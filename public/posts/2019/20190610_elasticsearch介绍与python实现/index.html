@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Elasticsearch介绍与Python实现 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="Elasticsearch介绍与Python实现" />
+<meta property="og:description" content="简介 分布式的实时文档存储，每个字段可以被索引与搜索 分布式实时分析搜索引擎 胜任上百个服务节点的扩展，支持 PB 级别的结构化或者非结构化数据 Elasticsearch 的安装" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-06-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Elasticsearch介绍与Python实现"/>
+<meta name="twitter:description" content="简介 分布式的实时文档存储，每个字段可以被索引与搜索 分布式实时分析搜索引擎 胜任上百个服务节点的扩展，支持 PB 级别的结构化或者非结构化数据 Elasticsearch 的安装"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" /><link rel="prev" href="http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" /><link rel="next" href="http://example.org/posts/2019/20190620_xxx%E8%80%83%E7%A0%94%E6%9F%A5%E8%AF%A2%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E8%99%AB/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Elasticsearch介绍与Python实现",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/2019\/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0\/"
+        },"genre": "posts","keywords": "web, python","wordcount":  3936 ,
+        "url": "http:\/\/example.org\/posts\/2019\/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0\/","datePublished": "2019-06-10T00:00:00+00:00","dateModified": "2019-06-10T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活">Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活">Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/life/%E5%85%B3%E4%BA%8E/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Elasticsearch介绍与Python实现</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2019/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2019</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2019-06-10">2019-06-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3936 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#elasticsearch-的安装">Elasticsearch 的安装</a></li>
+    <li><a href="#elasticsearch-相关概念">Elasticsearch 相关概念</a>
+      <ul>
+        <li><a href="#node-和-cluster">Node 和 Cluster</a></li>
+        <li><a href="#index">Index</a></li>
+        <li><a href="#document">Document</a></li>
+        <li><a href="#type">Type</a></li>
+        <li><a href="#fields">Fields</a></li>
+      </ul>
+    </li>
+    <li><a href="#python-对接-elasticsearch">Python 对接 Elasticsearch</a>
+      <ul>
+        <li><a href="#创建-index">创建 Index</a></li>
+        <li><a href="#插入数据">插入数据</a></li>
+        <li><a href="#更新数据">更新数据</a></li>
+        <li><a href="#删除数据">删除数据</a></li>
+        <li><a href="#查询数据">查询数据</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="简介">简介</h2>
+<ul>
+<li>分布式的实时文档存储，每个字段可以被索引与搜索</li>
+<li>分布式实时分析搜索引擎</li>
+<li>胜任上百个服务节点的扩展，支持 PB 级别的结构化或者非结构化数据</li>
+</ul>
+<h2 id="elasticsearch-的安装">Elasticsearch 的安装</h2>
+<p><a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="noopener noreffer ">Elasticsearch官方网站</a>。</p>
+<p>下载安装包并解压，然后运行 bin/elasticsearch（Mac 或 Linux）</p>
+<p>或者 bin\elasticsearch.bat (Windows) 即可启动 Elasticsearch。</p>
+<p>Mac 下推荐使用 Homebrew 安装：</p>
+<p><a href="http://xshanshan.cn/blogs/2020/20200401_macOS%E5%AE%89%E8%A3%85Homebrew%E9%97%AE%E9%A2%98.html" target="_blank" rel="noopener noreffer ">安装Homebrew问题</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install elasticsearch
+</span></span></code></pre></div><p>Elasticsearch 默认会在 9200 端口上运行，我们打开浏览器访问
+http://localhost:9200/ 就可以看到类似内容</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="nt">&#34;name&#34;</span><span class="err"> </span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;atntrTf&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="nt">&#34;cluster_name&#34;</span><span class="err"> </span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;elasticsearch&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="nt">&#34;cluster_uuid&#34;</span><span class="err"> </span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;e64hkjGtTp6_G2h1Xxdv5g&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="nt">&#34;version&#34;</span><span class="err"> </span><span class="p">:</span><span class="err"> </span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="nt">&#34;number&#34;</span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;6.2.4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="nt">&#34;build_hash&#34;</span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;ccec39f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="nt">&#34;build_date&#34;</span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;2018-04-12T20:37:28.497551Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="nt">&#34;build_snapshot&#34;</span><span class="p">:</span><span class="err"> </span><span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="nt">&#34;lucene_version&#34;</span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;7.2.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="nt">&#34;minimum_wire_compatibility_version&#34;</span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;5.6.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="nt">&#34;minimum_index_compatibility_version&#34;</span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;5.0.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="nt">&#34;tagline&#34;</span><span class="err"> </span><span class="p">:</span><span class="err"> </span><span class="s2">&#34;You Know, for Search&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>版本很重要，以后安装一些插件都要做到版本对应才可以。</strong></p>
+<h2 id="elasticsearch-相关概念">Elasticsearch 相关概念</h2>
+<p>在 Elasticsearch 中有几个基本的概念，如节点、索引、文档等。</p>
+<h3 id="node-和-cluster">Node 和 Cluster</h3>
+<p>Elasticsearch 本质上是一个分布式数据库，允许多台服务器协同工作，每台服务器可以运行多个 Elasticsearch 实例。</p>
+<p>单个 Elasticsearch 实例称为一个节点（Node）。一组节点构成一个集群（Cluster）。</p>
+<h3 id="index">Index</h3>
+<p>Elasticsearch 会索引所有字段，经过处理后写入一个反向索引（Inverted Index）。查找数据的时候，直接查找该索引。</p>
+<p>所以，Elasticsearch 数据管理的顶层单位就叫做 Index（索引），其实就相当于 MySQL、MongoDB 等里面的数据库的概念。另外值得注意的是，每个 Index （即数据库）的名字必须是小写。</p>
+<h3 id="document">Document</h3>
+<p>Index 里面单条的记录称为 Document（文档）。许多条 Document 构成了一个 Index。</p>
+<p>Document 使用 JSON 格式表示，下面是一个例子。</p>
+<p>同一个 Index 里面的 Document，不要求有相同的结构（scheme），但是最好保持相同，这样有利于提高搜索效率。</p>
+<h3 id="type">Type</h3>
+<p>Document 可以分组，比如 weather 这个 Index 里面，可以按城市分组（北京和上海），也可以按气候分组（晴天和雨天）。这种分组就叫做 Type，它是虚拟的逻辑分组，用来过滤 Document，类似 MySQL 中的数据表，MongoDB 中的 Collection。</p>
+<p>不同的 Type 应该有相似的结构（Schema），举例来说，id 字段不能在这个组是字符串，在另一个组是数值。这是与关系型数据库的表的一个区别。性质完全不同的数据（比如 products 和 logs）应该存成两个 Index，而不是一个 Index 里面的两个 Type（虽然可以做到）。</p>
+<p>根据规划，Elastic 6.x 版只允许每个 Index 包含一个 Type，7.x 版将会彻底移除 Type。</p>
+<h3 id="fields">Fields</h3>
+<p>即字段，每个 Document 都类似一个 JSON 结构，它包含了许多字段，每个字段都有其对应的值，多个字段组成了一个 Document，其实就可以类比 MySQL 数据表中的字段。</p>
+<p><strong>在 Elasticsearch 中，文档归属于一种类型（Type），而这些类型存在于索引（Index）中，些简单的对比图来类比传统关系型数据库：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Relational DB -&gt; Databases -&gt; Tables -&gt; Rows -&gt; Columns
+</span></span><span class="line"><span class="cl">Elasticsearch -&gt; Indices   -&gt; Types  -&gt; Documents -&gt; Fields
+</span></span></code></pre></div><h2 id="python-对接-elasticsearch">Python 对接 Elasticsearch</h2>
+<p>Elasticsearch 提供了一系列 Restful API 来进行存取和查询操作，可以使用 curl 等命令来进行操作。这里直接利用 Python 来对接 Elasticsearch 的相关方法。</p>
+<p>Python 中对接 Elasticsearch 使用的就是一个同名的库：</p>
+<pre tabindex="0"><code>pip3 install elasticsearch
+</code></pre><p><a href="https://elasticsearch-py.readthedocs.io/" target="_blank" rel="noopener noreffer ">官方文档</a>，后面的内容也是基于官方文档。</p>
+<h3 id="创建-index">创建 Index</h3>
+<p>创建一个名为 news 的索引：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>创建成功，会返回如下结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">{</span><span class="s1">&#39;acknowledged&#39;</span>: True, <span class="s1">&#39;shards_acknowledged&#39;</span>: True, <span class="s1">&#39;index&#39;</span>: <span class="s1">&#39;news&#39;</span><span class="o">}</span>
+</span></span></code></pre></div><p>返回结果是 JSON 格式，其中的 acknowledged 字段表示创建操作执行成功。</p>
+<p>如果把代码执行一次的话，就会返回如下结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;root_cause&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;resource_already_exists_exception&#39;</span><span class="p">,</span> <span class="s1">&#39;reason&#39;</span><span class="p">:</span> <span class="s1">&#39;index [news/QM6yz2W8QE-bflKhc5oThw] already exists&#39;</span><span class="p">,</span> <span class="s1">&#39;index_uuid&#39;</span><span class="p">:</span> <span class="s1">&#39;QM6yz2W8QE-bflKhc5oThw&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">}],</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;resource_already_exists_exception&#39;</span><span class="p">,</span> <span class="s1">&#39;reason&#39;</span><span class="p">:</span> <span class="s1">&#39;index [news/QM6yz2W8QE-bflKhc5oThw] already exists&#39;</span><span class="p">,</span> <span class="s1">&#39;index_uuid&#39;</span><span class="p">:</span> <span class="s1">&#39;QM6yz2W8QE-bflKhc5oThw&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">},</span> <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">}</span>
+</span></span></code></pre></div><p>它提示创建失败，status 状态码是 400，错误原因是 Index 已经存在了。</p>
+<p>注意这里代码里面使用了 ignore 参数为 400，这说明如果返回结果是 400 的话，就忽略这个错误不会报错，程序不会执行抛出异常。</p>
+<p>假如不加 ignore 这个参数的话：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>再次执行就会报错了：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">raise</span> <span class="n">HTTP_EXCEPTIONS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">status_code</span><span class="p">,</span> <span class="n">TransportError</span><span class="p">)(</span><span class="n">status_code</span><span class="p">,</span> <span class="n">error_message</span><span class="p">,</span> <span class="n">additional_info</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">elasticsearch</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestError</span><span class="p">:</span> <span class="n">TransportError</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;resource_already_exists_exception&#39;</span><span class="p">,</span> <span class="s1">&#39;index [news/QM6yz2W8QE-bflKhc5oThw] already exists&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>这样程序的执行就会出现问题，所以需要善用 ignore 参数，把一些意外情况排除，这样可以保证程序的正常执行而不会中断。</p>
+<p>删除 Index
+删除 Index 也是类似的，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">404</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>这里也是使用了 ignore 参数，来忽略 Index 不存在而删除失败导致程序中断的问题。</p>
+<p>如果删除成功，会输出如下结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;acknowledged&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+</span></span></code></pre></div><p>如果 Index 已经被删除，再执行删除则会输出如下结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;root_cause&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;index_not_found_exception&#39;</span><span class="p">,</span> <span class="s1">&#39;reason&#39;</span><span class="p">:</span> <span class="s1">&#39;no such index&#39;</span><span class="p">,</span> <span class="s1">&#39;resource.type&#39;</span><span class="p">:</span> <span class="s1">&#39;index_or_alias&#39;</span><span class="p">,</span> <span class="s1">&#39;resource.id&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;index_uuid&#39;</span><span class="p">:</span> <span class="s1">&#39;_na_&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">}],</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;index_not_found_exception&#39;</span><span class="p">,</span> <span class="s1">&#39;reason&#39;</span><span class="p">:</span> <span class="s1">&#39;no such index&#39;</span><span class="p">,</span> <span class="s1">&#39;resource.type&#39;</span><span class="p">:</span> <span class="s1">&#39;index_or_alias&#39;</span><span class="p">,</span> <span class="s1">&#39;resource.id&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;index_uuid&#39;</span><span class="p">:</span> <span class="s1">&#39;_na_&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">},</span> <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="mi">404</span><span class="p">}</span>
+</span></span></code></pre></div><p>这个结果表明当前 Index 不存在，删除失败，返回的结果同样是 JSON，状态码是 400，但是由于我们添加了 ignore 参数，忽略了 400 状态码，因此程序正常执行输出 JSON 结果，而不是抛出异常。</p>
+<h3 id="插入数据">插入数据</h3>
+<p>Elasticsearch 就像 MongoDB 一样，在插入数据的时候可以直接插入结构化字典数据，插入数据可以调用 create() 方法，插入一条新闻数据：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;美国留给伊拉克的是个烂摊子吗&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://view.news.qq.com/zt2011/usa_iraq/index.htm&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>这里首先声明了一条新闻数据，包括标题和链接，然后通过调用 create() 方法插入了这条数据，在调用 create() 方法时，我们传入了四个参数，index 参数代表了索引名称，doc_type 代表了文档类型，body 则代表了文档具体内容，id 则是数据的唯一标识 ID。</p>
+<p>运行结果如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;_index&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;_type&#39;</span><span class="p">:</span> <span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;_version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="s1">&#39;_shards&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;successful&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;failed&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;_seq_no&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;_primary_term&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</span></span></code></pre></div><p>结果中 result 字段为 created，代表该数据插入成功。</p>
+<p>也可以使用 index() 方法来插入数据，但与 create() 不同的是，create() 方法需要指定 id 字段来唯一标识该条数据，而 index() 方法则不需要，如果不指定 id，会自动生成一个 id，调用 index() 方法的写法如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">es</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>create() 方法内部其实也是调用了 index() 方法，是对 index() 方法的封装。</strong></p>
+<h3 id="更新数据">更新数据</h3>
+<p>更新数据同样需要指定数据的 id 和内容，调用 update() 方法即可，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;美国留给伊拉克的是个烂摊子吗&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://view.news.qq.com/zt2011/usa_iraq/index.htm&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2011-12-16&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>为数据增加了一个日期字段，然后调用了 update() 方法，结果如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;_index&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;_type&#39;</span><span class="p">:</span> <span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;_version&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="s1">&#39;updated&#39;</span><span class="p">,</span> <span class="s1">&#39;_shards&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;successful&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;failed&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;_seq_no&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;_primary_term&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</span></span></code></pre></div><p>返回结果中，result 字段为 updated，即表示更新成功，注意字段 _version，这代表更新后的版本号数，2 代表这是第二个版本，因为之前已经插入过一次数据，所以第一次插入的数据是版本 1，可以参见上例的运行结果，这次更新之后版本号就变成了 2，以后每更新一次，版本号都会加 1。</p>
+<p>另外更新操作其实利用 index() 方法同样可以做到，写法如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">es</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></div><p>index() 方法可以代完成两个操作，如果数据不存在，那就执行插入操作，如果已经存在，那就执行更新操作，非常方便。</p>
+<h3 id="删除数据">删除数据</h3>
+<p>如果想删除一条数据可以调用 delete() 方法，指定需要删除的数据 id 即可，写法如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>运行结果如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span><span class="s1">&#39;_index&#39;</span><span class="p">:</span> <span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;_type&#39;</span><span class="p">:</span> <span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;_version&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="s1">&#39;deleted&#39;</span><span class="p">,</span> <span class="s1">&#39;_shards&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;successful&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;failed&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;_seq_no&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;_primary_term&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</span></span></code></pre></div><p>可以看到运行结果中 result 字段为 deleted，代表删除成功，_version 变成了 3，又增加了 1。</p>
+<h3 id="查询数据">查询数据</h3>
+<p>上面的几个操作都是非常简单的操作，普通的数据库如 MongoDB 都是可以完成的，Elasticsearch 更特殊的地方在于其异常强大的检索功能。</p>
+<p>对于中文来说，需要安装一个分词插件，这里使用的是 elasticsearch-analysis-ik，GitHub 链接为：<a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="noopener noreffer ">elasticsearch-analysis-ik</a>，这里我们使用 Elasticsearch 的另一个命令行工具 elasticsearch-plugin 来安装，这里安装的版本是 6.2.4，请确保和 Elasticsearch 的版本对应起来，命令如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.2.4/elasticsearch-analysis-ik-6.2.4.zip
+</span></span></code></pre></div><p><strong>这里的版本号请替换成你的 Elasticsearch 的版本号。</strong></p>
+<p>安装之后重新启动 Elasticsearch 就可以了，它会自动加载安装好的插件。</p>
+<p>首先新建一个索引并指定需要分词的字段，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;analyzer&#39;</span><span class="p">:</span> <span class="s1">&#39;ik_max_word&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;search_analyzer&#39;</span><span class="p">:</span> <span class="s1">&#39;ik_max_word&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">404</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">put_mapping</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">mapping</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>这里先将之前的索引删除了，然后新建了一个索引，然后更新了它的 mapping 信息，mapping 信息中指定了分词的字段，指定了字段的类型 type 为 text，分词器 analyzer 和 搜索分词器 search_analyzer 为 ik_max_word，即使用我们刚才安装的中文分词插件。如果不指定的话则使用默认的英文分词器。</p>
+<p>插入几条新的数据：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">datas</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;美国留给伊拉克的是个烂摊子吗&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://view.news.qq.com/zt2011/usa_iraq/index.htm&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2011-12-16&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;公安部：各地校车将享最高路权&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://www.chinanews.com/gn/2011/12-16/3536077.shtml&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2011-12-16&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;中韩渔警冲突调查：韩警平均每天扣1艘中国渔船&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://news.qq.com/a/20111216/001044.htm&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2011-12-17&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;中国驻洛杉矶领事馆遭亚裔男子枪击 嫌犯已自首&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;http://news.ifeng.com/world/detail_2011_12/16/11372558_0.shtml&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2011-12-18&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datas</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">es</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></div><p>指定了四条数据，都带有 title、url、date 字段，然后通过 index() 方法将其插入 Elasticsearch 中，索引名称为 news，类型为 politics。</p>
+<p>根据关键词查询一下相关内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>查询出了所有插入的四条数据：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;took&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;timed_out&#34;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;_shards&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;total&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;successful&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;skipped&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;failed&#34;</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;hits&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;total&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;max_score&#34;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;hits&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_index&#34;</span><span class="p">:</span> <span class="s2">&#34;news&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_type&#34;</span><span class="p">:</span> <span class="s2">&#34;politics&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_id&#34;</span><span class="p">:</span> <span class="s2">&#34;c05G9mQBD9BuE5fdHOUT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_score&#34;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_source&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;美国留给伊拉克的是个烂摊子吗&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;http://view.news.qq.com/zt2011/usa_iraq/index.htm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;2011-12-16&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_index&#34;</span><span class="p">:</span> <span class="s2">&#34;news&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_type&#34;</span><span class="p">:</span> <span class="s2">&#34;politics&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_id&#34;</span><span class="p">:</span> <span class="s2">&#34;dk5G9mQBD9BuE5fdHOUm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_score&#34;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_source&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;中国驻洛杉矶领事馆遭亚裔男子枪击，嫌犯已自首&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;http://news.ifeng.com/world/detail_2011_12/16/11372558_0.shtml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;2011-12-18&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_index&#34;</span><span class="p">:</span> <span class="s2">&#34;news&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_type&#34;</span><span class="p">:</span> <span class="s2">&#34;politics&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_id&#34;</span><span class="p">:</span> <span class="s2">&#34;dU5G9mQBD9BuE5fdHOUj&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_score&#34;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_source&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;中韩渔警冲突调查：韩警平均每天扣1艘中国渔船&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://news.qq.com/a/20111216/001044.htm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;2011-12-17&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_index&#34;</span><span class="p">:</span> <span class="s2">&#34;news&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_type&#34;</span><span class="p">:</span> <span class="s2">&#34;politics&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_id&#34;</span><span class="p">:</span> <span class="s2">&#34;dE5G9mQBD9BuE5fdHOUf&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_score&#34;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_source&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;公安部：各地校车将享最高路权&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;http://www.chinanews.com/gn/2011/12-16/3536077.shtml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;2011-12-16&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>返回结果会出现在 hits 字段里面，然后其中有 total 字段标明了查询的结果条目数，还有 max_score 代表了最大匹配分数。</p>
+<p><strong>全文检索</strong>，Elasticsearch 搜索引擎特性的地方：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">dsl</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;match&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;中国 领事馆&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;politics&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">dsl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</span></span></code></pre></div><p>使用 Elasticsearch 支持的 DSL 语句来进行查询，使用 match 指定全文检索，检索的字段是 title，内容是“中国领事馆”，搜索结果如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;took&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;timed_out&#34;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;_shards&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;total&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;successful&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;skipped&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;failed&#34;</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;hits&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;total&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;max_score&#34;</span><span class="p">:</span> <span class="mf">2.546152</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;hits&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_index&#34;</span><span class="p">:</span> <span class="s2">&#34;news&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_type&#34;</span><span class="p">:</span> <span class="s2">&#34;politics&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_id&#34;</span><span class="p">:</span> <span class="s2">&#34;dk5G9mQBD9BuE5fdHOUm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_score&#34;</span><span class="p">:</span> <span class="mf">2.546152</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_source&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;中国驻洛杉矶领事馆遭亚裔男子枪击，嫌犯已自首&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;http://news.ifeng.com/world/detail_2011_12/16/11372558_0.shtml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;2011-12-18&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_index&#34;</span><span class="p">:</span> <span class="s2">&#34;news&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_type&#34;</span><span class="p">:</span> <span class="s2">&#34;politics&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_id&#34;</span><span class="p">:</span> <span class="s2">&#34;dU5G9mQBD9BuE5fdHOUj&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_score&#34;</span><span class="p">:</span> <span class="mf">0.2876821</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_source&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;中韩渔警冲突调查：韩警平均每天扣1艘中国渔船&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://news.qq.com/a/20111216/001044.htm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;2011-12-17&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>匹配的结果有两条，第一条的分数为 2.54，第二条的分数为 0.28，这是因为第一条匹配的数据中含有“中国”和“领事馆”两个词，第二条匹配的数据中不包含“领事馆”，但是包含了“中国”这个词，所以也被检索出来了，但是分数比较低。</p>
+<p>检索时会对对应的字段全文检索，结果还会按照检索关键词的相关性进行排序，这就是一个基本的搜索引擎雏形。</p>
+<p>Elasticsearch 支持非常多的查询方式，详情可以参考 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.3/query-dsl.html" target="_blank" rel="noopener noreffer ">官方文档</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2019-06-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" data-title="Elasticsearch介绍与Python实现" data-hashtags="web,python"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" data-hashtag="web"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://example.org/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" data-title="Elasticsearch介绍与Python实现"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://example.org/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" data-title="Elasticsearch介绍与Python实现"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://example.org/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/" data-title="Elasticsearch介绍与Python实现"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/web/">web</a>,&nbsp;<a href="/tags/python/">python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="prev" rel="prev" title="Dockerfile 命令记录"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Dockerfile 命令记录</a>
+            <a href="/posts/2019/20190620_xxx%E8%80%83%E7%A0%94%E6%9F%A5%E8%AF%A2%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E8%99%AB/" class="next" rel="next" title="某考研查询微信小程序爬虫">某考研查询微信小程序爬虫<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">豫ICP备2021019462号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

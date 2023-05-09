@@ -1,0 +1,88 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Chan-技术与生活</title>
+        <link>http://example.org/tags/</link>
+        <description>Tags - Tag - Chan-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ai</title>
+    <link>http://example.org/tags/ai/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/ai/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>chatgpt</title>
+    <link>http://example.org/tags/chatgpt/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/chatgpt/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Docker</title>
+    <link>http://example.org/tags/docker/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/docker/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>golang</title>
+    <link>http://example.org/tags/golang/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/golang/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>nginx</title>
+    <link>http://example.org/tags/nginx/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/nginx/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>数据库</title>
+    <link>http://example.org/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>记录</title>
+    <link>http://example.org/tags/%E8%AE%B0%E5%BD%95/</link>
+    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/%E8%AE%B0%E5%BD%95/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>工具</title>
+    <link>http://example.org/tags/%E5%B7%A5%E5%85%B7/</link>
+    <pubDate>Thu, 06 May 2021 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/%E5%B7%A5%E5%85%B7/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>pyinstaller</title>
+    <link>http://example.org/tags/pyinstaller/</link>
+    <pubDate>Sat, 10 Apr 2021 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/pyinstaller/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>python</title>
+    <link>http://example.org/tags/python/</link>
+    <pubDate>Sat, 10 Apr 2021 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>http://example.org/tags/python/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

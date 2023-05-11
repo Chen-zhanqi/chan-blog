@@ -1,6 +1,11 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-draft: true
+draft: false
+tags:
+- 记录
+categories:
+- 2022
+- 技术
 ---
 

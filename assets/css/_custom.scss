@@ -59,11 +59,11 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1024px) {
-  .sidebar_wo {
-    display: none
-  }
-}
+//@media only screen and (max-width: 1024px) {
+//  .sidebar_wo {
+//    display: none
+//  }
+//}
 
 
 /* 图片 */
@@ -127,20 +127,20 @@ img[data-sizes="auto"] {
   display: block;
 }
 
-@media screen and (max-width: 680px) {
-  .dropdown {
-    display: inline;
-  }
-  .dropdown:hover .dropdown-content {
-    display: inline;
-    z-index: 1;
-    margin-top: -2em;
-    margin-left: 3em;
-  }
-  .dropdown-content a:hover {
-    background-color: transparent;
-  }
-}
+//@media screen and (max-width: 680px) {
+//  .dropdown {
+//    display: inline;
+//  }
+//  .dropdown:hover .dropdown-content {
+//    display: inline;
+//    z-index: 1;
+//    margin-top: -2em;
+//    margin-left: 3em;
+//  }
+//  .dropdown-content a:hover {
+//    background-color: transparent;
+//  }
+//}
 
 
 /* Github Corner */
@@ -162,15 +162,15 @@ img[data-sizes="auto"] {
   }
 }
 
-@media (max-width: 500px) {
-  .github-corner:hover .octo-arm {
-    animation: none
-  }
-
-  .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out
-  }
-}
+//@media (max-width: 500px) {
+//  .github-corner:hover .octo-arm {
+//    animation: none
+//  }
+//
+//  .github-corner .octo-arm {
+//    animation: octocat-wave 560ms ease-in-out
+//  }
+//}
 
 
 /* 首页头像 */
@@ -444,23 +444,23 @@ img.site-avatar-plug-bilibili {
 //  }
 //}
 
-@media only screen and (max-width: 1200px) {
-  .footer {
-    width: 50.5%
-  }
-}
-
-@media only screen and (max-width: 960px) {
-  .footer {
-    width: 77%
-  }
-}
-
-@media only screen and (max-width: 680px) {
-  .footer {
-    width: 95%
-  }
-}
+//@media only screen and (max-width: 1200px) {
+//  .footer {
+//    width: 50.5%
+//  }
+//}
+//
+//@media only screen and (max-width: 960px) {
+//  .footer {
+//    width: 77%
+//  }
+//}
+//
+//@media only screen and (max-width: 680px) {
+//  .footer {
+//    width: 95%
+//  }
+//}
 
 
 /* 目录 */
@@ -615,8 +615,8 @@ article .post-reward .qr-code .image {
 
 /* 归档、标签、分类、特殊页面 */
 .page.archive, .page.single, .page.single.special {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  //padding-left: 1rem;
+  //padding-right: 1rem;
   padding-bottom: 1rem;
   background: white;
   opacity: .95;

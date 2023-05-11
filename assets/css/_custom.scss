@@ -127,20 +127,20 @@ img[data-sizes="auto"] {
   display: block;
 }
 
-//@media screen and (max-width: 680px) {
-//  .dropdown {
-//    display: inline;
-//  }
-//  .dropdown:hover .dropdown-content {
-//    display: inline;
-//    z-index: 1;
-//    margin-top: -2em;
-//    margin-left: 3em;
-//  }
-//  .dropdown-content a:hover {
-//    background-color: transparent;
-//  }
-//}
+@media screen and (max-width: 680px) {
+  .dropdown {
+    display: inline;
+  }
+  .dropdown:hover .dropdown-content {
+    display: inline;
+    z-index: 1;
+    margin-top: -2em;
+    margin-left: 3em;
+  }
+  .dropdown-content a:hover {
+    background-color: transparent;
+  }
+}
 
 
 /* Github Corner */
@@ -162,15 +162,15 @@ img[data-sizes="auto"] {
   }
 }
 
-//@media (max-width: 500px) {
-//  .github-corner:hover .octo-arm {
-//    animation: none
-//  }
-//
-//  .github-corner .octo-arm {
-//    animation: octocat-wave 560ms ease-in-out
-//  }
-//}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none
+  }
+
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+}
 
 
 /* 首页头像 */
@@ -438,11 +438,11 @@ img.site-avatar-plug-bilibili {
   background: #3a3535;
 }
 
-@media only screen and (max-width: 1440px) {
-  .footer {
-    width: 54.5%
-  }
-}
+//@media only screen and (max-width: 1440px) {
+//  .footer {
+//    width: 54.5%
+//  }
+//}
 
 @media only screen and (max-width: 1200px) {
   .footer {

@@ -4,6 +4,7 @@
 // ==============================
 /* Custom styles. */
 
+
 /* 滚动条 */
 ::-webkit-scrollbar {
   width: 0.5rem;
@@ -419,19 +420,17 @@ img.site-avatar-plug-bilibili {
 
 /* 页面脚部 */
 .footer {
-  display: block;
-  border-top-width: 3px;
-  border-top-style: solid;
-  border-top-color: #a166ab;
-  position: relative;
-  z-index: -1;
-  max-width: 800px;
-  width: 60%;
-  margin: .1rem auto 0 auto;
-  //padding-left: 1rem;
-  padding-right: 1rem;
-  background: white;
-  opacity: .95;
+//   display: block;
+//   border-top-width: 3px;
+//   border-top-style: solid;
+//   border-top-color: #a166ab;
+//   position: relative;
+//   max-width: 800px;
+//   width: 60%;
+//   margin: .1rem auto 0 auto;
+//   padding-right: 1rem;
+//   background: white;
+//   opacity: .95;
 }
 
 [theme=dark] .footer {

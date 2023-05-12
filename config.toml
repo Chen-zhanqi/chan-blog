@@ -13,7 +13,9 @@ languageName = "简体中文"
 # 是否包括中日韩文字
 hasCJKLanguage = true
 # 是否使用 lightgallery
-lightgallery = true
+#lightgallery = true
+# 启用表情符号
+enableEmoji = true
 
 [module]
   [[module.imports]]
@@ -38,14 +40,14 @@ lightgallery = true
         name = "归档"
         url = "/posts/"
         title = ""
-    [[menu.main]]
-        weight = 2
-        identifier = ""
-        pre = "<i class='fas fa-fw fa-at'></i>"
-        post = ""
-        name = "关于"
-        url = "/about/关于/"
-        title = ""
+#     [[menu.main]]
+#         weight = 2
+#         identifier = ""
+#         pre = "<i class='fas fa-fw fa-at'></i>"
+#         post = ""
+#         name = "关于"
+#         url = "/about/关于/"
+#         title = ""
     [[menu.main]]
         weight = 3
         pre = "<i class='fas fa-fw fa-fan fa-spin'></i>"
@@ -58,12 +60,12 @@ lightgallery = true
         name = "搜索"
         identifier = "search"
         url = "/search/"
-#    [[menu.main]]
-#        weight = 5
-#        pre = "<i class='fas fa-fw fa-search'></i>"
-#        name = "相册"
-#        identifier = ""
-#        url = "/about/photo/"
+    [[menu.main]]
+        weight = 5
+        pre = "<i class='fas fa-fw fa-search'></i>"
+        name = "相册"
+        identifier = ""
+        url = "/about/photo/"
 
     # 二级菜单
     [[menu.main]]
@@ -119,8 +121,46 @@ lightgallery = true
         since = 2018
         # ICP info only in China (HTML format is supported)
         # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
-        icp = "<a target=\"_blank\" href=\"http://www.beian.miit.gov.cn/\" style=\"font-weight:500\">豫ICP备2021019462</a>"
+        icp = "<a target='_blank' href='http://www.beian.miit.gov.cn/' style='font-weight:500'>豫ICP备2021019462</a>"
         # license info (HTML format is supported)
         # 许可协议信息 (支持 HTML 格式)
         license= "<a rel=\"license external nofollow noopener noreffer\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">CC BY-NC 4.0</a>"
 
+    # Home page config
+    # 主页信息设置
+    [params.home]
+        # amount of RSS pages
+        # RSS 文章数目
+        rss = 10
+        # Home page profile
+        # 主页个人信息
+        [params.home.profile]
+            enable = true
+            # Gravatar Email for preferred avatar in home page
+            # Gravatar 邮箱，用于优先在主页显示的头像
+            gravatarEmail = ""
+            # URL of avatar shown in home page
+            # 主页显示头像的 URL
+            avatarURL = "https://qn.chenzqi.cn/chenshen/logo.png"
+            # title shown in home page (HTML format is supported)
+            # 主页显示的网站标题 (支持 HTML 格式)
+            title = ""
+            # subtitle shown in home page (HTML format is supported)
+            # 主页显示的网站副标题 (允许 HTML 格式)
+            subtitle = "停在港口的⛵是安全的，但这不是造⛵的目的."
+            # whether to use typeit animation for subtitle
+            # 是否为副标题显示打字机动画
+            typeit = true
+            # whether to show social links
+            # 是否显示社交账号
+            social = true
+            # disclaimer (HTML format is supported)
+            # 免责声明 (支持 HTML 格式)
+            disclaimer = ""
+            # Home page posts
+            # 主页文章列表
+            [params.home.posts]
+            enable = true
+            # special amount of posts in each home posts page
+            # 主页每页显示文章数量
+            paginate = 6

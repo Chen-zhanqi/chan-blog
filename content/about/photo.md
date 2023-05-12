@@ -40,10 +40,11 @@ chatgpt：当你走进迪士尼乐园，你会仿佛进入了一个充满奇幻�
 
 天气：🌤
 
-chatgpt：当你身临其境，你会看到蒙蒙细雨中的三潭印月，清晨时的曲院风荷，晚上的断桥残雪，还有夕阳下的雷峰塔等等。这里的美景与传说相伴，
-诸如白蛇传、梁山伯与祝英台、牛郎织女等故事，令人陶醉。同时，在这里你还可以了解中国传统文化和艺术，体验不同的文化元素，
-如茶道、园林艺术、曲艺、剪纸等。无论你是来追寻文化历史的足迹，还是为了寻求一份宁静和舒适，西湖都是一个绝佳的去处，让人流连忘返。
-仿佛一句话就可以概括你在西湖的旅程，那就是：沉浸在自然中，感受古典的文化之美。
+chatgpt：当夜幕低垂，霞光映红湖面，你仿佛置身于一幅神秘迷人的画卷之中。西湖夕阳下的美景令人流连忘返，惊艳于晚霞的红艳、
+感叹于松鼠的机灵和鸽子的温驯、被鸳鸯的情感所打动，被花朵的芬芳所陶醉。这些璀璨的自然元素，融合了中国传统文化的意境和韵味，
+在这里与人们自然地融合在一起。你或许会遇到与浪漫悠闲的灵气女子驾着画舫，或是观赏一场现代芭蕾舞团演出的奇妙时刻。
+在这里，你能够尽情释放自己，在自然之美、人文之光、现代之艺享受到一份难以言表的美好。西湖是融自然之韵、人文之美、
+现代之艺于一体的旅游胜地，一旦来过，就永远不会忘记这里的美丽。
 {{< /admonition >}}
 
 {{< galleries >}}
@@ -57,4 +58,23 @@ chatgpt：当你身临其境，你会看到蒙蒙细雨中的三潭印月，清�
 {{< gallery src="https://qn.chenzqi.cn/blog/202305122003276.png" title="">}}
 {{< gallery src="https://qn.chenzqi.cn/blog/202305122003236.png" title="">}}
 {{< gallery src="https://qn.chenzqi.cn/blog/202305122002150.png" title="">}}
+{{< /galleries >}}
+
+
+
+{{< admonition abstract 猫狗日记 false >}}
+七七和又又 🐈 🦮
+{{< /admonition >}}
+
+{{< galleries >}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130031119.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130030760.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130030114.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130029222.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130025905.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130025887.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130028125.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130027929.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130026677.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305130026991.png" title="">}}
 {{< /galleries >}}

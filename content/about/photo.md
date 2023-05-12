@@ -47,15 +47,14 @@ chatgpt：当你身临其境，你会看到蒙蒙细雨中的三潭印月，清�
 {{< /admonition >}}
 
 {{< galleries >}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305122005397.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305122004188.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305122006456.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305122006057.png" title="">}}
+{{< gallery src="https://qn.chenzqi.cn/blog/202305122004922.png" title="">}}
 {{< gallery src="https://qn.chenzqi.cn/blog/202305122001588.png" title="">}}
 {{< gallery src="https://qn.chenzqi.cn/blog/202305122001914.png" title="">}}
-{{< gallery src="https://qn.chenzqi.cn/blog/202305122004922.png" title="">}}
 {{< gallery src="https://qn.chenzqi.cn/blog/202305122003276.png" title="">}}
 {{< gallery src="https://qn.chenzqi.cn/blog/202305122003236.png" title="">}}
 {{< gallery src="https://qn.chenzqi.cn/blog/202305122002150.png" title="">}}
-{{< gallery src="https://qn.chenzqi.cn/blog/202305121750196.png" title="">}}
-{{< gallery src="https://qn.chenzqi.cn/blog/202305122006456.png" title="">}}
-{{< gallery src="https://qn.chenzqi.cn/blog/202305122006057.png" title="">}}
-{{< gallery src="https://qn.chenzqi.cn/blog/202305122005397.png" title="">}}
-{{< gallery src="https://qn.chenzqi.cn/blog/202305122004188.png" title="">}}
 {{< /galleries >}}

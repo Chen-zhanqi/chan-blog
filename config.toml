@@ -62,7 +62,7 @@ enableEmoji = true
         url = "/search/"
     [[menu.main]]
         weight = 5
-        pre = "<i class='fas fa-fw fa-search'></i>"
+        pre = "<i class='fas fa-fw fa-at'></i>"
         name = "相册"
         identifier = ""
         url = "/about/photo/"

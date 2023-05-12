@@ -1,39 +1,39 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Docker - Tag - Chan-技术与生活</title>
-        <link>http://example.org/tags/docker/</link>
+        <link>https://chenzqi.cn/tags/docker/</link>
         <description>Docker - Tag - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/docker/" rel="self" type="application/rss+xml" /><item>
     <title>docker-postgresql数据库备份与恢复</title>
-    <link>http://example.org/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
+    <link>https://chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
+    <guid>https://chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
     <description><![CDATA[备份脚本 #!/bin/sh # 备份存放位置 BACKUP_DIR=/data/backup/pg/ file=$BACKUP_DIR&#34;gin_server_$(date +&#34;%Y%m%d&#34;).sql&#34; docker exec -t postgres pg_dump -U pq_user -d db_name &gt; &#34;${file}&#34; # 删除7天之前的备份 deleteDIR=$BACKUP_DIR&#34;gin_server_$(date --date=&#39;7 day ago&#39; +%Y%m%d).sql&#34; rm -rf $deleteDIR 恢复数据 正式数据库 cat gin_server_20190801.sql| docker exec -i postgres psql -U pq_user 其他数据库 创建数]]></description>
 </item>
 <item>
     <title>Docker容器下PHP扩展操作</title>
-    <link>http://example.org/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</link>
+    <link>https://chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</guid>
+    <guid>https://chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</guid>
     <description><![CDATA[常用操作 docker容器下的PHP有自己特有的安装扩展方法： 进入php容器$：docker exec -it php /bin/bash docker-php-source： //在]]></description>
 </item>
 <item>
     <title>Docker项目安装记录集</title>
-    <link>http://example.org/posts/2020/20200325_docker%E9%A1%B9%E7%9B%AE%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95%E9%9B%86/</link>
+    <link>https://chenzqi.cn/posts/2020/20200325_docker%E9%A1%B9%E7%9B%AE%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95%E9%9B%86/</link>
     <pubDate>Wed, 25 Mar 2020 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2020/20200325_docker%E9%A1%B9%E7%9B%AE%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95%E9%9B%86/</guid>
+    <guid>https://chenzqi.cn/posts/2020/20200325_docker%E9%A1%B9%E7%9B%AE%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95%E9%9B%86/</guid>
     <description><![CDATA[:::tip 使用Dockerfile部署项目,docker安装不同软件 ::: 部署java项目 创建Dockerfile # 基础镜像是docker仓库的java]]></description>
 </item>
 <item>
     <title>Dockerfile 命令记录</title>
-    <link>http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</link>
+    <link>https://chenzqi.cn/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</link>
     <pubDate>Wed, 05 Jun 2019 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</guid>
+    <guid>https://chenzqi.cn/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</guid>
     <description><![CDATA[:::tip Dockerfile 命令 ::: Dockerfile 指令详解 1 FROM 指定基础镜像 FROM 指令用于指定其后构建新镜像所使用的基础镜像。FROM 指令必是 Dockerfile 文件中的首条命令，启动构建流程后，Doc]]></description>
 </item>
 </channel>

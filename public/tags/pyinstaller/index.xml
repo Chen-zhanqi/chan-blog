@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>pyinstaller - Tag - Chan-技术与生活</title>
-        <link>http://example.org/tags/pyinstaller/</link>
+        <link>https://chenzqi.cn/tags/pyinstaller/</link>
         <description>pyinstaller - Tag - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sat, 10 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/pyinstaller/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sat, 10 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/pyinstaller/" rel="self" type="application/rss+xml" /><item>
     <title>pyinstaller打包scrapy项目</title>
-    <link>http://example.org/posts/2021/20210410_pyinstaller%E6%89%93%E5%8C%85scrapy%E9%A1%B9%E7%9B%AE/</link>
+    <link>https://chenzqi.cn/posts/2021/20210410_pyinstaller%E6%89%93%E5%8C%85scrapy%E9%A1%B9%E7%9B%AE/</link>
     <pubDate>Sat, 10 Apr 2021 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2021/20210410_pyinstaller%E6%89%93%E5%8C%85scrapy%E9%A1%B9%E7%9B%AE/</guid>
+    <guid>https://chenzqi.cn/posts/2021/20210410_pyinstaller%E6%89%93%E5%8C%85scrapy%E9%A1%B9%E7%9B%AE/</guid>
     <description><![CDATA[简介 pyinstaller -F xxx.py 打包后会生成xxx.spec文件，，spec文件其实就相当于一个打包的架构文件，里面写了要怎么打包，类似于docker中的Dock]]></description>
 </item>
 </channel>

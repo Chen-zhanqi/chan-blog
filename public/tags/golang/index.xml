@@ -1,47 +1,47 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>golang - Tag - Chan-技术与生活</title>
-        <link>http://example.org/tags/golang/</link>
+        <link>https://chenzqi.cn/tags/golang/</link>
         <description>golang - Tag - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://example.org/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/golang/" rel="self" type="application/rss+xml" /><item>
     <title>CS系统相关</title>
-    <link>http://example.org/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</link>
+    <link>https://chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</guid>
+    <guid>https://chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</guid>
     <description><![CDATA[cs gocron web&amp;node gocron-web nohup ./gocron-linux-amd64/gocron web &gt; /opt/server/gocron/log/gocron_web.log 2&gt;&amp;1 &amp; gocron-node nohup sudo -u gocron ./gocron-node-linux-amd64/gocron-node &gt; /opt/server/gocron/log/gocron_node.log 2&gt;&amp;1 &amp; cs web vue cd /opt/docker/nginx/html/gin-web/ git pull docker restart nginx cs server gin cd /opt/server/gin-server git pull ps -ax | grep go kill *** nohup go run . &gt;/dev/null 2&gt;&amp;1 &amp; cs cccf-spider cd /opt/server/cccf-spider git pull]]></description>
 </item>
 <item>
     <title>Golang 接口请求高并发</title>
-    <link>http://example.org/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/</link>
+    <link>https://chenzqi.cn/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/</guid>
+    <guid>https://chenzqi.cn/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/</guid>
     <description><![CDATA[采用两级 channel，一级是将用户请求数据放入到 chan Job 中，这个 channel job 相当于待处理的任务队列。 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan]]></description>
 </item>
 <item>
     <title>Go实现封装HttpRequest方法</title>
-    <link>http://example.org/posts/2021/20210620_go%E5%B0%81%E8%A3%85httprequest%E6%96%B9%E6%B3%95/</link>
+    <link>https://chenzqi.cn/posts/2021/20210620_go%E5%B0%81%E8%A3%85httprequest%E6%96%B9%E6%B3%95/</link>
     <pubDate>Sun, 20 Jun 2021 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2021/20210620_go%E5%B0%81%E8%A3%85httprequest%E6%96%B9%E6%B3%95/</guid>
+    <guid>https://chenzqi.cn/posts/2021/20210620_go%E5%B0%81%E8%A3%85httprequest%E6%96%B9%E6%B3%95/</guid>
     <description><![CDATA[package utils import ( &#34;bytes&#34; &#34;encoding/json&#34; &#34;io/ioutil&#34; &#34;net/http&#34; &#34;time&#34; ) func HttpRequest(method string, url string, data interface{}, result interface{}, header map[string]interface{}, queryParams map[string]interface{}) (response *http.Response, resMap interface{}, err error) { var client = http.Client{ Timeout: 3 * time.Second, } buf := bytes.NewBuffer(nil) encoder := json.NewEncoder(buf) if err = encoder.Encode(data); err != nil { return nil, nil, err } request, err := http.NewRequest(method, url, buf) if err != nil { return]]></description>
 </item>
 <item>
     <title>Golang问题汇总 - (持续更新...)</title>
-    <link>http://example.org/posts/2021/20210609_golang%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</link>
+    <link>https://chenzqi.cn/posts/2021/20210609_golang%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</link>
     <pubDate>Wed, 09 Jun 2021 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2021/20210609_golang%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
+    <guid>https://chenzqi.cn/posts/2021/20210609_golang%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
     <description><![CDATA[题号 题目 1 Golang中除了加Mutex锁以外还有哪些方式安全读写共享变量 2 无缓冲Chan的发送和接收是否同步 3 Golang并发机制以及它所]]></description>
 </item>
 <item>
     <title>GO参数传递</title>
-    <link>http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</link>
+    <link>https://chenzqi.cn/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</link>
     <pubDate>Wed, 19 May 2021 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>http://example.org/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</guid>
+    <guid>https://chenzqi.cn/posts/2021/20210519_go%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/</guid>
     <description><![CDATA[参数传递 Go在传递参数时是传值还是传引用，不同的选择会影响我们在函数中修改入参时是否会影响调用方看到的数据。 ::: tip 传值和传引用两者的区别 传值：]]></description>
 </item>
 </channel>

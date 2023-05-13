@@ -4,7 +4,15 @@
         <link>https://chenzqi.cn/categories/2022/</link>
         <description>2022 - Category - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/categories/2022/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/categories/2022/" rel="self" type="application/rss+xml" /><item>
+    <title>macos升级后git相关命令错误</title>
+    <link>https://chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</link>
+    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>https://chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</guid>
+    <description><![CDATA[场景 macbook升级到macos big sur 11.7.6，git clone、push相关命令突然报错:kex_exchange_identific]]></description>
+</item>
+<item>
     <title>ChatGPT接入微信机器人</title>
     <link>https://chenzqi.cn/posts/2022/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>

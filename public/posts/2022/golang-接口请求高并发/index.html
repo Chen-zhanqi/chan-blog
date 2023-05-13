@@ -98,122 +98,122 @@
 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan Job。调度器把待处理的任务放入一个空闲的缓存队列当中，work 会一直处理它的缓存队列。通过这种方式，实现了一个 worker 池。</p>
 </blockquote>
 <h2 id="请求-把任务放入jobqueue">请求: 把任务放入JobQueue</h2>
-<pre tabindex="0"><code>package main
-
-import (
-&#34;fmt&#34;
-&#34;log&#34;
-&#34;net/http&#34;
-&#34;time&#34;
-)
-
-const (
-	MaxWorker = 100 // 随便设置值
-	MaxQueue  = 200 // 随便设置值
-)
-
-// 一个可以发送工作请求的缓冲 channel
-var JobQueue chan Job
-
-func init() {
-	JobQueue = make(chan Job, MaxQueue)
-}
-
-type Payload struct{}
-
-type Job struct {
-	PayLoad Payload
-}
-
-// 接收请求，把任务筛入JobQueue。
-func payloadHandler(w http.ResponseWriter, r *http.Request) {
-	work := Job{PayLoad: Payload{}}
-	JobQueue &lt;- work
-	_, _ = w.Write([]byte(&#34;操作成功&#34;))
-}
-
-func main() {
-	// 通过调度器创建worker，监听来自 JobQueue的任务
-	d := NewDispatcher()
-	d.Run()
-	http.HandleFunc(&#34;/payload&#34;, payloadHandler)
-	log.Fatal(http.ListenAndServe(&#34;:8099&#34;, nil))
-}
-</code></pre><h2 id="dispatcher调度器循环读取jobqueue">Dispatcher调度器：循环读取JobQueue</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">MaxWorker</span> <span class="p">=</span> <span class="mi">100</span> <span class="c1">// 随便设置值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">MaxQueue</span>  <span class="p">=</span> <span class="mi">200</span> <span class="c1">// 随便设置值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 一个可以发送工作请求的缓冲 channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">JobQueue</span> <span class="kd">chan</span> <span class="nx">Job</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">JobQueue</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="nx">Job</span><span class="p">,</span> <span class="nx">MaxQueue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Payload</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Job</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">PayLoad</span> <span class="nx">Payload</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 接收请求，把任务筛入JobQueue。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">payloadHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">work</span> <span class="o">:=</span> <span class="nx">Job</span><span class="p">{</span><span class="nx">PayLoad</span><span class="p">:</span> <span class="nx">Payload</span><span class="p">{}}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">JobQueue</span> <span class="o">&lt;-</span> <span class="nx">work</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;操作成功&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 通过调度器创建worker，监听来自 JobQueue的任务
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">d</span> <span class="o">:=</span> <span class="nf">NewDispatcher</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nf">Run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/payload&#34;</span><span class="p">,</span> <span class="nx">payloadHandler</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8099&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="dispatcher调度器循环读取jobqueue">Dispatcher调度器：循环读取JobQueue</h2>
 <p>一个Dispatcher 管理 多个Worker</p>
-<pre tabindex="0"><code>package main
-// 初始化操作
-type Dispatcher struct {
-	WorkerPool chan chan Job
-}
-
-func NewDispatcher() *Dispatcher {
-	pool := make(chan chan Job, MaxWorker)
-	return &amp;Dispatcher{WorkerPool: pool}
-}
-
-func (d *Dispatcher) Run() {
-	// 1. 开始运行 n 个 worker
-	for i := 0; i &lt; MaxWorker; i++ {
-		worker := NewWorker(d.WorkerPool)
-		worker.Start()
-	}
-	// 2. 循环读取JobQueue，随机选取一个Worker执行任务
-	go d.dispatch()  
-}
-
-func (d *Dispatcher) dispatch() {
-	for {
-		select {
-		case job := &lt;-JobQueue:
-			go func(job Job) {
-				// 阻塞直到获取一个可用的worker job channel
-				jobChannel := &lt;-d.WorkerPool
-				// 分发任务到 worker job channel 中
-				jobChannel &lt;- job
-			}(job)
-		}
-	}
-}
-</code></pre><h2 id="worker-从dispatcher获取任务">Worker: 从Dispatcher获取任务</h2>
-<pre tabindex="0"><code>type Worker struct {
-	WorkerPool chan chan Job
-	JobChannel chan Job
-	quit       chan bool
-}
-
-func NewWorker(workerPool chan chan Job) Worker {
-	return Worker{
-		WorkerPool: workerPool,
-		JobChannel: make(chan Job),
-		quit:       make(chan bool),
-	}
-}
-
-// 开启一个 worker 循环监听或退出channel
-func (w Worker) Start() {
-	go func() {
-		for {
-			// 将当前的 worker 注册到 worker 队列中
-			w.WorkerPool &lt;- w.JobChannel
-			select {
-			case job := &lt;-w.JobChannel:
-				// 	真正业务的地方,模拟操作耗时
-				time.Sleep(500 * time.Millisecond)
-				fmt.Printf(&#34;上传成功:%v\n&#34;, job)
-			case &lt;-w.quit:
-				return
-			}
-		}
-	}()
-}
-
-func (w Worker) stop() {
-	go func() {
-		w.quit &lt;- true
-	}()
-}
-</code></pre><p><a href="https://cloud.tencent.com/developer/article/1831381" target="_blank" rel="noopener noreffer ">来源</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 初始化操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Dispatcher</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">WorkerPool</span> <span class="kd">chan</span> <span class="kd">chan</span> <span class="nx">Job</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewDispatcher</span><span class="p">()</span> <span class="o">*</span><span class="nx">Dispatcher</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">pool</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kd">chan</span> <span class="nx">Job</span><span class="p">,</span> <span class="nx">MaxWorker</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Dispatcher</span><span class="p">{</span><span class="nx">WorkerPool</span><span class="p">:</span> <span class="nx">pool</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Dispatcher</span><span class="p">)</span> <span class="nf">Run</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 1. 开始运行 n 个 worker
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">MaxWorker</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">worker</span> <span class="o">:=</span> <span class="nf">NewWorker</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">WorkerPool</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">worker</span><span class="p">.</span><span class="nf">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 2. 循环读取JobQueue，随机选取一个Worker执行任务
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">go</span> <span class="nx">d</span><span class="p">.</span><span class="nf">dispatch</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Dispatcher</span><span class="p">)</span> <span class="nf">dispatch</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">select</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">job</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">JobQueue</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">job</span> <span class="nx">Job</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 阻塞直到获取一个可用的worker job channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">jobChannel</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">d</span><span class="p">.</span><span class="nx">WorkerPool</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 分发任务到 worker job channel 中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">jobChannel</span> <span class="o">&lt;-</span> <span class="nx">job</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}(</span><span class="nx">job</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="worker-从dispatcher获取任务">Worker: 从Dispatcher获取任务</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Worker</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">WorkerPool</span> <span class="kd">chan</span> <span class="kd">chan</span> <span class="nx">Job</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">JobChannel</span> <span class="kd">chan</span> <span class="nx">Job</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">quit</span>       <span class="kd">chan</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewWorker</span><span class="p">(</span><span class="nx">workerPool</span> <span class="kd">chan</span> <span class="kd">chan</span> <span class="nx">Job</span><span class="p">)</span> <span class="nx">Worker</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">Worker</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">WorkerPool</span><span class="p">:</span> <span class="nx">workerPool</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">JobChannel</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="nx">Job</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">quit</span><span class="p">:</span>       <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 开启一个 worker 循环监听或退出channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">w</span> <span class="nx">Worker</span><span class="p">)</span> <span class="nf">Start</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 将当前的 worker 注册到 worker 队列中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">w</span><span class="p">.</span><span class="nx">WorkerPool</span> <span class="o">&lt;-</span> <span class="nx">w</span><span class="p">.</span><span class="nx">JobChannel</span>
+</span></span><span class="line"><span class="cl">			<span class="k">select</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">case</span> <span class="nx">job</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">w</span><span class="p">.</span><span class="nx">JobChannel</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 	真正业务的地方,模拟操作耗时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">500</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;上传成功:%v\n&#34;</span><span class="p">,</span> <span class="nx">job</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">w</span><span class="p">.</span><span class="nx">quit</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">w</span> <span class="nx">Worker</span><span class="p">)</span> <span class="nf">stop</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">w</span><span class="p">.</span><span class="nx">quit</span> <span class="o">&lt;-</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><a href="https://cloud.tencent.com/developer/article/1831381" target="_blank" rel="noopener noreffer ">来源</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

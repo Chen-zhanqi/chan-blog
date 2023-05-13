@@ -103,36 +103,36 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="常用操作">常用操作</h2>
-<p>docker容器下的PHP有自己特有的安装扩展方法：
-进入php容器$：<code>docker exec -it php /bin/bash</code>
-<code>docker-php-source</code>：              //在容器中创建/usr/src/php文件夹
+<p>docker容器下的PHP有自己特有的安装扩展方法：</p>
+<p>进入php容器$：<code>docker exec -it php /bin/bash</code></p>
+<p><code>docker-php-source</code>：              //在容器中创建/usr/src/php文件夹
 <code>docker-php-ext-install</code>：        //安装并启动扩展（常用）
 <code>docker-php-ext-enable</code>：       //启动PHP扩展
 <code>docker-php-ext-configure</code>： //添加扩展自定义配置，和enable搭配使用</p>
 <h2 id="zip">zip</h2>
 <p>安装zip扩展所需的依赖扩展</p>
-<pre tabindex="0"><code>apt-get update &amp;&amp; apt-get install -y zlib1g-dev &amp;&amp; apt-get install -y libzip-dev
-</code></pre><p>安装并启动zip扩展</p>
-<pre tabindex="0"><code>docker-php-ext-install zip
-</code></pre><h2 id="pdo_mysql">pdo_mysql</h2>
-<pre tabindex="0"><code>docker-php-ext-install pdo pdo_mysql
-</code></pre><p>如果安装失败出现下面情况 /usr/local/bin/docker-php-ext-enable: cannot create /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini: Directory nonexistent 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apt-get update <span class="o">&amp;&amp;</span> apt-get install -y zlib1g-dev <span class="o">&amp;&amp;</span> apt-get install -y libzip-dev
+</span></span></code></pre></div><p>安装并启动zip扩展</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-php-ext-install zip
+</span></span></code></pre></div><h2 id="pdo_mysql">pdo_mysql</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-php-ext-install pdo pdo_mysql
+</span></span></code></pre></div><p>如果安装失败出现下面情况 /usr/local/bin/docker-php-ext-enable: cannot create /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini: Directory nonexistent 
 <strong>解决方案：</strong> 在/usr/local/etc/php目录下面新建 conf.d 也可以把 docker-php-ext-pdo_mysql.ini 文件也创建了，文件内容：</p>
-<pre tabindex="0"><code>extension=pdo_mysql.so
-</code></pre><p>修改完重新安装。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">extension</span><span class="o">=</span>pdo_mysql.so
+</span></span></code></pre></div><p>修改完重新安装。</p>
 <h2 id="gd">gd</h2>
 <p>相关报错 <em>Call to undefined function think\captcha\imagecreate()</em> 说明缺少gd扩展</p>
 <h3 id="安装依赖库">安装依赖库</h3>
-<pre tabindex="0"><code>apt install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev 
-</code></pre><h3 id="解压源码">解压源码</h3>
-<pre tabindex="0"><code>docker-php-source extract 
-</code></pre><h3 id="配置编译环境">配置编译环境</h3>
-<pre tabindex="0"><code>docker-php-ext-configure gd --with-webp-dir=/usr/include/webp --with-jpeg-dir=/usr/include --with-png-dir=/usr/include --with-freetype-dir=/usr/include/freetype2
-</code></pre><h3 id="编译安装">编译安装</h3>
-<pre tabindex="0"><code>docker-php-ext-install gd
-</code></pre><h3 id="查看结果">查看结果</h3>
-<pre tabindex="0"><code>php -m | grep gd
-</code></pre></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apt install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev 
+</span></span></code></pre></div><h3 id="解压源码">解压源码</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-php-source extract 
+</span></span></code></pre></div><h3 id="配置编译环境">配置编译环境</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-php-ext-configure gd --with-webp-dir<span class="o">=</span>/usr/include/webp --with-jpeg-dir<span class="o">=</span>/usr/include --with-png-dir<span class="o">=</span>/usr/include --with-freetype-dir<span class="o">=</span>/usr/include/freetype2
+</span></span></code></pre></div><h3 id="编译安装">编译安装</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-php-ext-install gd
+</span></span></code></pre></div><h3 id="查看结果">查看结果</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">php -m <span class="p">|</span> grep gd
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

@@ -165,8 +165,8 @@ http://localhost:9200/ 就可以看到类似内容</p>
 </span></span></code></pre></div><h2 id="python-对接-elasticsearch">Python 对接 Elasticsearch</h2>
 <p>Elasticsearch 提供了一系列 Restful API 来进行存取和查询操作，可以使用 curl 等命令来进行操作。这里直接利用 Python 来对接 Elasticsearch 的相关方法。</p>
 <p>Python 中对接 Elasticsearch 使用的就是一个同名的库：</p>
-<pre tabindex="0"><code>pip3 install elasticsearch
-</code></pre><p><a href="https://elasticsearch-py.readthedocs.io/" target="_blank" rel="noopener noreffer ">官方文档</a>，后面的内容也是基于官方文档。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">pip3</span> <span class="n">install</span> <span class="n">elasticsearch</span>
+</span></span></code></pre></div><p><a href="https://elasticsearch-py.readthedocs.io/" target="_blank" rel="noopener noreffer ">官方文档</a>，后面的内容也是基于官方文档。</p>
 <h3 id="创建-index">创建 Index</h3>
 <p>创建一个名为 news 的索引：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>

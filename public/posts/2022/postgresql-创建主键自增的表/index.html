@@ -87,43 +87,43 @@
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><pre tabindex="0"><code>方法一：
-
-CREATE TABLE test_a (
-  id serial,
-  name character varying(128),
-  constraint pk_test_a_id primary key( id)
-);
-
-方法二：
-
-CREATE TABLE test_b(
-  id serial PRIMARY KEY,
-  name character varying(128)
-); 
-
-这两种方法用的是pg的serial类型实现自增，drop表的时候指定的序列也会drop掉
-
-方法三：先创建主键表
-
-CREATE TABLE test_c (
-  id integer PRIMARY KEY,
-  name character varying(128)
-);  
-
-再手动创建序列
-CREATE SEQUENCE test_c_id_seq
-START WITH 1
-INCREMENT BY 1
-NO MINVALUE
-NO MAXVALUE
-CACHE 1;
-
-将序列赋值给主键
-ALTER TABLE test_c alter column id set default nextval(&#39;test_c_id_seq&#39;);
-
-这种方法在drop表的时候序列不会随着drop掉
-</code></pre></div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="err">方法一：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_a</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">serial</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">128</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">constraint</span><span class="w"> </span><span class="n">pk_test_a_id</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">方法二：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_b</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">serial</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">这两种方法用的是</span><span class="n">pg</span><span class="err">的</span><span class="n">serial</span><span class="err">类型实现自增，</span><span class="n">drop</span><span class="err">表的时候指定的序列也会</span><span class="n">drop</span><span class="err">掉</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">方法三：先创建主键表</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_c</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">再手动创建序列</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="n">SEQUENCE</span><span class="w"> </span><span class="n">test_c_id_seq</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">START</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INCREMENT</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">NO</span><span class="w"> </span><span class="k">MINVALUE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">NO</span><span class="w"> </span><span class="k">MAXVALUE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CACHE</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">将序列赋值给主键</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_c</span><span class="w"> </span><span class="k">alter</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">nextval</span><span class="p">(</span><span class="s1">&#39;test_c_id_seq&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">这种方法在</span><span class="n">drop</span><span class="err">表的时候序列不会随着</span><span class="n">drop</span><span class="err">掉</span><span class="w">
+</span></span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

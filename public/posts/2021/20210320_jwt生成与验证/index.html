@@ -94,7 +94,7 @@
             </div><div class="content" id="content"><h2 id="生成与验证">生成与验证</h2>
 <p><strong>data</strong>: 自定义数据, 如 <code>{'username':user_name, 'user_id': user_info.id}</code></p>
 <p>验证通过后在payload中获取</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">jwt</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">jwt</span>
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span><span class="n">timedelta</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">SECRECT_KEY</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x92</span><span class="s1">R!</span><span class="se">\x8e\xc6\x9c\xb3\x89</span><span class="s1">#</span><span class="se">\xa6\x0c\xcb\xf6\xcb\xd7</span><span class="s1">\xc&#39;</span>

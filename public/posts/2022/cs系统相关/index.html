@@ -96,24 +96,24 @@
 </nav></div>
             </div><div class="content" id="content"><h2 id="cs-gocron-webnode">cs gocron web&amp;node</h2>
 <p><strong>gocron-web</strong></p>
-<pre tabindex="0"><code>nohup ./gocron-linux-amd64/gocron web &gt; /opt/server/gocron/log/gocron_web.log 2&gt;&amp;1 &amp;
-</code></pre><p><strong>gocron-node</strong></p>
-<pre tabindex="0"><code>nohup sudo -u gocron ./gocron-node-linux-amd64/gocron-node &gt; /opt/server/gocron/log/gocron_node.log 2&gt;&amp;1 &amp;
-</code></pre><h2 id="cs-web-vue">cs web vue</h2>
-<pre tabindex="0"><code>cd /opt/docker/nginx/html/gin-web/
-git pull
-docker restart nginx
-</code></pre><h2 id="cs-server-gin">cs server gin</h2>
-<pre tabindex="0"><code>cd /opt/server/gin-server
-git pull
-
-ps -ax | grep go
-kill ***
-nohup go run . &gt;/dev/null 2&gt;&amp;1 &amp;
-</code></pre><h2 id="cs-cccf-spider">cs cccf-spider</h2>
-<pre tabindex="0"><code>cd /opt/server/cccf-spider
-git pull
-</code></pre></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nohup ./gocron-linux-amd64/gocron web &gt; /opt/server/gocron/log/gocron_web.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</span></span></code></pre></div><p><strong>gocron-node</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nohup sudo -u gocron ./gocron-node-linux-amd64/gocron-node &gt; /opt/server/gocron/log/gocron_node.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</span></span></code></pre></div><h2 id="cs-web-vue">cs web vue</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/docker/nginx/html/gin-web/
+</span></span><span class="line"><span class="cl">git pull
+</span></span><span class="line"><span class="cl">docker restart nginx
+</span></span></code></pre></div><h2 id="cs-server-gin">cs server gin</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/server/gin-server
+</span></span><span class="line"><span class="cl">git pull
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ps -ax <span class="p">|</span> grep go
+</span></span><span class="line"><span class="cl"><span class="nb">kill</span> ***
+</span></span><span class="line"><span class="cl">nohup go run . &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</span></span></code></pre></div><h2 id="cs-cccf-spider">cs cccf-spider</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/server/cccf-spider
+</span></span><span class="line"><span class="cl">git pull
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

@@ -116,14 +116,14 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> 500<span class="p">;</span> 
 </span></span><span class="line"><span class="cl"> <span class="o">}</span>
 </span></span></code></pre></div><h2 id="域名重定向">域名重定向</h2>
-<pre tabindex="0"><code>server {
-    listen 80;
-    server_name xxx.cn;
-    if ($host = &#39;xxx.cn&#39; ) {
-        rewrite ^/(.*)$ http://xx.xxx.com/$1 permanent;
-    }
-}
-</code></pre></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    listen 80<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    server_name xxx.cn<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="nv">$host</span> <span class="o">=</span> <span class="s1">&#39;xxx.cn&#39;</span> <span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        rewrite ^/<span class="o">(</span>.*<span class="o">)</span>$ http://xx.xxx.com/<span class="nv">$1</span> permanent<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

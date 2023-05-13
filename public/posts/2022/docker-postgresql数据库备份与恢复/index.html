@@ -113,18 +113,18 @@
 </span></span><span class="line"><span class="cl">rm -rf <span class="nv">$deleteDIR</span>
 </span></span></code></pre></div><h2 id="恢复数据">恢复数据</h2>
 <h3 id="正式数据库">正式数据库</h3>
-<pre tabindex="0"><code>cat gin_server_20190801.sql| docker exec -i postgres  psql -U pq_user
-</code></pre><h3 id="其他数据库">其他数据库</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat gin_server_20190801.sql<span class="p">|</span> docker <span class="nb">exec</span> -i postgres  psql -U pq_user
+</span></span></code></pre></div><h3 id="其他数据库">其他数据库</h3>
 <ol>
 <li>创建数据库</li>
 </ol>
-<pre tabindex="0"><code>create database dbname_prod_bak_20190722  owner username;
-grant all privileges on database dbname_prod_bak_20190722 to username;
-</code></pre><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">create database dbname_prod_bak_20190722  owner username<span class="p">;</span>
+</span></span><span class="line"><span class="cl">grant all privileges on database dbname_prod_bak_20190722 to username<span class="p">;</span>
+</span></span></code></pre></div><ol start="2">
 <li>恢复数据</li>
 </ol>
-<pre tabindex="0"><code>cat gin_server_20190801.sql| docker exec -i postgres  psql -U username -d dbname_prod_bak_20190722
-</code></pre></div><div class="post-footer" id="post-footer">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat gin_server_20190801.sql<span class="p">|</span> docker <span class="nb">exec</span> -i postgres  psql -U username -d dbname_prod_bak_20190722
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

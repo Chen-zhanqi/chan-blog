@@ -8,7 +8,7 @@ categories:
 - 技术
 ---
 
-```
+```sql
 方法一：
 
 CREATE TABLE test_a (

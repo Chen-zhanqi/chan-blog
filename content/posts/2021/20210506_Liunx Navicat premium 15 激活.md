@@ -23,7 +23,7 @@ categories:
 
 ## 二、系统环境配置
 ### 1.安装 capstone
-``` shell
+```shell
 sudo apt-get install libcapstone-dev
 ```
 

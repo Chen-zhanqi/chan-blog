@@ -12,7 +12,7 @@ categories:
 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan Job。调度器把待处理的任务放入一个空闲的缓存队列当中，work 会一直处理它的缓存队列。通过这种方式，实现了一个 worker 池。
 
 ## 请求: 把任务放入JobQueue
-```
+```go
 package main
 
 import (
@@ -59,7 +59,7 @@ func main() {
 ## Dispatcher调度器：循环读取JobQueue
 一个Dispatcher 管理 多个Worker
 
-```
+```go
 package main
 // 初始化操作
 type Dispatcher struct {
@@ -97,7 +97,7 @@ func (d *Dispatcher) dispatch() {
 ```
 
 ## Worker: 从Dispatcher获取任务
-```
+```go
 type Worker struct {
 	WorkerPool chan chan Job
 	JobChannel chan Job

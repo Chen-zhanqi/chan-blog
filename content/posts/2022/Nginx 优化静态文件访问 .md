@@ -10,7 +10,7 @@ categories:
 
 Nginx 对于处理静态文件的效率要远高于 Web 框架，因为可以使用 gzip 压缩协议，减小静态文件的体积加快静态文件的加载速度、开启缓存和超时时间减少请求静态文件次数。
 # 一 开启 gzip
-```
+```sh
 gzip on;
 #该指令用于开启或关闭gzip模块(on/off)
 
@@ -47,7 +47,7 @@ gzip_disable "MSIE [1-6]\.(?!.*SV1)";
 ```
 # 二 开启超时时间
 通过设置Expires，开启缓存。
-```
+```sh
 location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|flv|ico)$ {
     expires 30d;
     access_log off;

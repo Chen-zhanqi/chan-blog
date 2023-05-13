@@ -28,17 +28,17 @@ rm -rf $deleteDIR
 
 ## 恢复数据
 ### 正式数据库
-```
+```sh
 cat gin_server_20190801.sql| docker exec -i postgres  psql -U pq_user
 ```
 ### 其他数据库
 1. 创建数据库
-```
+```sh
 create database dbname_prod_bak_20190722  owner username;
 grant all privileges on database dbname_prod_bak_20190722 to username;
 ```
 2. 恢复数据
-```
+```sh
 cat gin_server_20190801.sql| docker exec -i postgres  psql -U username -d dbname_prod_bak_20190722
 ```
 

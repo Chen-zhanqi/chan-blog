@@ -19,7 +19,7 @@ pyinstaller -F xxx.py 打包后会生成xxx.spec文件，，spec文件其实就�
 ### 新建crawl.py
 在scrapy.cfg文件同一层，新建一个py文件，起名为 crawl.py
 
-```python
+```py
 # -*- coding: utf-8 -*-
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings

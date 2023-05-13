@@ -93,7 +93,7 @@ Elasticsearch -> Indices   -> Types  -> Documents -> Fields
 Elasticsearch 提供了一系列 Restful API 来进行存取和查询操作，可以使用 curl 等命令来进行操作。这里直接利用 Python 来对接 Elasticsearch 的相关方法。
 
 Python 中对接 Elasticsearch 使用的就是一个同名的库：
-```
+``` py
 pip3 install elasticsearch
 ```
 

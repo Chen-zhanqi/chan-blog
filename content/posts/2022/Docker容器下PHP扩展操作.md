@@ -10,7 +10,9 @@ categories:
 
 ## 常用操作
 docker容器下的PHP有自己特有的安装扩展方法：
+
 进入php容器$：```docker exec -it php /bin/bash```
+
 ```docker-php-source```：              //在容器中创建/usr/src/php文件夹
 ```docker-php-ext-install```：        //安装并启动扩展（常用）
 ```docker-php-ext-enable```：       //启动PHP扩展
@@ -18,23 +20,23 @@ docker容器下的PHP有自己特有的安装扩展方法：
 
 ## zip
 安装zip扩展所需的依赖扩展
-```
+```sh
 apt-get update && apt-get install -y zlib1g-dev && apt-get install -y libzip-dev
 ```
 
 安装并启动zip扩展
-```
+```sh
 docker-php-ext-install zip
 ```
 
 ## pdo_mysql
-```
+```sh
 docker-php-ext-install pdo pdo_mysql
 ```
 
 如果安装失败出现下面情况 /usr/local/bin/docker-php-ext-enable: cannot create /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini: Directory nonexistent 
 **解决方案：** 在/usr/local/etc/php目录下面新建 conf.d 也可以把 docker-php-ext-pdo_mysql.ini 文件也创建了，文件内容：
-```
+```sh
 extension=pdo_mysql.so
 ```
 修改完重新安装。
@@ -43,27 +45,27 @@ extension=pdo_mysql.so
 相关报错 *Call to undefined function think\captcha\imagecreate()* 说明缺少gd扩展
 
 ### 安装依赖库
-```
+```sh
 apt install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev 
 ```
 
 ### 解压源码
-```
+```sh
 docker-php-source extract 
 ```
 
 ### 配置编译环境
-```
+```sh
 docker-php-ext-configure gd --with-webp-dir=/usr/include/webp --with-jpeg-dir=/usr/include --with-png-dir=/usr/include --with-freetype-dir=/usr/include/freetype2
 ```
 
 ### 编译安装
-```
+```sh
 docker-php-ext-install gd
 ```
 
 ### 查看结果
-```
+```sh
 php -m | grep gd
 ```
 

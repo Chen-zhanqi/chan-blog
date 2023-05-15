@@ -1,10 +1,10 @@
 ---
 title: App Store 礼品卡兑换
-date: 2023-02-20
+date: 2022-01-20
 tags:
 - 记录
 categories:
-- 2023
+- 2022
 - 教程
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: ChatGPT接入微信机器人
-date: 2022-06-20
+date: 2023-01-20
 tags:
 - chatgpt
 - ai
 categories:
-- 2022
+- 2023
 - 技术
 ---
 

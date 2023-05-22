@@ -4,7 +4,7 @@ title: "相册"
 
 ### 随着快门📸的开启，时间被凝固下来，作为”此时此刻”的记录是不可重复的，也就成为永远。🏞
 
-{{< admonition abstract 2022-8迪士尼之旅 false >}}
+{{< admonition abstract 2022-8迪士尼 false >}}
 迪士尼之旅 🎡🎢
 
 交通：🚅 🚇

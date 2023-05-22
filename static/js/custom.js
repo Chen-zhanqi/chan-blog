@@ -19,4 +19,4 @@ function runtime() {
         + ((minutes < 10) ? '0' : '') + minutes + ' 分 '
         + ((seconds < 10) ? '0' : '') + seconds + ' 秒 ';
 }
-runtime();
+// runtime();

@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "friend.css",
-	"sourceRoot": "/Users/chenshen/Desktop/chan-blog",
+	"sourceRoot": "/Users/chenshen/Desktop/web/github/chan-blog",
 	"sources": [
 		"assets/css/friend.scss"
 	],

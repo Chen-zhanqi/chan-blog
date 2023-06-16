@@ -79,8 +79,6 @@ Redeem Gift Card or Code**。
 完成土耳其区 Apple ID 余额充值后，打开设置 App，点击 Apple ID 账号头像 > **iCloud**，升级 iCloud 储存空间。这里只提供已升级成
 2TB iCloud+储存方案的截图。
 
-![土耳其区 2TB iCloud+ 储存方案](https://i0.wp.com/zblogs.top/wp-content/uploads/2023/02/%E5%9C%9F%E8%80%B3%E5%85%B6%E5%8C%BA-2TB-iCloud-%E5%82%A8%E5%AD%98%E6%96%B9%E6%A1%88.webp?fit=1218%2C856&ssl=1)
-
 
 ## 5. **与国区AppleID共享土区2TB iCloud+储存方案**
 
@@ -93,11 +91,7 @@ Ps:  **通过手机号发送 iMessage 邀请链接的方式加入家庭**。邮�
 成功加入国区 Apple ID 的家庭后，在已登录土耳其区 Apple ID 的设备上，打开设置 App，点击 Apple ID 账号头像 > **
 iCloud** > **管理帐户储存空间** > **与家人共享**。在弹出的窗口中点击 **与家人共享按钮** 继续。
 
-![与家人共享 iCloud+](https://i0.wp.com/zblogs.top/wp-content/uploads/2023/02/%E4%B8%8E%E5%AE%B6%E4%BA%BA%E5%85%B1%E4%BA%AB-iCloud.webp?fit=1218%2C856&ssl=1)
-
 在下一个弹窗，选择 **发送邀请**。
-
-![告知你的家人](https://i0.wp.com/zblogs.top/wp-content/uploads/2023/02/%E5%91%8A%E7%9F%A5%E4%BD%A0%E7%9A%84%E5%AE%B6%E4%BA%BA.webp?fit=1200%2C843&ssl=1)
 
 发送邀请后，在登录了国区 Apple ID 的设备上，打开信息 App，然后点击土耳其区 Apple ID 发来的邀请链接接受 2TB
 iCloud+储存方案共享即可。

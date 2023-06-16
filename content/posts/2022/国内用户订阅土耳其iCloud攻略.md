@@ -1,6 +1,7 @@
 ---
 title: 国内用户订阅土耳其iCloud攻略
 date: 2022-01-25
+slug: subscribe-turkey-icloud
 tags:
 - 记录
 categories:

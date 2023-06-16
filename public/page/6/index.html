@@ -75,6 +75,11 @@
         alt="https://qn.chenzqi.cn/chenshen/logo.png"
         title="https://qn.chenzqi.cn/chenshen/logo.png" /></a></div><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">VUE搭建后台管理系统</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-06-13">2020-06-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div><div class="content">:::tip Vue + Element-UI 搭建后台管理系统模型 ::: 线上测试地址</div><div class="post-footer">
+        <a href="/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/">linux防火墙端口设置</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-06-06">2020-06-06</time></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div><div class="content">关闭某个端口 firewall-cmd --permanent --zone=public --remove-port=8080/tcp 打开某个端口 firewall-cmd --permanent --add-port=10086/tcp 重新加载防火墙策略 firewall-cmd --reload 查看防火墙端口开放情况 firewall-cmd --list-ports</div><div class="post-footer">
         <a href="/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/">Read More</a><div class="post-tags">
@@ -99,11 +104,6 @@
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-05-23">2020-05-23</time></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div><div class="content">:::tip 微信小程序登录API实现 ::: 小程序登录流程 小程序端调用 wx.login 判断用户是否授权 小程序端访问 wx.getUserInfo 小程序端js代码 wx.login({ success: resp =&gt; { // 发送 res.code 到后台换取 openId, sessionKey, unionId console.log(resp); var</div><div class="post-footer">
         <a href="/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/web/">web</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/">Scrapy同时运行多个爬虫</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-05-19">2020-05-19</time></span>&nbsp;<span class="post-category">included in <a href="/categories/2020/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2020</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div><div class="content">多种实现方案: 开启多个命令行，分别执行scrapy cralw xxxx 编写脚本，执行工程下的所有爬虫 #!/usr/bin/env python # -*- coding:utf-8 -*- &#34;&#34;&#34; @file: run.py @time: 2020/05/19 9:49 @desc: None @Author: Chenzq @Wechat: * @contact: czq181020@gmail.com &#34;&#34;&#34; from scrapy.utils.project import get_project_settings from scrapy.crawler import</div><div class="post-footer">
-        <a href="/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a>,&nbsp;<a href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>,&nbsp;<a href="/tags/scrapy/">scrapy</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -134,7 +134,7 @@
                     <span class="page-link" aria-hidden="true">&hellip;</span>
                 </li><li class="page-item ">
                     <span class="page-link">
-                        <a href="/page/11/">11</a>
+                        <a href="/page/12/">12</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

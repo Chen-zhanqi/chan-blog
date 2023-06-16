@@ -37,11 +37,19 @@
     <description><![CDATA[采集数据样例]]></description>
 </item>
 <item>
+    <title>国内用户订阅土耳其iCloud攻略</title>
+    <link>https://chenzqi.cn/posts/2022/%E5%9B%BD%E5%86%85%E7%94%A8%E6%88%B7%E8%AE%A2%E9%98%85%E5%9C%9F%E8%80%B3%E5%85%B6icloud%E6%94%BB%E7%95%A5/</link>
+    <pubDate>Tue, 25 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>https://chenzqi.cn/posts/2022/%E5%9B%BD%E5%86%85%E7%94%A8%E6%88%B7%E8%AE%A2%E9%98%85%E5%9C%9F%E8%80%B3%E5%85%B6icloud%E6%94%BB%E7%95%A5/</guid>
+    <description><![CDATA[为什么订阅土耳其区的iCloud+ 因为很便宜。 iCloud+ 国区与土区定价对比如下： 50GB 国区¥6/月，土区₺6.49(约￥2.37)/月 200GB 国区¥21/月，]]></description>
+</item>
+<item>
     <title>App Store 礼品卡兑换</title>
-    <link>https://chenzqi.cn/posts/2022/app-store-%E7%A4%BC%E5%93%81%E5%8D%A1%E5%85%91%E6%8D%A2/</link>
+    <link>https://chenzqi.cn/posts/2022/appstore%E7%A4%BC%E5%93%81%E5%8D%A1%E5%85%91%E6%8D%A2/</link>
     <pubDate>Thu, 20 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/app-store-%E7%A4%BC%E5%93%81%E5%8D%A1%E5%85%91%E6%8D%A2/</guid>
+    <guid>https://chenzqi.cn/posts/2022/appstore%E7%A4%BC%E5%93%81%E5%8D%A1%E5%85%91%E6%8D%A2/</guid>
     <description><![CDATA[App Store 礼品卡兑现 iPhone 手机或 iPad 或其它可登录 Apple Store 终端 登录土区账号。点击个人头像 进入Redeem Gift Card or Code 输入礼品卡卡密兑现即可。]]></description>
 </item>
 <item>
@@ -75,14 +83,6 @@
     <author>Chan</author>
     <guid>https://chenzqi.cn/posts/2019/20190605_dockerfile-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</guid>
     <description><![CDATA[:::tip Dockerfile 命令 ::: Dockerfile 指令详解 1 FROM 指定基础镜像 FROM 指令用于指定其后构建新镜像所使用的基础镜像。FROM 指令必是 Dockerfile 文件中的首条命令，启动构建流程后，Doc]]></description>
-</item>
-<item>
-    <title>PyQt5桌面程序记录</title>
-    <link>https://chenzqi.cn/posts/2019/20190515_pyqt5%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F%E8%AE%B0%E5%BD%95/</link>
-    <pubDate>Wed, 15 May 2019 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2019/20190515_pyqt5%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F%E8%AE%B0%E5%BD%95/</guid>
-    <description><![CDATA[:::tip PyQt5编程 ::: 工具 记录为公司人员写的便携操作数据库房源数据程序, UI与逻辑层分离，使用 Qt Designer + PyQt5完成。pycharm配置PyUIC]]></description>
 </item>
 </channel>
 </rss>

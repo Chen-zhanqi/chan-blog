@@ -4,7 +4,15 @@
         <link>https://chenzqi.cn/posts/</link>
         <description>All Posts | Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sat, 18 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>docker-compose安装nginx,mysql,redis</title>
+    <link>https://chenzqi.cn/posts/2023/docker-compose%E5%AE%89%E8%A3%85nginxmysqlredis/</link>
+    <pubDate>Sat, 18 Feb 2023 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>https://chenzqi.cn/posts/2023/docker-compose%E5%AE%89%E8%A3%85nginxmysqlredis/</guid>
+    <description><![CDATA[docker-compose.yml services: nginx: restart: always container_name: nginx image: nginx ports: - 80:80 - 443:443 volumes: - /opt/docker/nginx/html:/usr/share/nginx/html - /opt/docker/nginx/www:/var/www - /opt/docker/nginx/logs:/var/log/nginx - /opt/docker/nginx/nginx.conf/:/etc/nginx/nginx.conf - /opt/docker/nginx/etc/cert:/etc/nginx/cert - /opt/docker/nginx/conf.d:/etc/nginx/conf.d environment: - NGINX_PORT=80 - TZ=Asia/Shanghai privileged: true mysql: hostname: mysql image: mysql:5.7.16 container_name: mysql restart: always command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci environment: - TZ=Asia/Shanghai - MYSQL_ROOT_PASSWORD=qi52051020 volumes: - /etc/localtime:/etc/localtime:ro - /opt/docker/mysql/data:/var/lib/mysql - /opt/docker/mysql/my.cnf:/etc/mysql/my.cnf ports: - &#34;3306:3306&#34; privileged: true redis: hostname: redis image: redis:5.0.4 container_name:]]></description>
+</item>
+<item>
     <title>ChatGPT接入微信机器人</title>
     <link>https://chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
     <pubDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>Chan</author>
     <guid>https://chenzqi.cn/posts/2022/win10%E7%B3%BB%E7%BB%9F%E6%BF%80%E6%B4%BB%E6%8F%90%E7%A4%BA%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%BD%A0%E7%BB%84%E7%BB%87%E7%9A%84%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8-/</guid>
     <description><![CDATA[终端（管理员）输入： slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX slmgr /skms kms.03k.org slmgr /ato]]></description>
-</item>
-<item>
-    <title>数据样例</title>
-    <link>https://chenzqi.cn/posts/2022/%E6%95%B0%E6%8D%AE%E6%A0%B7%E4%BE%8B/</link>
-    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/%E6%95%B0%E6%8D%AE%E6%A0%B7%E4%BE%8B/</guid>
-    <description><![CDATA[采集数据样例]]></description>
 </item>
 </channel>
 </rss>

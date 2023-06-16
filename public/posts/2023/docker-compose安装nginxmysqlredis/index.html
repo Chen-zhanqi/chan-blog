@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/chenzqi.cn\/posts\/2023\/docker-compose%E5%AE%89%E8%A3%85nginxmysqlredis\/"
-        },"genre": "posts","keywords": "Docker","wordcount":  221 ,
+        },"genre": "posts","keywords": "Docker","wordcount":  272 ,
         "url": "https:\/\/chenzqi.cn\/posts\/2023\/docker-compose%E5%AE%89%E8%A3%85nginxmysqlredis\/","datePublished": "2023-02-18T00:00:00+00:00","dateModified": "2023-02-18T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -79,7 +79,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">docker-compose安装nginx,mysql,redis</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2023/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2023</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-18">2023-02-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;221 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-18">2023-02-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;272 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -91,6 +91,7 @@
     <li>
       <ul>
         <li><a href="#docker-composeyml">docker-compose.yml</a></li>
+        <li><a href="#nginx--nginxconf">nginx &gt; nginx.conf</a></li>
         <li><a href="#mysql--mycnf">mysql &gt; my.cnf</a></li>
         <li><a href="#redis--redisconf">redis &gt; redis.conf</a></li>
       </ul>
@@ -150,6 +151,38 @@
 </span></span><span class="line"><span class="cl">    ports:
 </span></span><span class="line"><span class="cl">      - <span class="s2">&#34;6379:6379&#34;</span>
 </span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
+</span></span></code></pre></div><h3 id="nginx--nginxconf">nginx &gt; nginx.conf</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">user  nginx<span class="p">;</span>
+</span></span><span class="line"><span class="cl">worker_processes  auto<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">error_log  /var/log/nginx/error.log notice<span class="p">;</span>
+</span></span><span class="line"><span class="cl">pid        /var/run/nginx.pid<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">events <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    worker_connections  1024<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">http <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    include       /etc/nginx/mime.types<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    default_type  application/octet-stream<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    log_format  main  <span class="s1">&#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;</span>
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;</span>
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    access_log  /var/log/nginx/access.log  main<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    sendfile        on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#tcp_nopush     on;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    keepalive_timeout  65<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#gzip  on;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    include /etc/nginx/conf.d/*.conf<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="mysql--mycnf">mysql &gt; my.cnf</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>mysqld<span class="o">]</span>
 </span></span><span class="line"><span class="cl"><span class="nv">user</span><span class="o">=</span>mysql

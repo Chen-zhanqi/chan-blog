@@ -27,9 +27,11 @@ iCloud+ 国区与土区定价对比如下：
 
 
 ## 1. **注册土区的Apple ID**
+
 需要使用土耳其区的 Apple ID 才能订阅土耳其区的
 
 ### 1.1 创建账号
+
 - [进入官网](https://appleid.apple.com/): 点击“创建你的Apple ID”, 填写账号信息
 
 ![进入官网](https://qn.chenzqi.cn/blog/202306161852236.png)
@@ -37,6 +39,7 @@ iCloud+ 国区与土区定价对比如下：
 完成后提交，要接收一个验证码。
 
 ### 1.2 登录账号，修改账单信息
+
 - [进入官网](https://appleid.apple.com/): 登录
 
 ![1](https://qn.chenzqi.cn/blog/202306161914855.png)
@@ -49,12 +52,15 @@ iCloud+ 国区与土区定价对比如下：
 
 
 ## 2. **购买土区Apple礼品卡**
+
 - 点击 [ChanKa](https://www.lmessi.cn/) 购买土区礼品卡，礼品卡价格会随汇率浮动
+
 ![选择商品](https://qn.chenzqi.cn/blog/202306161925966.png)
 
 ![结账](https://qn.chenzqi.cn/blog/202306161926780.png)
 
 付款完成会跳到一个礼品卡号页面，同时会向你发一份礼品卡的邮件
+
 ![付款完成](https://qn.chenzqi.cn/blog/202306161929444.png)
 
 

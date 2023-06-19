@@ -38,7 +38,7 @@ services:
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       - TZ=Asia/Shanghai
-      - MYSQL_ROOT_PASSWORD=qi52051020
+      - MYSQL_ROOT_PASSWORD=123456
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /opt/docker/mysql/data:/var/lib/mysql

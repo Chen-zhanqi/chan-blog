@@ -1,6 +1,7 @@
 ---
 title: App Store 礼品卡兑换
 date: 2022-01-20
+slug: App-Store-gift-card-redemption
 tags:
 - 记录
 categories:

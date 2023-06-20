@@ -4,21 +4,21 @@
         <link>https://chenzqi.cn/tags/docker/</link>
         <description>Docker - Tag - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sat, 18 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/docker/" rel="self" type="application/rss+xml" /><item>
-    <title>docker-compose安装nginx,mysql,redis</title>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sun, 19 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>mac清除navicat残留配置文件</title>
+    <link>https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</link>
+    <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</guid>
+    <description><![CDATA[sudo rm -Rf /Applications/Navicat\ Premium.app sudo rm -Rf /private/var/db/BootCaches/CB6F12B3-2C14-461E-B5A7-A8621B7FF130/app.com.prect.NavicatPremium.playlist sudo rm -Rf ~/Library/Caches/com.apple.helpd/SDMHelpData/Other/English/HelpSDMIndexFile/com.prect.NavicatPremium.help sudo rm -Rf ~/Library/Caches/com.apple.helpd/SDMHelpData/Other/zh_CN/HelpSDMIndexFile/com.prect.NavicatPremium.help sudo rm -Rf ~/Library/Preferences/com.prect.NavicatPremium.plist sudo rm -Rf ~/Library/Application\ Support/CrashReporter/Navicat\ Premium_54EDA2E9-528D-5778-A528-BBF9A4CE8BDC.plist sudo rm -Rf ~/Library/Application\ Support/PremiumSoft\ CyberTech]]></description>
+</item>
+<item>
+    <title>docker-compose安装nginx,mysql,redis,postgres</title>
     <link>https://chenzqi.cn/posts/2023/docker-compose%E5%AE%89%E8%A3%85nginxmysqlredis/</link>
     <pubDate>Sat, 18 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
     <guid>https://chenzqi.cn/posts/2023/docker-compose%E5%AE%89%E8%A3%85nginxmysqlredis/</guid>
-    <description><![CDATA[docker-compose.yml services: nginx: restart: always container_name: nginx image: nginx ports: - 80:80 - 443:443 volumes: - /opt/docker/nginx/html:/usr/share/nginx/html - /opt/docker/nginx/www:/var/www - /opt/docker/nginx/logs:/var/log/nginx - /opt/docker/nginx/nginx.conf/:/etc/nginx/nginx.conf - /opt/docker/nginx/etc/cert:/etc/nginx/cert - /opt/docker/nginx/conf.d:/etc/nginx/conf.d environment: - NGINX_PORT=80 - TZ=Asia/Shanghai privileged: true mysql: hostname: mysql image: mysql:5.7.16 container_name: mysql restart: always command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci environment: - TZ=Asia/Shanghai - MYSQL_ROOT_PASSWORD=123456 volumes: - /etc/localtime:/etc/localtime:ro - /opt/docker/mysql/data:/var/lib/mysql - /opt/docker/mysql/my.cnf:/etc/mysql/my.cnf ports: - &#34;3306:3306&#34; privileged: true redis: hostname: redis image: redis:5.0.4 container_name:]]></description>
-</item>
-<item>
-    <title>mac清除navicat残留配置文件</title>
-    <link>https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</link>
-    <pubDate>Sat, 18 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</guid>
-    <description><![CDATA[sudo rm -Rf /Applications/Navicat\ Premium.app sudo rm -Rf /private/var/db/BootCaches/CB6F12B3-2C14-461E-B5A7-A8621B7FF130/app.com.prect.NavicatPremium.playlist sudo rm -Rf ~/Library/Caches/com.apple.helpd/SDMHelpData/Other/English/HelpSDMIndexFile/com.prect.NavicatPremium.help sudo rm -Rf ~/Library/Caches/com.apple.helpd/SDMHelpData/Other/zh_CN/HelpSDMIndexFile/com.prect.NavicatPremium.help sudo rm -Rf ~/Library/Preferences/com.prect.NavicatPremium.plist sudo rm -Rf ~/Library/Application\ Support/CrashReporter/Navicat\ Premium_54EDA2E9-528D-5778-A528-BBF9A4CE8BDC.plist sudo rm -Rf ~/Library/Application\ Support/PremiumSoft\ CyberTech]]></description>
+    <description><![CDATA[tree结构 docker ├── compose │ ├── db │ └── nginx ├── mysql │ ├── data │ └── my.cnf ├── nginx │ ├── conf.d │ ├── etc │ ├── html │ ├── logs │ ├── nginx.conf │ └── www └]]></description>
 </item>
 <item>
     <title>docker-postgresql数据库备份与恢复</title>

@@ -1,6 +1,6 @@
 ---
 title: mac清除navicat残留配置文件
-date: 2023-02-18
+date: 2023-02-19
 slug: macDeletes-residual-navicat-configuration-file
 tags:
 - Docker

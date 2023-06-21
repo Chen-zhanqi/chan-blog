@@ -4,7 +4,15 @@
         <link>https://chenzqi.cn/categories/2023/</link>
         <description>2023 - Category - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sun, 19 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/categories/2023/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/categories/2023/" rel="self" type="application/rss+xml" /><item>
+    <title>mysql_docker容器之间数据库迁移</title>
+    <link>https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</link>
+    <pubDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</guid>
+    <description><![CDATA[将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导出]]></description>
+</item>
+<item>
     <title>mac清除navicat残留配置文件</title>
     <link>https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</link>
     <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0000</pubDate>

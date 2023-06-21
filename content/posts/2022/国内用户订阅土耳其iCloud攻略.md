@@ -53,7 +53,7 @@ iCloud+ 国区与土区定价对比如下：
 
 ## 2. **购买土区Apple礼品卡**
 
-- 点击 [ChanKa](https://www.lmessi.cn/) 购买土区礼品卡，礼品卡价格会随汇率浮动
+- 点击 [ChanKa](https://store.lmessi.cn/) 购买土区礼品卡，礼品卡价格会随汇率浮动
 
 ![选择商品](https://qn.chenzqi.cn/blog/202306161925966.png)
 

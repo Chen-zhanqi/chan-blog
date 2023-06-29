@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>docker-compose安装nginx,mysql,redis,postgres - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="docker-compose安装nginx,mysql,redis,postgres" />
+<meta property="og:description" content="tree结构 docker ├── compose │ ├── db │ └── nginx ├── mysql │ ├── data │ └── my.cnf ├── nginx │ ├── conf.d │ ├── etc │ ├── html │ ├── logs │ ├── nginx.conf │ └── www └" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="docker-compose安装nginx,mysql,redis,postgres"/>
+<meta name="twitter:description" content="tree结构 docker ├── compose │ ├── db │ └── nginx ├── mysql │ ├── data │ └── my.cnf ├── nginx │ ├── conf.d │ ├── etc │ ├── html │ ├── logs │ ├── nginx.conf │ └── www └"/>
+<meta name="application-name" content="Chan">
+<meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+<link rel="icon" href="https://qn.chenzqi.cn/chenshen/logo.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/" /><link rel="prev" href="https://chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/" /><link rel="next" href="https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "docker-compose安装nginx,mysql,redis,postgres",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/chenzqi.cn\/posts\/2023\/docker-installs-nginx-redis-mysql-postgres\/"
+        },"genre": "posts","keywords": "Docker","wordcount":  378 ,
+        "url": "https:\/\/chenzqi.cn\/posts\/2023\/docker-installs-nginx-redis-mysql-postgres\/","datePublished": "2023-02-18T00:00:00+00:00","dateModified": "2023-02-18T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Chan"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chan-技术与生活"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i></span>Chan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner">
+                    <div class="dropdown">
+                        <a href="/posts/" class="menu-item menu-more dropbtn" title="" ><i class='fas fa-fw fa-archive'></i> 归档 
+                        </a>
+                        <div class="menu-more-content dropdown-content"><a href="/categories/" title="" ><i class='fas fa-fw fa-th'></i> 分类 </a><a href="/tags/" title="" ><i class='fas fa-fw fa-tag'></i> 标签 </a></div>
+                    </div>
+                <a class="menu-item" href="/friends/"><i class='fas fa-fw fa-fan fa-spin'></i> 友链 
+                    </a><a class="menu-item" href="/search/"><i class='fas fa-fw fa-search'></i> 搜索 
+                    </a><a class="menu-item" href="/about/photo/"><i class='fas fa-fw fa-at'></i> 相册 
+                    </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chan-技术与生活"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i></span>Chan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title=""><i class='fas fa-fw fa-archive'></i>归档</a><a class="menu-item" href="/friends/" title=""><i class='fas fa-fw fa-fan fa-spin'></i>友链</a><a class="menu-item" href="/search/" title=""><i class='fas fa-fw fa-search'></i>搜索</a><a class="menu-item" href="/about/photo/" title=""><i class='fas fa-fw fa-at'></i>相册</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container">
+                    <div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">docker-compose安装nginx,mysql,redis,postgres</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2023/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2023</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-18">2023-02-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;378 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tree结构">tree结构</a></li>
+        <li><a href="#docker-composeyml">docker-compose.yml</a></li>
+        <li><a href="#nginx--nginxconf">nginx &gt; nginx.conf</a></li>
+        <li><a href="#mysql--mycnf">mysql &gt; my.cnf</a></li>
+        <li><a href="#redis--redisconf">redis &gt; redis.conf</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="tree结构">tree结构</h3>
+<pre tabindex="0"><code class="language-angular2html" data-lang="angular2html">docker
+├── compose
+│   ├── db
+│   └── nginx
+├── mysql
+│   ├── data
+│   └── my.cnf
+├── nginx
+│   ├── conf.d
+│   ├── etc
+│   ├── html
+│   ├── logs
+│   ├── nginx.conf
+│   └── www
+└── redis
+│   ├── data
+│   └── redis.conf
+├── postgresql
+│   └── data
+</code></pre><h3 id="docker-composeyml">docker-compose.yml</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  nginx:
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    container_name: nginx
+</span></span><span class="line"><span class="cl">    image: nginx
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - 80:80
+</span></span><span class="line"><span class="cl">      - 443:443
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - /opt/docker/nginx/html:/usr/share/nginx/html
+</span></span><span class="line"><span class="cl">      - /opt/docker/nginx/www:/var/www
+</span></span><span class="line"><span class="cl">      - /opt/docker/nginx/logs:/var/log/nginx
+</span></span><span class="line"><span class="cl">      - /opt/docker/nginx/nginx.conf/:/etc/nginx/nginx.conf
+</span></span><span class="line"><span class="cl">      - /opt/docker/nginx/etc/cert:/etc/nginx/cert
+</span></span><span class="line"><span class="cl">      - /opt/docker/nginx/conf.d:/etc/nginx/conf.d
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">NGINX_PORT</span><span class="o">=</span><span class="m">80</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai
+</span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">  mysql:
+</span></span><span class="line"><span class="cl">    hostname: mysql
+</span></span><span class="line"><span class="cl">    image: mysql:5.7.16
+</span></span><span class="line"><span class="cl">    container_name: mysql
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai
+</span></span><span class="line"><span class="cl">      - <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">123456</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">MYSQL_USER</span><span class="o">=</span>root
+</span></span><span class="line"><span class="cl">      - <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span><span class="m">123456</span>
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - /etc/localtime:/etc/localtime:ro
+</span></span><span class="line"><span class="cl">      - /opt/docker/mysql/data:/var/lib/mysql
+</span></span><span class="line"><span class="cl">      - /opt/docker/mysql/my.cnf:/etc/mysql/my.cnf
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - <span class="s2">&#34;3306:3306&#34;</span>
+</span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  redis:
+</span></span><span class="line"><span class="cl">    hostname: redis
+</span></span><span class="line"><span class="cl">    image: redis
+</span></span><span class="line"><span class="cl">    container_name: redis
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    command: redis-server /etc/redis.conf --appendonly yes
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - /etc/localtime:/etc/localtime:ro
+</span></span><span class="line"><span class="cl">      - /opt/docker/redis/data:/data
+</span></span><span class="line"><span class="cl">      - /opt/docker/redis/redis.conf:/etc/redis.conf
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - <span class="s2">&#34;6379:6379&#34;</span>
+</span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">  postgres:
+</span></span><span class="line"><span class="cl">    image: postgres:12-alpine
+</span></span><span class="line"><span class="cl">    container_name: postgres
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">POSTGRES_USER</span><span class="o">=</span>root
+</span></span><span class="line"><span class="cl">      - <span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span><span class="m">123456</span>
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - <span class="s2">&#34;5432:5432&#34;</span>
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - /opt/docker/postgresql/data:/var/lib/postgresql/data
+</span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
+</span></span></code></pre></div><h3 id="nginx--nginxconf">nginx &gt; nginx.conf</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">user  nginx<span class="p">;</span>
+</span></span><span class="line"><span class="cl">worker_processes  auto<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">error_log  /var/log/nginx/error.log notice<span class="p">;</span>
+</span></span><span class="line"><span class="cl">pid        /var/run/nginx.pid<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">events <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    worker_connections  1024<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">http <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    include       /etc/nginx/mime.types<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    default_type  application/octet-stream<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    log_format  main  <span class="s1">&#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;</span>
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;</span>
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    access_log  /var/log/nginx/access.log  main<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    sendfile        on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#tcp_nopush     on;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    keepalive_timeout  65<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#gzip  on;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    include /etc/nginx/conf.d/*.conf<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h3 id="mysql--mycnf">mysql &gt; my.cnf</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>mysqld<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">user</span><span class="o">=</span>mysql
+</span></span><span class="line"><span class="cl">default-storage-engine<span class="o">=</span>INNODB
+</span></span><span class="line"><span class="cl">character-set-server<span class="o">=</span>utf8
+</span></span><span class="line"><span class="cl"><span class="nv">explicit_defaults_for_timestamp</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>client<span class="o">]</span>
+</span></span><span class="line"><span class="cl">default-character-set<span class="o">=</span>utf8
+</span></span><span class="line"><span class="cl"><span class="o">[</span>mysql<span class="o">]</span>
+</span></span><span class="line"><span class="cl">default-character-set<span class="o">=</span>utf8
+</span></span></code></pre></div><h3 id="redis--redisconf">redis &gt; redis.conf</h3>
+<p><a href="https://redis.io/docs/management/config/" target="_blank" rel="noopener noreffer ">各版本配置文件</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/docker/redis/
+</span></span><span class="line"><span class="cl">wget https://raw.githubusercontent.com/redis/redis/6.0/redis.conf
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 将如下修改为0.0.0.0，否则只能本地访问</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># bind 127.0.0.1 -::1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">bind</span> 0.0.0.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将如下配置修改为no，允许来自任意主机的连接</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># protected-mode yes</span>
+</span></span><span class="line"><span class="cl">protected-mode no
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置密码</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># requirepass foobared</span>
+</span></span><span class="line"><span class="cl">requirepass xxxxxxxx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 持久化</span>
+</span></span><span class="line"><span class="cl">appendonly yes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用docker -d 时设置为no，否则冲突</span>
+</span></span><span class="line"><span class="cl">daemonize no
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-02-18</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/" data-title="docker-compose安装nginx,mysql,redis,postgres" data-hashtags="Docker"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/" data-hashtag="Docker"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/" data-title="docker-compose安装nginx,mysql,redis,postgres"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/" data-title="docker-compose安装nginx,mysql,redis,postgres"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/" data-title="docker-compose安装nginx,mysql,redis,postgres"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="prev" rel="prev" title="ChatGPT接入微信机器人"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>ChatGPT接入微信机器人</a>
+            <a href="/posts/2023/macdeletes-residual-navicat-configuration-file/" class="next" rel="next" title="mac清除navicat残留配置文件">mac清除navicat残留配置文件<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container">
+            
+            <div class="footer-line">
+                <span id="run-time"></span>
+            </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a target='_blank' href='http://www.beian.miit.gov.cn/' style='font-weight:500'>豫ICP备2021019462</a></span></div>
+        </div>
+    </footer>
+        </div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
+</html>

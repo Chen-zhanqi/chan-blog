@@ -1,6 +1,7 @@
 ---
 title: docker-compose安装nginx,mysql,redis,postgres
 date: 2023-02-18
+slug: docker-installs-nginx-redis-mysql-postgres
 tags:
 - Docker
 categories:
@@ -73,7 +74,7 @@ services:
 
   redis:
     hostname: redis
-    image: redis:alpine
+    image: redis
     container_name: redis
     restart: always
     command: redis-server /etc/redis.conf --appendonly yes
@@ -151,18 +152,30 @@ default-character-set=utf8
 ```
 
 ### redis > redis.conf
+[各版本配置文件](https://redis.io/docs/management/config/)
+
 ```shell
-protected-mode yes
-port 6379
-timeout 0
-daemonize no
-requirepass 123456
+cd /opt/docker/redis/
+wget https://raw.githubusercontent.com/redis/redis/6.0/redis.conf
+```
+
+```shell
+# 将如下修改为0.0.0.0，否则只能本地访问
+# bind 127.0.0.1 -::1
+bind 0.0.0.0
+
+# 将如下配置修改为no，允许来自任意主机的连接
+# protected-mode yes
+protected-mode no
+
+# 设置密码
+# requirepass foobared
+requirepass xxxxxxxx
+
+# 持久化
 appendonly yes
-tcp-keepalive 300
-save 900 1
-save 300 10
-save 60 10000
-maxmemory 500mb
-maxmemory-policy volatile-lru
+
+# 使用docker -d 时设置为no，否则冲突
+daemonize no
 ```
 

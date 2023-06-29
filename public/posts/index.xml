@@ -22,10 +22,10 @@
 </item>
 <item>
     <title>docker-compose安装nginx,mysql,redis,postgres</title>
-    <link>https://chenzqi.cn/posts/2023/docker-compose%E5%AE%89%E8%A3%85nginxmysqlredis/</link>
+    <link>https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</link>
     <pubDate>Sat, 18 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/docker-compose%E5%AE%89%E8%A3%85nginxmysqlredis/</guid>
+    <guid>https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</guid>
     <description><![CDATA[tree结构 docker ├── compose │ ├── db │ └── nginx ├── mysql │ ├── data │ └── my.cnf ├── nginx │ ├── conf.d │ ├── etc │ ├── html │ ├── logs │ ├── nginx.conf │ └── www └]]></description>
 </item>
 <item>

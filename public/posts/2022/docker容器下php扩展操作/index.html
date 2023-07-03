@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/chenzqi.cn\/posts\/2022\/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C\/"
-        },"genre": "posts","keywords": "docker","wordcount":  386 ,
+        },"genre": "posts","keywords": "docker","wordcount":  446 ,
         "url": "https:\/\/chenzqi.cn\/posts\/2022\/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C\/","datePublished": "2022-06-20T00:00:00+00:00","dateModified": "2022-06-20T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -79,7 +79,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker容器下PHP扩展操作</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2022/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2022</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-20">2022-06-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;386 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-20">2022-06-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;446 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -100,15 +100,16 @@
         <li><a href="#查看结果">查看结果</a></li>
       </ul>
     </li>
+    <li><a href="#redis">redis</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="常用操作">常用操作</h2>
 <p>docker容器下的PHP有自己特有的安装扩展方法：</p>
 <p>进入php容器$：<code>docker exec -it php /bin/bash</code></p>
-<p><code>docker-php-source</code>：              //在容器中创建/usr/src/php文件夹
-<code>docker-php-ext-install</code>：        //安装并启动扩展（常用）
-<code>docker-php-ext-enable</code>：       //启动PHP扩展
-<code>docker-php-ext-configure</code>： //添加扩展自定义配置，和enable搭配使用</p>
+<p><code>docker-php-source</code>：              //在容器中创建/usr/src/php文件夹</p>
+<p><code>docker-php-ext-install</code>：        //安装并启动扩展（常用）</p>
+<p><code>docker-php-ext-enable</code>：       //启动PHP扩展</p>
+<p><code>docker-php-ext-configure</code>： //添加扩展自定义配置，和enable搭配使用</p>
 <h2 id="zip">zip</h2>
 <p>安装zip扩展所需的依赖扩展</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apt-get update <span class="o">&amp;&amp;</span> apt-get install -y zlib1g-dev <span class="o">&amp;&amp;</span> apt-get install -y libzip-dev
@@ -132,6 +133,14 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker-php-ext-install gd
 </span></span></code></pre></div><h3 id="查看结果">查看结果</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">php -m <span class="p">|</span> grep gd
+</span></span></code></pre></div><h2 id="redis">redis</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pecl seach redis <span class="c1">#检索redis扩展</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pecl install redis <span class="c1">#安装</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker-php-ext-enable redis.so <span class="c1">#安装完成将redis.so 文件加入到配置文件</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">php -m  <span class="c1">#查看redis扩展就有了</span>
 </span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

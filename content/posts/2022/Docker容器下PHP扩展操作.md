@@ -14,8 +14,11 @@ docker容器下的PHP有自己特有的安装扩展方法：
 进入php容器$：```docker exec -it php /bin/bash```
 
 ```docker-php-source```：              //在容器中创建/usr/src/php文件夹
+
 ```docker-php-ext-install```：        //安装并启动扩展（常用）
+
 ```docker-php-ext-enable```：       //启动PHP扩展
+
 ```docker-php-ext-configure```： //添加扩展自定义配置，和enable搭配使用
 
 ## zip
@@ -70,6 +73,16 @@ php -m | grep gd
 ```
 
 
+## redis
+```shell
+pecl seach redis #检索redis扩展
+
+pecl install redis #安装
+
+docker-php-ext-enable redis.so #安装完成将redis.so 文件加入到配置文件
+
+php -m  #查看redis扩展就有了
+```
 
 
 

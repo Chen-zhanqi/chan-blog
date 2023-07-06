@@ -2,14 +2,17 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://chenzqi.cn/categories/2023/</loc><lastmod>2023-02-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://chenzqi.cn/categories/</loc><lastmod>2023-02-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://chenzqi.cn/</loc><lastmod>2023-02-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://chenzqi.cn/tags/docker/</loc><lastmod>2023-02-26T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/categories/2023/</loc><lastmod>2023-03-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/categories/</loc><lastmod>2023-03-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/</loc><lastmod>2023-03-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/tags/docker/</loc><lastmod>2023-03-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</loc><lastmod>2023-03-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/posts/</loc><lastmod>2023-03-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/tags/</loc><lastmod>2023-03-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/</loc><lastmod>2023-03-10T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</loc><lastmod>2023-03-01T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://chenzqi.cn/tags/linux/</loc><lastmod>2023-03-01T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</loc><lastmod>2023-02-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://chenzqi.cn/posts/</loc><lastmod>2023-02-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://chenzqi.cn/tags/</loc><lastmod>2023-02-26T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/</loc><lastmod>2023-02-26T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</loc><lastmod>2023-02-19T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</loc><lastmod>2023-02-18T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/tags/ai/</loc><lastmod>2023-01-20T00:00:00&#43;00:00</lastmod></url><url>
@@ -65,7 +68,6 @@
             <loc>https://chenzqi.cn/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/</loc><lastmod>2020-06-21T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</loc><lastmod>2020-06-13T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/tags/%E5%89%8D%E7%AB%AF/</loc><lastmod>2020-06-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://chenzqi.cn/tags/linux/</loc><lastmod>2020-06-06T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/</loc><lastmod>2020-06-06T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/tags/flask/</loc><lastmod>2020-05-29T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://chenzqi.cn/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/</loc><lastmod>2020-05-29T00:00:00&#43;00:00</lastmod></url><url>

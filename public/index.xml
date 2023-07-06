@@ -4,9 +4,25 @@
         <link>https://chenzqi.cn/</link>
         <description>Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://chenzqi.cn/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>php容器内安装SG11扩展</title>
+    <link>https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</link>
+    <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</guid>
+    <description><![CDATA[查看PHP_VERSION php -v | head -n1 | cut -d&#39; &#39; -f2 | cut -d. -f1-2 安装 mkdir -p /tmp/sourceguardian &amp;&amp; cd /tmp/sourceguardian curl -Os https://www.sourceguardian.com/loaders/download/loaders.linux-x86_64.tar.gz tar xzf loaders.linux-x86_64.tar.gz cp ixed.${PHP_VERSION}.lin &#34;$(php -i | grep &#39;^extension_dir =&#39; | cut -d&#39; &#39; -f3)/sourceguardian.so&#34; echo &#34;extension=sourceguardian.so&#34; &gt; /usr/local/etc/php/conf.d/15-sourceguardian.ini rm -rf /tmp/sourceguardian 重启容器&amp;]]></description>
+</item>
+<item>
+    <title>centos7修改服务器时区</title>
+    <link>https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</link>
+    <pubDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</guid>
+    <description><![CDATA[如果服务器上没有 /etc/timezone 文件，您可以尝试以下方法来更改时区为上海： 使用 root 或具有管理员权限的用户登录到服务器上。 运行以下命令以查看当前时区设置： timedatectl 在]]></description>
+</item>
+<item>
     <title>mysql_docker容器之间数据库迁移</title>
     <link>https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</link>
     <pubDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</pubDate>
@@ -69,22 +85,6 @@
     <author>Chan</author>
     <guid>https://chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</guid>
     <description><![CDATA[常用操作 docker容器下的PHP有自己特有的安装扩展方法： 进入php容器$：docker exec -it php /bin/bash docker-php-source： //在]]></description>
-</item>
-<item>
-    <title>Golang 接口请求高并发</title>
-    <link>https://chenzqi.cn/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/</link>
-    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/</guid>
-    <description><![CDATA[采用两级 channel，一级是将用户请求数据放入到 chan Job 中，这个 channel job 相当于待处理的任务队列。 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan]]></description>
-</item>
-<item>
-    <title>Nginx 优化静态文件访问</title>
-    <link>https://chenzqi.cn/posts/2022/nginx-%E4%BC%98%E5%8C%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE-/</link>
-    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/nginx-%E4%BC%98%E5%8C%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE-/</guid>
-    <description><![CDATA[Nginx 对于处理静态文件的效率要远高于 Web 框架，因为可以使用 gzip 压缩协议，减小静态文件的体积加快静态文件的加载速度、开启缓存和超时时间减少请求静态文件]]></description>
 </item>
 </channel>
 </rss>

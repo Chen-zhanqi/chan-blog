@@ -4,7 +4,15 @@
         <link>https://chenzqi.cn/tags/docker/</link>
         <description>Docker - Tag - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>php容器内安装SG11扩展</title>
+    <link>https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</link>
+    <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</pubDate>
+    <author>Chan</author>
+    <guid>https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</guid>
+    <description><![CDATA[查看PHP_VERSION php -v | head -n1 | cut -d&#39; &#39; -f2 | cut -d. -f1-2 安装 mkdir -p /tmp/sourceguardian &amp;&amp; cd /tmp/sourceguardian curl -Os https://www.sourceguardian.com/loaders/download/loaders.linux-x86_64.tar.gz tar xzf loaders.linux-x86_64.tar.gz cp ixed.${PHP_VERSION}.lin &#34;$(php -i | grep &#39;^extension_dir =&#39; | cut -d&#39; &#39; -f3)/sourceguardian.so&#34; echo &#34;extension=sourceguardian.so&#34; &gt; /usr/local/etc/php/conf.d/15-sourceguardian.ini rm -rf /tmp/sourceguardian 重启容器&amp;]]></description>
+</item>
+<item>
     <title>mysql_docker容器之间数据库迁移</title>
     <link>https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</link>
     <pubDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</pubDate>

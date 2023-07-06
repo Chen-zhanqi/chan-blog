@@ -4,34 +4,34 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>mysql_docker容器之间数据库迁移 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="mysql_docker容器之间数据库迁移" />
-<meta property="og:description" content="将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导出" />
+        <title>php容器内安装SG11扩展 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="php容器内安装SG11扩展" />
+<meta property="og:description" content="查看PHP_VERSION php -v | head -n1 | cut -d&#39; &#39; -f2 | cut -d. -f1-2 安装 mkdir -p /tmp/sourceguardian &amp;&amp; cd /tmp/sourceguardian curl -Os https://www.sourceguardian.com/loaders/download/loaders.linux-x86_64.tar.gz tar xzf loaders.linux-x86_64.tar.gz cp ixed.${PHP_VERSION}.lin &#34;$(php -i | grep &#39;^extension_dir =&#39; | cut -d&#39; &#39; -f3)/sourceguardian.so&#34; echo &#34;extension=sourceguardian.so&#34; &gt; /usr/local/etc/php/conf.d/15-sourceguardian.ini rm -rf /tmp/sourceguardian 重启容器&amp;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-02-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-02-26T00:00:00+00:00" />
+<meta property="og:url" content="https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-03-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="mysql_docker容器之间数据库迁移"/>
-<meta name="twitter:description" content="将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导出"/>
+<meta name="twitter:title" content="php容器内安装SG11扩展"/>
+<meta name="twitter:description" content="查看PHP_VERSION php -v | head -n1 | cut -d&#39; &#39; -f2 | cut -d. -f1-2 安装 mkdir -p /tmp/sourceguardian &amp;&amp; cd /tmp/sourceguardian curl -Os https://www.sourceguardian.com/loaders/download/loaders.linux-x86_64.tar.gz tar xzf loaders.linux-x86_64.tar.gz cp ixed.${PHP_VERSION}.lin &#34;$(php -i | grep &#39;^extension_dir =&#39; | cut -d&#39; &#39; -f3)/sourceguardian.so&#34; echo &#34;extension=sourceguardian.so&#34; &gt; /usr/local/etc/php/conf.d/15-sourceguardian.ini rm -rf /tmp/sourceguardian 重启容器&amp;"/>
 <meta name="application-name" content="Chan">
 <meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
 <link rel="icon" href="https://qn.chenzqi.cn/blog/img/logo.png"><link rel="apple-touch-icon" sizes="180x180" href="https://qn.chenzqi.cn/blog/img/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="Chan的博客">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/" /><link rel="prev" href="https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/" /><link rel="next" href="https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/" /><link rel="prev" href="https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "mysql_docker容器之间数据库迁移",
+        "headline": "php容器内安装SG11扩展",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/chenzqi.cn\/posts\/2023\/database-migration-between-mysql_docker-containers\/"
-        },"genre": "posts","keywords": "Docker","wordcount":  417 ,
-        "url": "https:\/\/chenzqi.cn\/posts\/2023\/database-migration-between-mysql_docker-containers\/","datePublished": "2023-02-26T00:00:00+00:00","dateModified": "2023-02-26T00:00:00+00:00","publisher": {
+            "@id": "https:\/\/chenzqi.cn\/posts\/2023\/install-the-sg-11-extension-in-the-php-container\/"
+        },"genre": "posts","keywords": "Docker","wordcount":  75 ,
+        "url": "https:\/\/chenzqi.cn\/posts\/2023\/install-the-sg-11-extension-in-the-php-container\/","datePublished": "2023-03-10T00:00:00+00:00","dateModified": "2023-03-10T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -80,9 +80,9 @@
                     <div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">mysql_docker容器之间数据库迁移</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">php容器内安装SG11扩展</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Chan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2023/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2023</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-26">2023-02-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;417 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-10">2023-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;75 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -93,42 +93,48 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#查看php_version">查看PHP_VERSION</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#重启容器验证">重启容器&amp;验证</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h6 id="将一个-mysql-容器中的数据库拷贝到另一个-mysql-容器时可能会出现表丢失的情况可能是因为正确地导出和导入表数据以下是一些可能的原因和解决方法">将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法</h6>
-<ol>
-<li>检查导出的 SQL 文件是否包含所有表的数据。您可以使用以下命令将数据导出到 SQL 文件中：</li>
-</ol>
-<p><code>mysqldump -u username -p database_name &gt; database_name.sql</code></p>
-<p>确保该命令已成功完成，并且导出的 SQL 文件包含所有表的数据。</p>
-<ol start="2">
-<li>检查导入的 SQL 文件是否正确。您可以使用以下命令将 SQL 文件导入到新的 MySQL 容器中：</li>
-</ol>
-<p><code>mysql -u username -p database_name &lt; database_name.sql</code></p>
-<p>确保该命令已成功完成，并且没有出现任何错误。</p>
-<ol start="3">
-<li>检查新的 MySQL 容器中的数据库是否与原始 MySQL 容器中的数据库具有相同的名称。如果名称不同，则表可能无法在新的容器中找到。您可以使用以下命令在 MySQL 容器中查看数据库列表：</li>
-</ol>
-<p><code>mysql -u username -p -e &quot;SHOW DATABASES;&quot;</code></p>
-<p>确保新的 MySQL 容器中存在与原始 MySQL 容器中相同名称的数据库。</p>
-<ol start="4">
-<li>检查新的 MySQL 容器中的用户权限是否正确。如果新的容器中的用户没有访问所有表的权限，则可能无法看到所有表。您可以使用以下命令在 MySQL 容器中查看用户权限：</li>
-</ol>
-<p><code>mysql -u username -p -e &quot;SHOW GRANTS FOR 'user';&quot;</code></p>
-<p>确保新的 MySQL 容器中的用户具有访问所有表的权限。</p>
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/chan-shen/CustomTool/main/chatwoot/chatwoot.css"/><script src="https://raw.githubusercontent.com/chan-shen/CustomTool/main/chatwoot/chatwoot.js"></script></div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><h3 id="查看php_version">查看PHP_VERSION</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">php -v <span class="p">|</span> head -n1 <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f2 <span class="p">|</span> cut -d. -f1-2
+</span></span></code></pre></div><h3 id="安装">安装</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir -p /tmp/sourceguardian <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /tmp/sourceguardian
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl -Os https://www.sourceguardian.com/loaders/download/loaders.linux-x86_64.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tar xzf loaders.linux-x86_64.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cp ixed.<span class="si">${</span><span class="nv">PHP_VERSION</span><span class="si">}</span>.lin <span class="s2">&#34;</span><span class="k">$(</span>php -i <span class="p">|</span> grep <span class="s1">&#39;^extension_dir =&#39;</span> <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f3<span class="k">)</span><span class="s2">/sourceguardian.so&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;extension=sourceguardian.so&#34;</span> &gt; /usr/local/etc/php/conf.d/15-sourceguardian.ini
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">rm -rf /tmp/sourceguardian
+</span></span></code></pre></div><h3 id="重启容器验证">重启容器&amp;验证</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&lt;?php
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> phpinfo<span class="o">()</span><span class="p">;</span>
+</span></span></code></pre></div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://qn.chenzqi.cn/blog/202307061845843.png"
+        data-srcset="https://qn.chenzqi.cn/blog/202307061845843.png, https://qn.chenzqi.cn/blog/202307061845843.png 1.5x, https://qn.chenzqi.cn/blog/202307061845843.png 2x"
+        data-sizes="auto"
+        alt="https://qn.chenzqi.cn/blog/202307061845843.png"
+        title="https://qn.chenzqi.cn/blog/202307061845843.png" /></p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-02-26</span>
+                <span>Updated on 2023-03-10</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/" data-title="mysql_docker容器之间数据库迁移" data-hashtags="Docker"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/" data-hashtag="Docker"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/" data-title="mysql_docker容器之间数据库迁移"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/" data-title="mysql_docker容器之间数据库迁移"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/" data-title="mysql_docker容器之间数据库迁移"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/" data-title="php容器内安装SG11扩展" data-hashtags="Docker"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/" data-hashtag="Docker"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/" data-title="php容器内安装SG11扩展"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/" data-title="php容器内安装SG11扩展"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/" data-title="php容器内安装SG11扩展"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -140,8 +146,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/2023/macdeletes-residual-navicat-configuration-file/" class="prev" rel="prev" title="mac清除navicat残留配置文件"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>mac清除navicat残留配置文件</a>
-            <a href="/posts/2023/centos7_changes_the_server_time_zone/" class="next" rel="next" title="centos7修改服务器时区">centos7修改服务器时区<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/2023/centos7_changes_the_server_time_zone/" class="prev" rel="prev" title="centos7修改服务器时区"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>centos7修改服务器时区</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

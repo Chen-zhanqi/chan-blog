@@ -16,7 +16,7 @@ categories:
 
 2. 运行以下命令以查看当前时区设置：
 
-   ```
+   ```shell
    timedatectl
    ```
 
@@ -24,7 +24,7 @@ categories:
 
 3. 运行以下命令以列出所有可用的时区：
 
-   ```
+   ```shell
    timedatectl list-timezones
    ```
 
@@ -34,7 +34,7 @@ categories:
 
 5. 运行以下命令以将服务器的时区更改为上海：
 
-   ```
+   ```shell
    timedatectl set-timezone Asia/Shanghai
    ```
 
@@ -42,7 +42,7 @@ categories:
 
 6. 最后，您可以再次运行以下命令来验证时区是否已成功更改：
 
-   ```
+   ```shell
    timedatectl
    ```
 

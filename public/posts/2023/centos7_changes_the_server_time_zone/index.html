@@ -97,26 +97,26 @@
 </li>
 <li>
 <p>运行以下命令以查看当前时区设置：</p>
-<pre tabindex="0"><code>timedatectl
-</code></pre><p>在输出中，找到 &ldquo;Time zone&rdquo; 行，该行显示了当前的时区设置。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">timedatectl
+</span></span></code></pre></div><p>在输出中，找到 &ldquo;Time zone&rdquo; 行，该行显示了当前的时区设置。</p>
 </li>
 <li>
 <p>运行以下命令以列出所有可用的时区：</p>
-<pre tabindex="0"><code>timedatectl list-timezones
-</code></pre><p>这将显示一个包含所有可用时区的列表。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">timedatectl list-timezones
+</span></span></code></pre></div><p>这将显示一个包含所有可用时区的列表。</p>
 </li>
 <li>
 <p>找到上海时区的名称，通常为 &ldquo;Asia/Shanghai&rdquo;。</p>
 </li>
 <li>
 <p>运行以下命令以将服务器的时区更改为上海：</p>
-<pre tabindex="0"><code>timedatectl set-timezone Asia/Shanghai
-</code></pre><p>这将更改服务器的时区设置为上海。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">timedatectl set-timezone Asia/Shanghai
+</span></span></code></pre></div><p>这将更改服务器的时区设置为上海。</p>
 </li>
 <li>
 <p>最后，您可以再次运行以下命令来验证时区是否已成功更改：</p>
-<pre tabindex="0"><code>timedatectl
-</code></pre><p>在输出中，确保 &ldquo;Time zone&rdquo; 行显示了新的上海时区设置。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">timedatectl
+</span></span></code></pre></div><p>在输出中，确保 &ldquo;Time zone&rdquo; 行显示了新的上海时区设置。</p>
 </li>
 </ol>
 <p>这些命令可能需要管理员权限才能执行。</p>

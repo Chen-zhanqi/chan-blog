@@ -32,14 +32,14 @@ enableEmoji = true
     # 一级菜单
     [[menu.main]]
         weight = 1
-        identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
         pre = "<i class='fas fa-fw fa-archive'></i>"
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
-        name = "归档"
+        identifier = "posts"
         url = "/posts/"
-        title = ""
+        name = "归档"
+        title = "归档"
 #     [[menu.main]]
 #         weight = 2
 #         identifier = ""
@@ -51,30 +51,34 @@ enableEmoji = true
     [[menu.main]]
         weight = 3
         pre = "<i class='fas fa-fw fa-fan fa-spin'></i>"
-        name = "友链"
         identifier = "friends"
         url = "/friends/"
+        name = "友链"
+        title = "友链"
     [[menu.main]]
         weight = 4
         pre = "<i class='fas fa-fw fa-search'></i>"
-        name = "搜索"
         identifier = "search"
         url = "/search/"
+        name = "搜索"
+        title = "搜索"
     [[menu.main]]
         weight = 5
         pre = "<i class='fas fa-fw fa-at'></i>"
-        name = "相册"
         identifier = ""
         url = "/about/photo/"
+        name = "相册"
+        title = "相册"
 
     # 二级菜单
     [[menu.main]]
         weight = 1
         parent = "posts"
         pre = "<i class='fas fa-fw fa-th'></i>"
-        name = "分类"
         identifier = "categories"
         url = "/categories/"
+        name = "分类"
+        title = "分类"
     [[menu.main]]
         weight = 2
         parent = "posts"
@@ -82,9 +86,9 @@ enableEmoji = true
         pre = "<i class='fas fa-fw fa-tag'></i>"
         # 跳转新标签页打开
         # post = "_blank"
-        name = "标签"
         url = "/tags/"
-        title = ""
+        name = "标签"
+        title = "标签"
 
 # Hugo 解析文档的配置
 [markup]

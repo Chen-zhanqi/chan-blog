@@ -4,7 +4,7 @@ title: "相册"
 
 ### 随着快门📸的开启，时间被凝固下来，作为”此时此刻”的记录是不可重复的，也就成为永远。🏞
 
-{{< admonition abstract 2022-8迪士尼 false >}}
+{{< admonition abstract 迪士尼 false >}}
 迪士尼之旅 🎡🎢
 
 交通：🚅 🚇
@@ -33,7 +33,7 @@ chatgpt：当你走进迪士尼乐园，你会仿佛进入了一个充满奇幻�
 
 
 
-{{< admonition abstract 2022-3百井坊巷-西湖 false >}}
+{{< admonition abstract 百井坊巷-西湖 false >}}
 百井坊巷-西湖 🌅 🌺
 
 交通：🚇 🛵

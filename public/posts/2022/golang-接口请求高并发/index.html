@@ -4,15 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Golang 接口请求高并发 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="Golang 接口请求高并发" />
-<meta property="og:description" content="采用两级 channel，一级是将用户请求数据放入到 chan Job 中，这个 channel job 相当于待处理的任务队列。 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://chenzqi.cn/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-06-20T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-06-20T00:00:00+00:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Golang 接口请求高并发"/>
-<meta name="twitter:description" content="采用两级 channel，一级是将用户请求数据放入到 chan Job 中，这个 channel job 相当于待处理的任务队列。 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan"/>
+        <title>Golang 接口请求高并发 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:url" content="https://chenzqi.cn/posts/2022/golang-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E9%AB%98%E5%B9%B6%E5%8F%91/">
+  <meta property="og:site_name" content="Chan-技术与生活">
+  <meta property="og:title" content="Golang 接口请求高并发">
+  <meta property="og:description" content="采用两级 channel，一级是将用户请求数据放入到 chan Job 中，这个 channel job 相当于待处理的任务队列。 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-06-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-06-20T00:00:00+00:00">
+    <meta property="article:tag" content="Golang">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Golang 接口请求高并发">
+<meta name="twitter:description" content="采用两级 channel，一级是将用户请求数据放入到 chan Job 中，这个 channel job 相当于待处理的任务队列。 另一级用来存放可以处理任务的 work 缓存队列，类型为 chan chan">
 <meta name="application-name" content="Chan">
 <meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
@@ -232,7 +235,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/golang/">golang</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/golang/">Golang</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
@@ -247,7 +250,7 @@
             
             <div class="footer-line">
                 <span id="run-time"></span>
-            </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+            </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a target='_blank' href='http://www.beian.miit.gov.cn/' style='font-weight:500'>豫ICP备2021019462</a></span></div>
         </div>
     </footer>

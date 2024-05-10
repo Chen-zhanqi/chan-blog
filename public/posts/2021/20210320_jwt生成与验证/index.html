@@ -4,15 +4,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>jwt 生成与验证 - Python - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="jwt 生成与验证 - Python" />
-<meta property="og:description" content="生成与验证 data: 自定义数据, 如 {&#39;username&#39;:user_name, &#39;user_id&#39;: user_info.id} 验证通过后在payload中获取 import jwt from datetime import datetime,timedelta SECRECT_KEY = b&#39;\x92R!\x8e\xc6\x9c\xb3\x89#\xa6\x0c\xcb\xf6\xcb\xd7\xc&#39; def genToken(data): expInt = datetime.utcnow() &#43; timedelta(days=1) iat = datetime.utcnow() payload = { &#39;exp&#39;: expInt, &#39;iat&#39;: iat, &#39;data&#39;: data } token = jwt.encode(payload, key = SECRECT_KEY, algorithm=&#39;HS256&#39;) return bytes.decode(token)" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://chenzqi.cn/posts/2021/20210320_jwt%E7%94%9F%E6%88%90%E4%B8%8E%E9%AA%8C%E8%AF%81/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-03-20T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-03-20T00:00:00+00:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="jwt 生成与验证 - Python"/>
-<meta name="twitter:description" content="生成与验证 data: 自定义数据, 如 {&#39;username&#39;:user_name, &#39;user_id&#39;: user_info.id} 验证通过后在payload中获取 import jwt from datetime import datetime,timedelta SECRECT_KEY = b&#39;\x92R!\x8e\xc6\x9c\xb3\x89#\xa6\x0c\xcb\xf6\xcb\xd7\xc&#39; def genToken(data): expInt = datetime.utcnow() &#43; timedelta(days=1) iat = datetime.utcnow() payload = { &#39;exp&#39;: expInt, &#39;iat&#39;: iat, &#39;data&#39;: data } token = jwt.encode(payload, key = SECRECT_KEY, algorithm=&#39;HS256&#39;) return bytes.decode(token)"/>
+        <title>jwt 生成与验证 - Python - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:url" content="https://chenzqi.cn/posts/2021/20210320_jwt%E7%94%9F%E6%88%90%E4%B8%8E%E9%AA%8C%E8%AF%81/">
+  <meta property="og:site_name" content="Chan-技术与生活">
+  <meta property="og:title" content="jwt 生成与验证 - Python">
+  <meta property="og:description" content="生成与验证 data: 自定义数据, 如 {&#39;username&#39;:user_name, &#39;user_id&#39;: user_info.id} 验证通过后在payload中获取 import jwt from datetime import datetime,timedelta SECRECT_KEY = b&#39;\x92R!\x8e\xc6\x9c\xb3\x89#\xa6\x0c\xcb\xf6\xcb\xd7\xc&#39; def genToken(data): expInt = datetime.utcnow() &#43; timedelta(days=1) iat = datetime.utcnow() payload = { &#39;exp&#39;: expInt, &#39;iat&#39;: iat, &#39;data&#39;: data } token = jwt.encode(payload, key = SECRECT_KEY, algorithm=&#39;HS256&#39;) return bytes.decode(token)">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-03-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-03-20T00:00:00+00:00">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="jwt 生成与验证 - Python">
+<meta name="twitter:description" content="生成与验证 data: 自定义数据, 如 {&#39;username&#39;:user_name, &#39;user_id&#39;: user_info.id} 验证通过后在payload中获取 import jwt from datetime import datetime,timedelta SECRECT_KEY = b&#39;\x92R!\x8e\xc6\x9c\xb3\x89#\xa6\x0c\xcb\xf6\xcb\xd7\xc&#39; def genToken(data): expInt = datetime.utcnow() &#43; timedelta(days=1) iat = datetime.utcnow() payload = { &#39;exp&#39;: expInt, &#39;iat&#39;: iat, &#39;data&#39;: data } token = jwt.encode(payload, key = SECRECT_KEY, algorithm=&#39;HS256&#39;) return bytes.decode(token)">
 <meta name="application-name" content="Chan">
 <meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
@@ -138,7 +142,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/web/">web</a>,&nbsp;<a href="/tags/python/">python</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/web/">Web</a>,&nbsp;<a href="/tags/python/">Python</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
@@ -153,7 +157,7 @@
             
             <div class="footer-line">
                 <span id="run-time"></span>
-            </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+            </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a target='_blank' href='http://www.beian.miit.gov.cn/' style='font-weight:500'>豫ICP备2021019462</a></span></div>
         </div>
     </footer>

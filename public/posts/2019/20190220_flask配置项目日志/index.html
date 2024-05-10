@@ -4,15 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Flask配置项目日志 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:title" content="Flask配置项目日志" />
-<meta property="og:description" content="把日志相关的配置封装成一个日志初始化函数 import logging from logging.handlers import RotatingFileHandler ...... def setup_log(config_name): dir_file = os.path.abspath(__file__) dir_info = os.path.dirname(dir_file) dir_base = os.path.dirname(dir_info) dir_log = os.path.join(dir_base, &#39;logs/log&#39;) # 设置日志的记录等级 logging.basicConfig(level=config_dict[config_name].LOG_LEVEL) # 调试debug级 # 创建日志记录器" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://chenzqi.cn/posts/2019/20190220_flask%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-02-20T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-02-20T00:00:00+00:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Flask配置项目日志"/>
-<meta name="twitter:description" content="把日志相关的配置封装成一个日志初始化函数 import logging from logging.handlers import RotatingFileHandler ...... def setup_log(config_name): dir_file = os.path.abspath(__file__) dir_info = os.path.dirname(dir_file) dir_base = os.path.dirname(dir_info) dir_log = os.path.join(dir_base, &#39;logs/log&#39;) # 设置日志的记录等级 logging.basicConfig(level=config_dict[config_name].LOG_LEVEL) # 调试debug级 # 创建日志记录器"/>
+        <title>Flask配置项目日志 - Chan-技术与生活</title><meta name="Description" content=""><meta property="og:url" content="https://chenzqi.cn/posts/2019/20190220_flask%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">
+  <meta property="og:site_name" content="Chan-技术与生活">
+  <meta property="og:title" content="Flask配置项目日志">
+  <meta property="og:description" content="把日志相关的配置封装成一个日志初始化函数 import logging from logging.handlers import RotatingFileHandler ...... def setup_log(config_name): dir_file = os.path.abspath(__file__) dir_info = os.path.dirname(dir_file) dir_base = os.path.dirname(dir_info) dir_log = os.path.join(dir_base, &#39;logs/log&#39;) # 设置日志的记录等级 logging.basicConfig(level=config_dict[config_name].LOG_LEVEL) # 调试debug级 # 创建日志记录器">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-02-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2019-02-20T00:00:00+00:00">
+    <meta property="article:tag" content="框架">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Flask配置项目日志">
+<meta name="twitter:description" content="把日志相关的配置封装成一个日志初始化函数 import logging from logging.handlers import RotatingFileHandler ...... def setup_log(config_name): dir_file = os.path.abspath(__file__) dir_info = os.path.dirname(dir_file) dir_base = os.path.dirname(dir_info) dir_log = os.path.join(dir_base, &#39;logs/log&#39;) # 设置日志的记录等级 logging.basicConfig(level=config_dict[config_name].LOG_LEVEL) # 调试debug级 # 创建日志记录器">
 <meta name="application-name" content="Chan">
 <meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
@@ -155,7 +158,7 @@
             
             <div class="footer-line">
                 <span id="run-time"></span>
-            </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+            </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a target='_blank' href='http://www.beian.miit.gov.cn/' style='font-weight:500'>豫ICP备2021019462</a></span></div>
         </div>
     </footer>

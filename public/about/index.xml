@@ -4,27 +4,24 @@
     <title>Abouts on Chan-技术与生活</title>
     <link>https://chenzqi.cn/about/</link>
     <description>Recent content in Abouts on Chan-技术与生活</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-CN</language>
     <managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-    <webMaster>czq181020@gmail.com (Chan)</webMaster><atom:link href="https://chenzqi.cn/about/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>czq181020@gmail.com (Chan)</webMaster>
+    <atom:link href="https://chenzqi.cn/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
       <link>https://chenzqi.cn/about/%E5%85%B3%E4%BA%8E/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>czq181020@gmail.com (Chan)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>czq181020@gmail.com (Chan)</author>
       <guid>https://chenzqi.cn/about/%E5%85%B3%E4%BA%8E/</guid>
       <description>年轻的时候，我们都有一个梦想，长大以后要带着父母环游世界。 但是等我们真正成年或者娶妻生子了，却总是忘了和父母联系。 不记得他们的生日，也不关心</description>
     </item>
-    
     <item>
       <title>相册</title>
       <link>https://chenzqi.cn/about/photo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>czq181020@gmail.com (Chan)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>czq181020@gmail.com (Chan)</author>
       <guid>https://chenzqi.cn/about/photo/</guid>
       <description>随着快门📸的开启，时间被凝固下来，作为”此时此刻”的记录是不可重复的，也就成为永远。🏞 2022-8迪士尼 迪士尼之旅 🎡🎢 交通：🚅 🚇 天气：🌦 ch</description>
     </item>
-    
   </channel>
 </rss>

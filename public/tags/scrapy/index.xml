@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>scrapy - Tag - Chan-技术与生活</title>
+        <title>Scrapy - Tag - Chan-技术与生活</title>
         <link>https://chenzqi.cn/tags/scrapy/</link>
-        <description>scrapy - Tag - Chan-技术与生活</description>
+        <description>Scrapy - Tag - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
             <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Tue, 19 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/scrapy/" rel="self" type="application/rss+xml" /><item>
     <title>Scrapy同时运行多个爬虫</title>

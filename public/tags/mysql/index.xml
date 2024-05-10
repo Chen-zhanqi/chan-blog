@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>mysql - Tag - Chan-技术与生活</title>
+        <title>Mysql - Tag - Chan-技术与生活</title>
         <link>https://chenzqi.cn/tags/mysql/</link>
-        <description>mysql - Tag - Chan-技术与生活</description>
+        <description>Mysql - Tag - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
             <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Mon, 20 Jul 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/mysql/" rel="self" type="application/rss+xml" /><item>
     <title>PyQt5多页面跳转</title>

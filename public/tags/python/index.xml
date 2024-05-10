@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>python - Tag - Chan-技术与生活</title>
+        <title>Python - Tag - Chan-技术与生活</title>
         <link>https://chenzqi.cn/tags/python/</link>
-        <description>python - Tag - Chan-技术与生活</description>
+        <description>Python - Tag - Chan-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
             <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sat, 10 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/python/" rel="self" type="application/rss+xml" /><item>
     <title>pyinstaller打包scrapy项目</title>
@@ -46,10 +46,10 @@
 </item>
 <item>
     <title>JS逆向 - Python调用JS代码</title>
-    <link>https://chenzqi.cn/posts/2020/20200511_js-%E9%80%86%E5%90%91-python-%E8%B0%83%E7%94%A8js%E4%BB%A3%E7%A0%81/</link>
+    <link>https://chenzqi.cn/posts/2020/20200511_js-%E9%80%86%E5%90%91--python-%E8%B0%83%E7%94%A8js%E4%BB%A3%E7%A0%81/</link>
     <pubDate>Mon, 11 May 2020 00:00:00 &#43;0000</pubDate>
     <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2020/20200511_js-%E9%80%86%E5%90%91-python-%E8%B0%83%E7%94%A8js%E4%BB%A3%E7%A0%81/</guid>
+    <guid>https://chenzqi.cn/posts/2020/20200511_js-%E9%80%86%E5%90%91--python-%E8%B0%83%E7%94%A8js%E4%BB%A3%E7%A0%81/</guid>
     <description><![CDATA[:::tip 使用python执行JS代码 ::: 简介 对于简单的 JS 来说，可以通过 Python 代码，直接重写，轻轻松松的就能搞定。 而对于复的 JS 代码，由于代码过于复杂，重写]]></description>
 </item>
 <item>

@@ -1,31 +1,31 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>问题 - Tag - Chan-技术与生活</title>
-        <link>https://chenzqi.cn/tags/%E9%97%AE%E9%A2%98/</link>
-        <description>问题 - Tag - Chan-技术与生活</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/%E9%97%AE%E9%A2%98/" rel="self" type="application/rss+xml" /><item>
+        <title>问题 - Tag - 辰深-技术与生活</title>
+        <link>https://www.chenzqi.cn/tags/%E9%97%AE%E9%A2%98/</link>
+        <description>问题 - Tag - 辰深-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/%E9%97%AE%E9%A2%98/" rel="self" type="application/rss+xml" /><item>
     <title>macos升级后git相关命令错误</title>
-    <link>https://chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</link>
+    <link>https://www.chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</guid>
     <description><![CDATA[场景 macbook升级到macos big sur 11.7.6，git clone、push相关命令突然报错:kex_exchange_identific]]></description>
 </item>
 <item>
     <title>macOS安装Homebrew问题</title>
-    <link>https://chenzqi.cn/posts/2020/20200401_macos%E5%AE%89%E8%A3%85homebrew%E9%97%AE%E9%A2%98/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200401_macos%E5%AE%89%E8%A3%85homebrew%E9%97%AE%E9%A2%98/</link>
     <pubDate>Wed, 01 Apr 2020 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2020/20200401_macos%E5%AE%89%E8%A3%85homebrew%E9%97%AE%E9%A2%98/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2020/20200401_macos%E5%AE%89%E8%A3%85homebrew%E9%97%AE%E9%A2%98/</guid>
     <description><![CDATA[Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能 问题： macOS安装Homebrew]]></description>
 </item>
 <item>
     <title>Windows下编辑shell脚本编码问题</title>
-    <link>https://chenzqi.cn/posts/2019/20190406_windows%E4%B8%8B%E7%BC%96%E8%BE%91shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/</link>
+    <link>https://www.chenzqi.cn/posts/2019/20190406_windows%E4%B8%8B%E7%BC%96%E8%BE%91shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/</link>
     <pubDate>Sat, 06 Apr 2019 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2019/20190406_windows%E4%B8%8B%E7%BC%96%E8%BE%91shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2019/20190406_windows%E4%B8%8B%E7%BC%96%E8%BE%91shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/</guid>
     <description><![CDATA[::: warning Windows下编辑shell脚本编码问题 在windows下编辑的文件远程传送到linux下的时候每行末尾都会出现^M，这将导致shel]]></description>
 </item>
 </channel>

@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Tags - Tag - Chan-技术与生活</title>
-        <link>https://chenzqi.cn/tags/</link>
-        <description>Tags - Tag - Chan-技术与生活</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/" rel="self" type="application/rss+xml" /><item>
+        <title>Tags - Tag - 辰深-技术与生活</title>
+        <link>https://www.chenzqi.cn/tags/</link>
+        <description>Tags - Tag - 辰深-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Docker</title>
-    <link>https://chenzqi.cn/tags/docker/</link>
+    <link>https://www.chenzqi.cn/tags/docker/</link>
     <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/docker/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/docker/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Linux</title>
-    <link>https://chenzqi.cn/tags/linux/</link>
+    <link>https://www.chenzqi.cn/tags/linux/</link>
     <pubDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/linux/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/linux/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Ai</title>
-    <link>https://chenzqi.cn/tags/ai/</link>
+    <link>https://www.chenzqi.cn/tags/ai/</link>
     <pubDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/ai/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/ai/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Chatgpt</title>
-    <link>https://chenzqi.cn/tags/chatgpt/</link>
+    <link>https://www.chenzqi.cn/tags/chatgpt/</link>
     <pubDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/chatgpt/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/chatgpt/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>记录</title>
-    <link>https://chenzqi.cn/tags/%E8%AE%B0%E5%BD%95/</link>
+    <link>https://www.chenzqi.cn/tags/%E8%AE%B0%E5%BD%95/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/%E8%AE%B0%E5%BD%95/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/%E8%AE%B0%E5%BD%95/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>问题</title>
-    <link>https://chenzqi.cn/tags/%E9%97%AE%E9%A2%98/</link>
+    <link>https://www.chenzqi.cn/tags/%E9%97%AE%E9%A2%98/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/%E9%97%AE%E9%A2%98/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/%E9%97%AE%E9%A2%98/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Golang</title>
-    <link>https://chenzqi.cn/tags/golang/</link>
+    <link>https://www.chenzqi.cn/tags/golang/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/golang/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/golang/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Nginx</title>
-    <link>https://chenzqi.cn/tags/nginx/</link>
+    <link>https://www.chenzqi.cn/tags/nginx/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/nginx/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/nginx/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>数据库</title>
-    <link>https://chenzqi.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <link>https://www.chenzqi.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>工具</title>
-    <link>https://chenzqi.cn/tags/%E5%B7%A5%E5%85%B7/</link>
+    <link>https://www.chenzqi.cn/tags/%E5%B7%A5%E5%85%B7/</link>
     <pubDate>Thu, 06 May 2021 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/tags/%E5%B7%A5%E5%85%B7/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/tags/%E5%B7%A5%E5%85%B7/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

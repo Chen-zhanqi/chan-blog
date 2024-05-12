@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>前端 - Tag - Chan-技术与生活</title>
-        <link>https://chenzqi.cn/tags/%E5%89%8D%E7%AB%AF/</link>
-        <description>前端 - Tag - Chan-技术与生活</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Sat, 13 Jun 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/%E5%89%8D%E7%AB%AF/" rel="self" type="application/rss+xml" /><item>
+        <title>前端 - Tag - 辰深-技术与生活</title>
+        <link>https://www.chenzqi.cn/tags/%E5%89%8D%E7%AB%AF/</link>
+        <description>前端 - Tag - 辰深-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Sat, 13 Jun 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/%E5%89%8D%E7%AB%AF/" rel="self" type="application/rss+xml" /><item>
     <title>VUE搭建后台管理系统</title>
-    <link>https://chenzqi.cn/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</link>
     <pubDate>Sat, 13 Jun 2020 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2020/20200613_vue%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</guid>
     <description><![CDATA[:::tip Vue + Element-UI 搭建后台管理系统模型 ::: 线上测试地址]]></description>
 </item>
 <item>
     <title>Live Server 实时服务器</title>
-    <link>https://chenzqi.cn/posts/2020/20200504_live-server/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200504_live-server/</link>
     <pubDate>Mon, 04 May 2020 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2020/20200504_live-server/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2020/20200504_live-server/</guid>
     <description><![CDATA[:::tip 一个具有实时重新加载功能的小型开发服务器 ::: 简介 这是一个具有实时重新加载功能的小型开发服务器。使用它来入侵您的HTML / JavaScript / CSS文件，而不]]></description>
 </item>
 </channel>

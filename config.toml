@@ -1,10 +1,10 @@
-baseURL = "https://chenzqi.cn/"
+baseURL = "https://www.chenzqi.cn/"
 
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = ["LoveIt"]
 
 # 网站标题
-title = "Chan-技术与生活"
+title = "辰深-技术与生活"
 
 # 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
 languageCode = "zh-CN"
@@ -23,7 +23,7 @@ enableEmoji = true
 
 # 作者配置
 [author]
-    name = "Chan"
+    name = "辰深"
     email = "czq181020@gmail.com"
     link = ""
 
@@ -40,19 +40,11 @@ enableEmoji = true
         url = "/posts/"
         name = "归档"
         title = "归档"
-#     [[menu.main]]
-#         weight = 2
-#         identifier = ""
-#         pre = "<i class='fas fa-fw fa-at'></i>"
-#         post = ""
-#         name = "关于"
-#         url = "/about/关于/"
-#         title = ""
     [[menu.main]]
         weight = 3
         pre = "<i class='fas fa-fw fa-fan fa-spin'></i>"
-        identifier = "friends"
-        url = "/friends/"
+        identifier = ""
+        url = "/about/friends/"
         name = "友链"
         title = "友链"
     [[menu.main]]
@@ -69,6 +61,13 @@ enableEmoji = true
         url = "/about/photo/"
         name = "相册"
         title = "相册"
+    [[menu.main]]
+        weight = 7
+        pre = "<i class='fas fa-address-card fa-fw'></i>"
+        identifier = ""
+        url = "/about-me/"
+        name = "关于"
+        title = "关于"
 
     # 二级菜单
     [[menu.main]]
@@ -99,10 +98,17 @@ enableEmoji = true
     [markup.goldmark.renderer]
         # 解除禁用HTML代码
         unsafe = true
+
 [params]
     [params.app]
         [params.search]
             enable = false
+
+    # Header config
+    # 页面头部导航栏配置
+    [params.header.title]
+        name = "辰深·CS"
+        pre = "<i class=\"far fa-kiss-wink-heart fa-fw\" aria-hidden=\"true\"></i>"
 
     # Footer config
     # 页面底部信息配置
@@ -110,7 +116,7 @@ enableEmoji = true
         enable = true
         # Custom content (HTML format is supported)
         # 自定义内容 (支持 HTML 格式)
-        custom = ""
+        custom = "<a target='_blank' href='https://gohugo.io/'><img style='width: 70px; height: 20px;' src='https://gohugo.io/images/hugo-logo-wide.svg'></a>"
         # whether to show Hugo and theme info
         # 是否显示 Hugo 和主题信息
         hugo = false
@@ -125,10 +131,10 @@ enableEmoji = true
         since = 2018
         # ICP info only in China (HTML format is supported)
         # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
-        icp = "<a target='_blank' href='http://www.beian.miit.gov.cn/' style='font-weight:500'>豫ICP备2021019462</a>"
+        icp = "<a target='_blank' href='https://beian.mps.gov.cn/' style='font-weight:500'>豫ICP备2021019462</a>"
         # license info (HTML format is supported)
         # 许可协议信息 (支持 HTML 格式)
-        license= "<a rel=\"license external nofollow noopener noreffer\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">CC BY-NC 4.0</a>"
+        license= "<a rel='license external nofollow noopener noreffer' href='https://creativecommons.org/licenses/by-nc/4.0/' target='_blank'>CC BY-NC 4.0</a>"
 
     # Home page config
     # 主页信息设置
@@ -151,7 +157,7 @@ enableEmoji = true
             title = ""
             # subtitle shown in home page (HTML format is supported)
             # 主页显示的网站副标题 (允许 HTML 格式)
-            subtitle = "停在港口的⛵是安全的，但这不是造⛵的目的."
+            subtitle = "⛵停在港口的船是安全的，但这不是造船的目的."
             # whether to use typeit animation for subtitle
             # 是否为副标题显示打字机动画
             typeit = true
@@ -164,7 +170,7 @@ enableEmoji = true
             # Home page posts
             # 主页文章列表
             [params.home.posts]
-            enable = true
-            # special amount of posts in each home posts page
-            # 主页每页显示文章数量
-            paginate = 6
+                enable = true
+                # special amount of posts in each home posts page
+                # 主页每页显示文章数量
+                paginate = 6

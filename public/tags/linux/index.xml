@@ -1,39 +1,39 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Linux - Tag - Chan-技术与生活</title>
-        <link>https://chenzqi.cn/tags/linux/</link>
-        <description>Linux - Tag - Chan-技术与生活</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/linux/" rel="self" type="application/rss+xml" /><item>
+        <title>Linux - Tag - 辰深-技术与生活</title>
+        <link>https://www.chenzqi.cn/tags/linux/</link>
+        <description>Linux - Tag - 辰深-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/linux/" rel="self" type="application/rss+xml" /><item>
     <title>centos7修改服务器时区</title>
-    <link>https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</link>
+    <link>https://www.chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</link>
     <pubDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</guid>
     <description><![CDATA[如果服务器上没有 /etc/timezone 文件，您可以尝试以下方法来更改时区为上海： 使用 root 或具有管理员权限的用户登录到服务器上。 运行以下命令以查看当前时区设置： timedatectl 在]]></description>
 </item>
 <item>
     <title>linux防火墙端口设置</title>
-    <link>https://chenzqi.cn/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/</link>
     <pubDate>Sat, 06 Jun 2020 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2020/20200606_linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE/</guid>
     <description><![CDATA[关闭某个端口 firewall-cmd --permanent --zone=public --remove-port=8080/tcp 打开某个端口 firewall-cmd --permanent --add-port=10086/tcp 重新加载防火墙策略 firewall-cmd --reload 查看防火墙端口开放情况 firewall-cmd --list-ports]]></description>
 </item>
 <item>
     <title>CentOS安装配置jdk</title>
-    <link>https://chenzqi.cn/posts/2019/20190120_centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEjdk/</link>
+    <link>https://www.chenzqi.cn/posts/2019/20190120_centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEjdk/</link>
     <pubDate>Sun, 20 Jan 2019 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2019/20190120_centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEjdk/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2019/20190120_centos%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEjdk/</guid>
     <description><![CDATA[下载所需JDK包 官网下载 JDK包下载： 提取码：2knq 创建存放JDK包文件夹 通过xftp上传至服务器指定路径 [root@ ~]# mkdir /usr/local/java [root@ ~]# cd /usr/local/java [root@ ~]# tar -zxvf ... 配置环]]></description>
 </item>
 <item>
     <title>sh脚本编码异常：binsh^Mbad interpreter No such file or directory</title>
-    <link>https://chenzqi.cn/posts/2019/20190111_sh%E8%84%9A%E6%9C%AC%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%BC%82%E5%B8%B8/</link>
+    <link>https://www.chenzqi.cn/posts/2019/20190111_sh%E8%84%9A%E6%9C%AC%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%BC%82%E5%B8%B8/</link>
     <pubDate>Thu, 10 Jan 2019 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2019/20190111_sh%E8%84%9A%E6%9C%AC%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%BC%82%E5%B8%B8/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2019/20190111_sh%E8%84%9A%E6%9C%AC%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E5%BC%82%E5%B8%B8/</guid>
     <description><![CDATA[sh脚本异常：/bin/sh^M:bad interpreter: No such file or directory 分析：这是不同系统编码格式引起的：在windows系统中编辑的.sh文件可能有不可见字符]]></description>
 </item>
 </channel>

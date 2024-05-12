@@ -72,10 +72,10 @@ figcaption {
   display: none !important;
 }
 
-img[data-sizes="auto"] {
-  display: block;
-  /*    width: 50%;*/
-}
+//img[data-sizes="auto"] {
+//  display: block;
+//  /*    width: 50%;*/
+//}
 
 
 /* 菜单栏 */
@@ -351,6 +351,7 @@ img.site-avatar-plug-bilibili {
   margin: 1rem 0;
   padding: 0 1rem;
 }
+
 
 /* 文章脚部 */
 .page.single .post-footer {

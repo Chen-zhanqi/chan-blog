@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>技术 - Category - Chan-技术与生活</title>
-        <link>https://chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/</link>
-        <description>技术 - Category - Chan-技术与生活</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+        <title>技术 - Category - 辰深-技术与生活</title>
+        <link>https://www.chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/</link>
+        <description>技术 - Category - 辰深-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
     <title>php容器内安装SG11扩展</title>
-    <link>https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</link>
+    <link>https://www.chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</link>
     <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</guid>
     <description><![CDATA[查看PHP_VERSION php -v | head -n1 | cut -d&#39; &#39; -f2 | cut -d. -f1-2 安装 mkdir -p /tmp/sourceguardian &amp;&amp; cd /tmp/sourceguardian curl -Os https://www.sourceguardian.com/loaders/download/loaders.linux-x86_64.tar.gz tar xzf loaders.linux-x86_64.tar.gz cp ixed.${PHP_VERSION}.lin &#34;$(php -i | grep &#39;^extension_dir =&#39; | cut -d&#39; &#39; -f3)/sourceguardian.so&#34; echo &#34;extension=sourceguardian.so&#34; &gt; /usr/local/etc/php/conf.d/15-sourceguardian.ini rm -rf /tmp/sourceguardian 重启容器&amp;]]></description>
 </item>
 <item>
     <title>centos7修改服务器时区</title>
-    <link>https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</link>
+    <link>https://www.chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</link>
     <pubDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</guid>
     <description><![CDATA[如果服务器上没有 /etc/timezone 文件，您可以尝试以下方法来更改时区为上海： 使用 root 或具有管理员权限的用户登录到服务器上。 运行以下命令以查看当前时区设置： timedatectl 在]]></description>
 </item>
 <item>
     <title>mysql_docker容器之间数据库迁移</title>
-    <link>https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</link>
+    <link>https://www.chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</link>
     <pubDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</guid>
     <description><![CDATA[将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导出]]></description>
 </item>
 <item>
     <title>mac清除navicat残留配置文件</title>
-    <link>https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</link>
+    <link>https://www.chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</link>
     <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</guid>
     <description><![CDATA[sudo rm -Rf /Applications/Navicat\ Premium.app sudo rm -Rf /private/var/db/BootCaches/CB6F12B3-2C14-461E-B5A7-A8621B7FF130/app.com.prect.NavicatPremium.playlist sudo rm -Rf ~/Library/Caches/com.apple.helpd/SDMHelpData/Other/English/HelpSDMIndexFile/com.prect.NavicatPremium.help sudo rm -Rf ~/Library/Caches/com.apple.helpd/SDMHelpData/Other/zh_CN/HelpSDMIndexFile/com.prect.NavicatPremium.help sudo rm -Rf ~/Library/Preferences/com.prect.NavicatPremium.plist sudo rm -Rf ~/Library/Application\ Support/CrashReporter/Navicat\ Premium_54EDA2E9-528D-5778-A528-BBF9A4CE8BDC.plist sudo rm -Rf ~/Library/Application\ Support/PremiumSoft\ CyberTech]]></description>
 </item>
 <item>
     <title>docker-compose安装nginx,mysql,redis,postgres</title>
-    <link>https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</link>
+    <link>https://www.chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</link>
     <pubDate>Sat, 18 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</guid>
     <description><![CDATA[tree结构 docker ├── compose │ ├── db │ └── nginx ├── mysql │ ├── data │ └── my.cnf ├── nginx │ ├── conf.d │ ├── etc │ ├── html │ ├── logs │ ├── nginx.conf │ └── www └]]></description>
 </item>
 <item>
     <title>ChatGPT接入微信机器人</title>
-    <link>https://chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
+    <link>https://www.chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
     <pubDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
     <description><![CDATA[网页版体验 微信小程序体验 如果没有编程基础，可以直接WX扫码使用封装好ChatGPT的小程序体验 1. OpenAI账号注册 OpenAI注册地址需要]]></description>
 </item>
 <item>
     <title>macos升级后git相关命令错误</title>
-    <link>https://chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</link>
+    <link>https://www.chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</guid>
     <description><![CDATA[场景 macbook升级到macos big sur 11.7.6，git clone、push相关命令突然报错:kex_exchange_identific]]></description>
 </item>
 <item>
     <title>CS系统相关</title>
-    <link>https://chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</link>
+    <link>https://www.chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</guid>
     <description><![CDATA[cs gocron web&amp;node gocron-web nohup ./gocron-linux-amd64/gocron web &gt; /opt/server/gocron/log/gocron_web.log 2&gt;&amp;1 &amp; gocron-node nohup sudo -u gocron ./gocron-node-linux-amd64/gocron-node &gt; /opt/server/gocron/log/gocron_node.log 2&gt;&amp;1 &amp; cs web vue cd /opt/docker/nginx/html/gin-web/ git pull docker restart nginx cs server gin cd /opt/server/gin-server git pull ps -ax | grep go kill *** nohup go run . &gt;/dev/null 2&gt;&amp;1 &amp; cs cccf-spider cd /opt/server/cccf-spider git pull]]></description>
 </item>
 <item>
     <title>docker-postgresql数据库备份与恢复</title>
-    <link>https://chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
+    <link>https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
     <description><![CDATA[备份脚本 #!/bin/sh # 备份存放位置 BACKUP_DIR=/data/backup/pg/ file=$BACKUP_DIR&#34;gin_server_$(date +&#34;%Y%m%d&#34;).sql&#34; docker exec -t postgres pg_dump -U pq_user -d db_name &gt; &#34;${file}&#34; # 删除7天之前的备份 deleteDIR=$BACKUP_DIR&#34;gin_server_$(date --date=&#39;7 day ago&#39; +%Y%m%d).sql&#34; rm -rf $deleteDIR 恢复数据 正式数据库 cat gin_server_20190801.sql| docker exec -i postgres psql -U pq_user 其他数据库 创建数]]></description>
 </item>
 <item>
     <title>Docker容器下PHP扩展操作</title>
-    <link>https://chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</link>
+    <link>https://www.chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</guid>
     <description><![CDATA[常用操作 docker容器下的PHP有自己特有的安装扩展方法： 进入php容器$：docker exec -it php /bin/bash docker-php-source： //在]]></description>
 </item>
 </channel>

@@ -1,39 +1,39 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Scrapy - Tag - Chan-技术与生活</title>
-        <link>https://chenzqi.cn/tags/scrapy/</link>
-        <description>Scrapy - Tag - Chan-技术与生活</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (Chan)</managingEditor>
-            <webMaster>czq181020@gmail.com (Chan)</webMaster><lastBuildDate>Tue, 19 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://chenzqi.cn/tags/scrapy/" rel="self" type="application/rss+xml" /><item>
+        <title>Scrapy - Tag - 辰深-技术与生活</title>
+        <link>https://www.chenzqi.cn/tags/scrapy/</link>
+        <description>Scrapy - Tag - 辰深-技术与生活</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Tue, 19 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/scrapy/" rel="self" type="application/rss+xml" /><item>
     <title>Scrapy同时运行多个爬虫</title>
-    <link>https://chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/</link>
     <pubDate>Tue, 19 May 2020 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/</guid>
     <description><![CDATA[多种实现方案: 开启多个命令行，分别执行scrapy cralw xxxx 编写脚本，执行工程下的所有爬虫 #!/usr/bin/env python # -*- coding:utf-8 -*- &#34;&#34;&#34; @file: run.py @time: 2020/05/19 9:49 @desc: None @Author: Chenzq @Wechat: * @contact: czq181020@gmail.com &#34;&#34;&#34; from scrapy.utils.project import get_project_settings from scrapy.crawler import]]></description>
 </item>
 <item>
     <title>重载Scrapy下载中间件及Cookie池</title>
-    <link>https://chenzqi.cn/posts/2020/20200515_%E9%87%8D%E5%86%99scrapy%E4%B8%8B%E8%BD%BD%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200515_%E9%87%8D%E5%86%99scrapy%E4%B8%8B%E8%BD%BD%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
     <pubDate>Fri, 15 May 2020 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2020/20200515_%E9%87%8D%E5%86%99scrapy%E4%B8%8B%E8%BD%BD%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2020/20200515_%E9%87%8D%E5%86%99scrapy%E4%B8%8B%E8%BD%BD%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
     <description><![CDATA[:::tip scrapy中间件重构 ::: 官方文档：Downloader Middleware 重写 import json # 处理json的包 import redis # Python操作redis的包 import random # 随机选择 from .useragent import]]></description>
 </item>
 <item>
     <title>Scrapy-Splash的使用</title>
-    <link>https://chenzqi.cn/posts/2020/20200409_scrapy-splash%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200409_scrapy-splash%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
     <pubDate>Thu, 09 Apr 2020 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2020/20200409_scrapy-splash%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2020/20200409_scrapy-splash%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
     <description><![CDATA[scrapy-splash的介绍 Scrapy没有JS engine, 无法爬取JavaScript生成的动态网页，只能爬取静态网页，而在现代的网络世界中，大]]></description>
 </item>
 <item>
     <title>某考研查询微信小程序爬虫</title>
-    <link>https://chenzqi.cn/posts/2019/20190620_xxx%E8%80%83%E7%A0%94%E6%9F%A5%E8%AF%A2%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E8%99%AB/</link>
+    <link>https://www.chenzqi.cn/posts/2019/20190620_xxx%E8%80%83%E7%A0%94%E6%9F%A5%E8%AF%A2%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E8%99%AB/</link>
     <pubDate>Thu, 20 Jun 2019 00:00:00 &#43;0000</pubDate>
-    <author>Chan</author>
-    <guid>https://chenzqi.cn/posts/2019/20190620_xxx%E8%80%83%E7%A0%94%E6%9F%A5%E8%AF%A2%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E8%99%AB/</guid>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2019/20190620_xxx%E8%80%83%E7%A0%94%E6%9F%A5%E8%AF%A2%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%88%AC%E8%99%AB/</guid>
     <description><![CDATA[:::tip 解决某考研查询某小程序jwt权限认证与采集 ::: 前言 日常采集数据时, 有很多需要登录才能获取的数据, 不能解决权限认证这个问题, 就无法获取到想要采]]></description>
 </item>
 </channel>

@@ -1,8 +1,7 @@
 ---
 title: "友链墙"
-draft: flase
-url: friends
-hiddenFromHomePage: true
+#draft: flase
+#hiddenFromHomePage: true
 ---
 
 {{< friend-css >}}
@@ -21,10 +20,10 @@ group="Java" >}}
 ## 在线工具
 
 {{< friend
-name="新工具网"
-url="https://www.xintool.com/"
-logo="https://www.xintool.com/static/images/logo.png"
-word="在线工具箱"
+name="爬虫工具集"
+url="https://www.kgtools.cn/"
+logo="https://www.kgtools.cn/_nuxt/img/kg_logo.6166872.png"
+word="爬虫工具集"
 screenshot=""
 group="" >}}
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Friends on Chan-技术与生活</title>
+    <link>http://localhost:1313/friends/</link>
+    <description>Recent content in Friends on Chan-技术与生活</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <managingEditor>czq181020@gmail.com (辰深)</managingEditor>
+    <webMaster>czq181020@gmail.com (辰深)</webMaster>
+    <atom:link href="http://localhost:1313/friends/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>友链墙</title>
+      <link>http://localhost:1313/friends/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>czq181020@gmail.com (辰深)</author>
+      <guid>http://localhost:1313/friends/</guid>
+      <description>★小伙伴★ 极客小祥的博客 &#34;永远相信美好的事情即将发生&#34; 在线工具 新工具网 &#34;在线工具箱&#34; iLoveIMG &#34;可批量编辑图片的所有工具&#34; 图标工厂 &#34;移动应用图标/启</description>
+    </item>
+  </channel>
+</rss>

@@ -65,7 +65,7 @@ screenshot=""
 group="" >}}
 
 
-### 前端开发
+### 前端
 
 {{< friend
 name="图标工厂"

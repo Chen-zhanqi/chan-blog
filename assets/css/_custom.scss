@@ -259,18 +259,18 @@ img.site-avatar-plug-bilibili {
 .home-profile {
   margin-left: -1rem;
   margin-right: -1rem;
-  background: white;
+  //background: white;
   opacity: .85;
 }
 
-[theme=dark] .home-profile {
-  background: #3a3535;
-  opacity: .8;
-}
+//[theme=dark] .home-profile {
+//  background: #3a3535;
+//  opacity: .8;
+//}
 
-.home .home-profile .home-title {
-  margin-top: .67em;
-}
+//.home .home-profile .home-title {
+//  margin-top: .67em;
+//}
 
 /* 首页文章摘要 */
 .home[posts] .summary {
@@ -294,13 +294,13 @@ img.site-avatar-plug-bilibili {
   margin-left: -1rem;
   margin-right: 1rem;
   padding: 1rem 2rem .5rem 0;
-  background: white;
+  //background: white;
   opacity: .95;
 }
 
-[theme=dark] .pagination {
-  background: #3a3535;
-}
+//[theme=dark] .pagination {
+//  background: #3a3535;
+//}
 
 /* 首页的阅读全文按钮 */
 .single.summary .post-footer a:first-child {
@@ -434,9 +434,9 @@ img.site-avatar-plug-bilibili {
 //   opacity: .95;
 }
 
-[theme=dark] .footer {
-  background: #3a3535;
-}
+//[theme=dark] .footer {
+//  background: #3a3535;
+//}
 
 //@media only screen and (max-width: 1440px) {
 //  .footer {
@@ -618,15 +618,15 @@ article .post-reward .qr-code .image {
   //padding-left: 1rem;
   //padding-right: 1rem;
   padding-bottom: 1rem;
-  background: white;
+  //background: white;
   opacity: .95;
 }
 
 [theme=dark] .page.archive,
 [theme=dark] .page.single,
-[theme=dark] .page.single.special {
-  background: #3a3535;
-}
+//[theme=dark] .page.single.special {
+//  background: #3a3535;
+//}
 
 .archive-item-date2 {
   color: #a9a9b3;
@@ -736,18 +736,18 @@ pre code {
 
 [theme=dark] .search input,
 .search input {
-  height: initial;
-  width: initial;
+  //height: initial;
+  width: 95%;
   color: initial;
   background-color: white;
-  margin: 0 0 0 1rem;
+  //margin: 0 0 0 1rem;
   border-width: 2px;
   border-style: inset;
   border-color: initial;
   border-image: initial;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  border-radius: 0;
+  border-radius: 8px;
 }
 
 .search #search-results {

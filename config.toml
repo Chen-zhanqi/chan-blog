@@ -107,16 +107,22 @@ enableEmoji = true
     # Header config
     # 页面头部导航栏配置
     [params.header.title]
-        name = "辰深·CS"
-        pre = "<i class=\"far fa-kiss-wink-heart fa-fw\" aria-hidden=\"true\"></i>"
+        name = "辰深·"
+        # you can add extra information before the name (HTML format is supported), such as icons
+        # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+        pre = ""
+        # you can add extra information after the name (HTML format is supported), such as icons
+        # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+        post = '<i class="fa-solid fa-c"></i><i class="fa-solid fa-s" style="color: #B197FC;"></i>'
 
-    # Footer config
+
+# Footer config
     # 页面底部信息配置
     [params.footer]
         enable = true
         # Custom content (HTML format is supported)
         # 自定义内容 (支持 HTML 格式)
-        custom = "<a target='_blank' href='https://gohugo.io/'><img style='width: 70px; height: 20px;' src='https://gohugo.io/images/hugo-logo-wide.svg'></a>"
+        custom = "<a target='_blank'><img style='width: 70px; height: 20px;' src='https://gohugo.io/images/hugo-logo-wide.svg'></a>"
         # whether to show Hugo and theme info
         # 是否显示 Hugo 和主题信息
         hugo = false

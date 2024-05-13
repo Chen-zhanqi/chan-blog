@@ -7,7 +7,7 @@
         <title>mysql_docker容器之间数据库迁移 - 辰深-技术与生活</title><meta name="Description" content=""><meta property="og:url" content="https://www.chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/">
   <meta property="og:site_name" content="辰深-技术与生活">
   <meta property="og:title" content="mysql_docker容器之间数据库迁移">
-  <meta property="og:description" content="将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导出">
+  <meta property="og:description" content="将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为未正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导">
   <meta property="og:locale" content="zh-CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -15,10 +15,14 @@
     <meta property="article:modified_time" content="2023-02-26T00:00:00+00:00">
     <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="mysql_docker容器之间数据库迁移">
-<meta name="twitter:description" content="将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导出">
+<meta name="twitter:description" content="将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为未正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导">
 <meta name="application-name" content="Chan">
 <meta name="apple-mobile-web-app-title" content="Chan"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+<script src="https://kit.fontawesome.com/3682f75126.js" crossorigin="anonymous"></script>
+
 <link rel="icon" href="https://qn.chenzqi.cn/blog/img/logo.png"><link rel="apple-touch-icon" sizes="180x180" href="https://qn.chenzqi.cn/blog/img/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="Chan的博客">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +37,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/www.chenzqi.cn\/posts\/2023\/database-migration-between-mysql_docker-containers\/"
-        },"genre": "posts","keywords": "Docker","wordcount":  417 ,
+        },"genre": "posts","keywords": "Docker","wordcount":  418 ,
         "url": "https:\/\/www.chenzqi.cn\/posts\/2023\/database-migration-between-mysql_docker-containers\/","datePublished": "2023-02-26T00:00:00+00:00","dateModified": "2023-02-26T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -47,7 +51,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="辰深-技术与生活"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i></span>辰深·CS</a>
+            <a href="/" title="辰深-技术与生活">辰深·<span class="header-title-post"><i class="fa-solid fa-c"></i><i class="fa-solid fa-s" style="color: #B197FC;"></i></span></a>
         </div>
         <div class="menu">
             <div class="menu-inner">
@@ -69,7 +73,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="辰深-技术与生活"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i></span>辰深·CS</a>
+                <a href="/" title="辰深-技术与生活">辰深·<span class="header-title-post"><i class="fa-solid fa-c"></i><i class="fa-solid fa-s" style="color: #B197FC;"></i></span></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -86,7 +90,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">mysql_docker容器之间数据库迁移</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>辰深</a></span>&nbsp;<span class="post-category">included in <a href="/categories/2023/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>2023</a>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>技术</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-26">2023-02-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;417 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-26">2023-02-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;418 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -102,7 +106,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h6 id="将一个-mysql-容器中的数据库拷贝到另一个-mysql-容器时可能会出现表丢失的情况可能是因为正确地导出和导入表数据以下是一些可能的原因和解决方法">将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法</h6>
+            </div><div class="content" id="content"><h6 id="将一个-mysql-容器中的数据库拷贝到另一个-mysql-容器时可能会出现表丢失的情况可能是因为未正确地导出和导入表数据以下是一些可能的原因和解决方法">将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为未正确地导出和导入表数据。以下是一些可能的原因和解决方法</h6>
 <ol>
 <li>检查导出的 SQL 文件是否包含所有表的数据。您可以使用以下命令将数据导出到 SQL 文件中：</li>
 </ol>
@@ -153,7 +157,7 @@
             
             <div class="footer-line">
                 <span id="run-time"></span>
-            </div><div class="footer-line"><a target='_blank' href='https://gohugo.io/'><img style='width: 70px; height: 20px;' src='https://gohugo.io/images/hugo-logo-wide.svg'></a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">辰深</a></span>&nbsp;|&nbsp;<span class="license"><a rel='license external nofollow noopener noreffer' href='https://creativecommons.org/licenses/by-nc/4.0/' target='_blank'>CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+            </div><div class="footer-line"><a target='_blank'><img style='width: 70px; height: 20px;' src='https://gohugo.io/images/hugo-logo-wide.svg'></a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2018 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">辰深</a></span>&nbsp;|&nbsp;<span class="license"><a rel='license external nofollow noopener noreffer' href='https://creativecommons.org/licenses/by-nc/4.0/' target='_blank'>CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a target='_blank' href='https://beian.mps.gov.cn/' style='font-weight:500'>豫ICP备2021019462</a></span></div>
         </div>
     </footer>

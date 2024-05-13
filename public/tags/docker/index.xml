@@ -18,7 +18,7 @@
     <pubDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
     <guid>https://www.chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</guid>
-    <description><![CDATA[将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导出]]></description>
+    <description><![CDATA[将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为未正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导]]></description>
 </item>
 <item>
     <title>mac清除navicat残留配置文件</title>

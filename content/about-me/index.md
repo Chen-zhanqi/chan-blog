@@ -6,7 +6,7 @@ weight: -1
 featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers/64035231.webp
 ---
 
-
+{{< friend-css >}}
 
 {{< image src="assets/you-need-more-practice.webp" alt="不为所动，做更专业的自己" >}}
 
@@ -71,12 +71,12 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 硬件  | 设备                              |
-|:----|:----------------------------------|
-| CPU | 12th Gen Intel core i5-12490F     |
-| GPU | NVIDIA GeForce RTX 3060           |
-| 鼠标  | Logitech G304 Lightspeed         |
-| 显示器 | AOCB205 Q24G2                    |
+| 硬件  | 设备                            |
+|:----|:------------------------------|
+| CPU | 12th Gen Intel core i5-12490F |
+| GPU | NVIDIA GeForce RTX 3060Ti     |
+| 鼠标  | Logitech G304 Lightspeed      |
+| 显示器 | AOCB205 Q24G2                 |
 
 {{< /style >}}
 
@@ -100,6 +100,8 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 [ECS]: https://www.aliyun.com/product/ecs
 
 {{< /style >}}
+
+
 
 
 

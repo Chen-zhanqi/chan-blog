@@ -24,72 +24,58 @@ word="简洁、功能齐全、快速、有营养"
 screenshot=""
 group="Java" >}}
 
-
 ## <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📦</font></font> 个人项目
 
 {{< friend
 name="CSAdmin"
 url="https://tool.chenzqi.cn/"
 logo="https://www.gin-vue-admin.com/img/logo.png"
-word="GVA二开项目-后台管理"
+word="GVA二开项目-后台管理系统"
 screenshot=""
 group="Java" >}}
-
 
 ## <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📚</font></font> 收藏站
 
 ### 在线工具
 
-{{< friend
-name="爬虫工具集"
-url="https://www.kgtools.cn/"
-logo="https://www.kgtools.cn/_nuxt/img/kg_logo.6166872.png"
-word="爬虫工具集"
-screenshot=""
-group="" >}}
+{{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-{{< friend
-name="iLoveIMG"
-url="https://www.iloveimg.com/zh-cn"
-logo="https://www.iloveimg.com/img/iloveimg.svg"
-word="可批量编辑图片的所有工具"
-screenshot=""
-group="" >}}
+| 网站         | 描述           |
+|:-----------|:-------------|
+| [kgtools]  | 爬虫工具集        |
+| [iLoveIMG] | 可批量编辑图片的所有工具 |
+| [OSCHINA]  | 在线工具大全       |
 
-{{< friend
-name="OSCHINA"
-url="https://tool.oschina.net/"
-logo="static/images/oschina.png"
-word="在线工具大全"
-screenshot=""
-group="" >}}
+[kgtools]: https://www.kgtools.cn
 
+[iLoveIMG]: https://www.iloveimg.com/zh-cn
+
+[OSCHINA]: https://tool.oschina.net
+
+{{< /style >}}
 
 ### 前端
 
-{{< friend
-name="图标工厂"
-url="https://icon.wuruihong.com/"
-logo="https://icon.wuruihong.com/wrh/logo_bordered.png"
-word="移动应用图标/启动图生成，iOS、Android图标工具"
-screenshot=""
-group="" >}}
+{{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-{{< friend
-name="Font Awesome"
-url="https://fontawesome.com/"
-logo="https://docs.fontawesome.com/_astro/font-awesome-flag.C9hR3xMd.svg"
-word="图标库和工具包"
-screenshot=""
-group="" >}}
+| 网站                     | 描述                             |
+|:-----------------------|:-------------------------------|
+| [wuruihong]            | 一键生成所有尺寸的应用图标, iOS、Android图标工具 |
+| [RealFaviconGenerator] | 网站图标生成器，iOS、Android图标工具        |
+| [Font Awesome]         | 图标库和工具包                        |
+| [Encycolorpedia]       | RGB颜色代码表信息，图标，调色板              |
 
-{{< friend
-name="Encycolorpedia"
-url="https://encycolorpedia.cn/"
-logo="https://encycolorpedia.cn/856557-logo.svg"
-word="RGB颜色代码表信息，图标，调色板"
-screenshot=""
-group="" >}}
+[wuruihong]: https://icon.wuruihong.com
+
+[RealFaviconGenerator]: https://realfavicongenerator.net/
+
+[Font Awesome]: https://fontawesome.com
+
+[Encycolorpedia]: https://encycolorpedia.cn
+
+{{< /style >}}
+
+
 
 
 

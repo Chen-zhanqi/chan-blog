@@ -71,12 +71,12 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 硬件  | 设备                            |
-|:----|:------------------------------|
-| CPU | 12th Gen Intel core i5-12490F |
-| GPU | NVIDIA GeForce RTX 3060Ti     |
-| 鼠标  | Logitech G304 Lightspeed      |
-| 显示器 | AOCB205 Q24G2                 |
+| 硬件      | 设备                            |
+|:--------|:------------------------------|
+| CPU     | 12th Gen Intel core i5-12490F |
+| GPU     | NVIDIA GeForce RTX 3060Ti     |
+| 鼠标      | Logitech G304 Lightspeed      |
+| 显示器     | AOCB205 Q24G2                 |
 
 {{< /style >}}
 
@@ -87,12 +87,12 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< style "table { min-width: initial; th, td { white-space: nowrap; } }" >}}
 
-| 项目  | 方案                      |
-|:----|:------------------------|
-| 框架  | [Hugo][hgurl]           |
-| 主题  | [LoveIt] - [@Dillon]    |
-| VPS | [阿里云 ECS][ECS]        |
-| CDN | 七牛云                    |
+| 项目       | 方案                       |
+|:---------|:-------------------------|
+| 框架       | [Hugo][hgurl]            |
+| 主题       | [LoveIt] - [@Dillon]     |
+| VPS      | [阿里云 ECS][ECS]           |
+| CDN      | 七牛云                      |
 
 [hgurl]: https://gohugo.io/
 [@Dillon]: https://github.com/dillonzq

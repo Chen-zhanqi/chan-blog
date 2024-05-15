@@ -4,7 +4,15 @@
         <link>https://www.chenzqi.cn/tags/nginx/</link>
         <description>Nginx - Tag - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/nginx/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/nginx/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx Docker环境配置Certbot</title>
+    <link>https://www.chenzqi.cn/posts/2023/nginx-docker-certbot-scjkba/</link>
+    <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/nginx-docker-certbot-scjkba/</guid>
+    <description><![CDATA[安装Certbot #进入nginx容器 docker exec -it nginx /bin/bash #通过apt安装 失败，apt需要升级 apt install certbot -y #升级apt apt update apt full-upgrade #安装Certbot apt install certbot -y]]></description>
+</item>
+<item>
     <title>Nginx 优化静态文件访问</title>
     <link>https://www.chenzqi.cn/posts/2022/nginx-%E4%BC%98%E5%8C%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE-/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>

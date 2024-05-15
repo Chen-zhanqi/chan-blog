@@ -4,7 +4,23 @@
         <link>https://www.chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/</link>
         <description>技术 - Category - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx Docker环境配置Certbot</title>
+    <link>https://www.chenzqi.cn/posts/2023/nginx-docker-certbot-scjkba/</link>
+    <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/nginx-docker-certbot-scjkba/</guid>
+    <description><![CDATA[安装Certbot #进入nginx容器 docker exec -it nginx /bin/bash #通过apt安装 失败，apt需要升级 apt install certbot -y #升级apt apt update apt full-upgrade #安装Certbot apt install certbot -y]]></description>
+</item>
+<item>
+    <title>Centos7Docker自动补全</title>
+    <link>https://www.chenzqi.cn/posts/2023/centos7dockerautocomplete/</link>
+    <pubDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</pubDate>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/centos7dockerautocomplete/</guid>
+    <description><![CDATA[TAB键自动补全 #安装bash-completion yum install -y bash-completion #刷新文件 source /usr/share/bash-completion/completions/docker source /usr/share/bash-completion/bash_completion]]></description>
+</item>
+<item>
     <title>测试服务器的网络带宽</title>
     <link>https://www.chenzqi.cn/posts/2023/test-the-network-bandwidth-of-the-ecs/</link>
     <pubDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</pubDate>
@@ -67,22 +83,6 @@
     <author>辰深</author>
     <guid>https://www.chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</guid>
     <description><![CDATA[场景 macbook升级到macos big sur 11.7.6，git clone、push相关命令突然报错:kex_exchange_identific]]></description>
-</item>
-<item>
-    <title>CS系统相关</title>
-    <link>https://www.chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</link>
-    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/</guid>
-    <description><![CDATA[cs gocron web&amp;node gocron-web nohup ./gocron-linux-amd64/gocron web &gt; /opt/server/gocron/log/gocron_web.log 2&gt;&amp;1 &amp; gocron-node nohup sudo -u gocron ./gocron-node-linux-amd64/gocron-node &gt; /opt/server/gocron/log/gocron_node.log 2&gt;&amp;1 &amp; cs web vue cd /opt/docker/nginx/html/gin-web/ git pull docker restart nginx cs server gin cd /opt/server/gin-server git pull ps -ax | grep go kill *** nohup go run . &gt;/dev/null 2&gt;&amp;1 &amp; cs cccf-spider cd /opt/server/cccf-spider git pull]]></description>
-</item>
-<item>
-    <title>docker-postgresql数据库备份与恢复</title>
-    <link>https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
-    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
-    <description><![CDATA[备份脚本 #!/bin/sh # 备份存放位置 BACKUP_DIR=/data/backup/pg/ file=$BACKUP_DIR&#34;gin_server_$(date +&#34;%Y%m%d&#34;).sql&#34; docker exec -t postgres pg_dump -U pq_user -d db_name &gt; &#34;${file}&#34; # 删除7天之前的备份 deleteDIR=$BACKUP_DIR&#34;gin_server_$(date --date=&#39;7 day ago&#39; +%Y%m%d).sql&#34; rm -rf $deleteDIR 恢复数据 正式数据库 cat gin_server_20190801.sql| docker exec -i postgres psql -U pq_user 其他数据库 创建数]]></description>
 </item>
 </channel>
 </rss>

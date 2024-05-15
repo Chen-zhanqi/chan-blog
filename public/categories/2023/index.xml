@@ -4,7 +4,23 @@
         <link>https://www.chenzqi.cn/categories/2023/</link>
         <description>2023 - Category - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/categories/2023/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/categories/2023/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx Docker环境配置Certbot</title>
+    <link>https://www.chenzqi.cn/posts/2023/nginx-docker-certbot-scjkba/</link>
+    <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/nginx-docker-certbot-scjkba/</guid>
+    <description><![CDATA[安装Certbot #进入nginx容器 docker exec -it nginx /bin/bash #通过apt安装 失败，apt需要升级 apt install certbot -y #升级apt apt update apt full-upgrade #安装Certbot apt install certbot -y]]></description>
+</item>
+<item>
+    <title>Centos7Docker自动补全</title>
+    <link>https://www.chenzqi.cn/posts/2023/centos7dockerautocomplete/</link>
+    <pubDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</pubDate>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/centos7dockerautocomplete/</guid>
+    <description><![CDATA[TAB键自动补全 #安装bash-completion yum install -y bash-completion #刷新文件 source /usr/share/bash-completion/completions/docker source /usr/share/bash-completion/bash_completion]]></description>
+</item>
+<item>
     <title>测试服务器的网络带宽</title>
     <link>https://www.chenzqi.cn/posts/2023/test-the-network-bandwidth-of-the-ecs/</link>
     <pubDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</pubDate>

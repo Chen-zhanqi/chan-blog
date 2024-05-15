@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Ai - Tag - 辰深-技术与生活</title>
-        <link>https://www.chenzqi.cn/tags/ai/</link>
+        <link>http://localhost:1313/tags/ai/</link>
         <description>Ai - Tag - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/ai/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ai/" rel="self" type="application/rss+xml" /><item>
     <title>ChatGPT接入微信机器人</title>
-    <link>https://www.chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
+    <link>http://localhost:1313/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
     <pubDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
+    <guid>http://localhost:1313/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
     <description><![CDATA[网页版体验 微信小程序体验 如果没有编程基础，可以直接WX扫码使用封装好ChatGPT的小程序体验 1. OpenAI账号注册 OpenAI注册地址需要]]></description>
 </item>
 </channel>

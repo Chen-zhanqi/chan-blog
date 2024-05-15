@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>docker-postgresql数据库备份与恢复 - 辰深-技术与生活</title><meta name="Description" content=""><meta property="og:url" content="https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/">
+        <title>docker-postgresql数据库备份与恢复 - 辰深-技术与生活</title><meta name="Description" content=""><meta property="og:url" content="http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/">
   <meta property="og:site_name" content="辰深-技术与生活">
   <meta property="og:title" content="docker-postgresql数据库备份与恢复">
   <meta property="og:description" content="备份脚本 #!/bin/sh # 备份存放位置 BACKUP_DIR=/data/backup/pg/ file=$BACKUP_DIR&#34;gin_server_$(date &#43;&#34;%Y%m%d&#34;).sql&#34; docker exec -t postgres pg_dump -U pq_user -d db_name &gt; &#34;${file}&#34; # 删除7天之前的备份 deleteDIR=$BACKUP_DIR&#34;gin_server_$(date --date=&#39;7 day ago&#39; &#43;%Y%m%d).sql&#34; rm -rf $deleteDIR 恢复数据 正式数据库 cat gin_server_20190801.sql| docker exec -i postgres psql -U pq_user 其他数据库 创建数">
@@ -27,9 +27,9 @@
 <link rel="icon" href="https://qn.chenzqi.cn/blog/img/logo.png"><link rel="apple-touch-icon" sizes="180x180" href="https://qn.chenzqi.cn/blog/img/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="Chan的博客">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" /><link rel="prev" href="https://www.chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/" /><link rel="next" href="https://www.chenzqi.cn/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" /><link rel="prev" href="http://localhost:1313/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/" /><link rel="next" href="http://localhost:1313/posts/2022/cs%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -37,9 +37,9 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/www.chenzqi.cn\/posts\/2022\/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D\/"
+            "@id": "http:\/\/localhost:1313\/posts\/2022\/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D\/"
         },"genre": "posts","keywords": "docker, 数据库","wordcount":  100 ,
-        "url": "https:\/\/www.chenzqi.cn\/posts\/2022\/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D\/","datePublished": "2022-06-20T00:00:00+00:00","dateModified": "2022-06-20T00:00:00+00:00","publisher": {
+        "url": "http:\/\/localhost:1313\/posts\/2022\/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D\/","datePublished": "2022-06-20T00:00:00+00:00","dateModified": "2022-06-20T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -145,7 +145,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-title="docker-postgresql数据库备份与恢复" data-hashtags="docker,数据库"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-hashtag="docker"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-title="docker-postgresql数据库备份与恢复"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-title="docker-postgresql数据库备份与恢复"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-title="docker-postgresql数据库备份与恢复"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-title="docker-postgresql数据库备份与恢复" data-hashtags="docker,数据库"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-hashtag="docker"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-title="docker-postgresql数据库备份与恢复"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-title="docker-postgresql数据库备份与恢复"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/" data-title="docker-postgresql数据库备份与恢复"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -177,5 +177,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
+        </div><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
 </html>

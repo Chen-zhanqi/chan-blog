@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Flask - Tag - 辰深-技术与生活</title>
-        <link>https://www.chenzqi.cn/tags/flask/</link>
+        <link>http://localhost:1313/tags/flask/</link>
         <description>Flask - Tag - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 29 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/flask/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 29 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/flask/" rel="self" type="application/rss+xml" /><item>
     <title>SQLAlchemy字段默认值</title>
-    <link>https://www.chenzqi.cn/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/</link>
+    <link>http://localhost:1313/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/</link>
     <pubDate>Fri, 29 May 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/</guid>
+    <guid>http://localhost:1313/posts/2020/20200529_sqlalchemy%E5%AD%97%E6%AE%B5%E9%BB%98%E8%AE%A4%E5%80%BC/</guid>
     <description><![CDATA[:::tip Flask SQLAlchemy字段默认值参数 server_default 与 default 区别 ::: defult 这种方法不会在数据库里面设置默认值，是使用了SQLAlchemy Model类提交数据时添]]></description>
 </item>
 </channel>

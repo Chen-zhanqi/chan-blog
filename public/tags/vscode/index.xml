@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>VSCode - Tag - 辰深-技术与生活</title>
-        <link>https://www.chenzqi.cn/tags/vscode/</link>
+        <link>http://localhost:1313/tags/vscode/</link>
         <description>VSCode - Tag - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 12 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/vscode/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 12 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/vscode/" rel="self" type="application/rss+xml" /><item>
     <title>VSCode配置记录</title>
-    <link>https://www.chenzqi.cn/posts/2021/20210312_vscode%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</link>
+    <link>http://localhost:1313/posts/2021/20210312_vscode%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</link>
     <pubDate>Fri, 12 Mar 2021 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2021/20210312_vscode%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</guid>
+    <guid>http://localhost:1313/posts/2021/20210312_vscode%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</guid>
     <description><![CDATA[VSCode空格 问题： 空格太小，只占半个字符宽度 方法： 左上角 文件-&gt;首选项-&gt;设置,在搜索栏里搜font 把Editor:Font]]></description>
 </item>
 </channel>

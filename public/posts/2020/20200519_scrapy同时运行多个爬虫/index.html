@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Scrapy同时运行多个爬虫 - 辰深-技术与生活</title><meta name="Description" content=""><meta property="og:url" content="https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/">
+        <title>Scrapy同时运行多个爬虫 - 辰深-技术与生活</title><meta name="Description" content=""><meta property="og:url" content="http://localhost:1313/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/">
   <meta property="og:site_name" content="辰深-技术与生活">
   <meta property="og:title" content="Scrapy同时运行多个爬虫">
   <meta property="og:description" content="多种实现方案: 开启多个命令行，分别执行scrapy cralw xxxx 编写脚本，执行工程下的所有爬虫 #!/usr/bin/env python # -*- coding:utf-8 -*- &#34;&#34;&#34; @file: run.py @time: 2020/05/19 9:49 @desc: None @Author: Chenzq @Wechat: * @contact: czq181020@gmail.com &#34;&#34;&#34; from scrapy.utils.project import get_project_settings from scrapy.crawler import">
@@ -28,9 +28,9 @@
 <link rel="icon" href="https://qn.chenzqi.cn/blog/img/logo.png"><link rel="apple-touch-icon" sizes="180x180" href="https://qn.chenzqi.cn/blog/img/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="Chan的博客">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" /><link rel="prev" href="https://www.chenzqi.cn/posts/2020/20200516_%E5%AE%89%E5%B1%85%E5%AE%A2%E5%AD%97%E4%BD%93%E8%A7%A3%E5%AF%86/" /><link rel="next" href="https://www.chenzqi.cn/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" /><link rel="prev" href="http://localhost:1313/posts/2020/20200516_%E5%AE%89%E5%B1%85%E5%AE%A2%E5%AD%97%E4%BD%93%E8%A7%A3%E5%AF%86/" /><link rel="next" href="http://localhost:1313/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -38,9 +38,9 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/www.chenzqi.cn\/posts\/2020\/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB\/"
+            "@id": "http:\/\/localhost:1313\/posts\/2020\/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB\/"
         },"genre": "posts","keywords": "爬虫, 框架, scrapy","wordcount":  414 ,
-        "url": "https:\/\/www.chenzqi.cn\/posts\/2020\/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB\/","datePublished": "2020-05-19T00:00:00+00:00","dateModified": "2020-05-19T00:00:00+00:00","publisher": {
+        "url": "http:\/\/localhost:1313\/posts\/2020\/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB\/","datePublished": "2020-05-19T00:00:00+00:00","dateModified": "2020-05-19T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -154,7 +154,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-title="Scrapy同时运行多个爬虫" data-hashtags="爬虫,框架,scrapy"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-hashtag="爬虫"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-title="Scrapy同时运行多个爬虫"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-title="Scrapy同时运行多个爬虫"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://www.chenzqi.cn/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-title="Scrapy同时运行多个爬虫"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-title="Scrapy同时运行多个爬虫" data-hashtags="爬虫,框架,scrapy"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-hashtag="爬虫"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-title="Scrapy同时运行多个爬虫"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-title="Scrapy同时运行多个爬虫"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/2020/20200519_scrapy%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C%E5%A4%9A%E4%B8%AA%E7%88%AC%E8%99%AB/" data-title="Scrapy同时运行多个爬虫"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -186,5 +186,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
+        </div><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
 </html>

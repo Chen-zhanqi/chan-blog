@@ -1,31 +1,31 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>数据库 - Tag - 辰深-技术与生活</title>
-        <link>https://www.chenzqi.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
         <description>数据库 - Tag - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="self" type="application/rss+xml" /><item>
     <title>docker-postgresql数据库备份与恢复</title>
-    <link>https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
+    <link>http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
+    <guid>http://localhost:1313/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
     <description><![CDATA[备份脚本 #!/bin/sh # 备份存放位置 BACKUP_DIR=/data/backup/pg/ file=$BACKUP_DIR&#34;gin_server_$(date +&#34;%Y%m%d&#34;).sql&#34; docker exec -t postgres pg_dump -U pq_user -d db_name &gt; &#34;${file}&#34; # 删除7天之前的备份 deleteDIR=$BACKUP_DIR&#34;gin_server_$(date --date=&#39;7 day ago&#39; +%Y%m%d).sql&#34; rm -rf $deleteDIR 恢复数据 正式数据库 cat gin_server_20190801.sql| docker exec -i postgres psql -U pq_user 其他数据库 创建数]]></description>
 </item>
 <item>
     <title>postgresql-创建主键自增的表</title>
-    <link>https://www.chenzqi.cn/posts/2022/postgresql-%E5%88%9B%E5%BB%BA%E4%B8%BB%E9%94%AE%E8%87%AA%E5%A2%9E%E7%9A%84%E8%A1%A8/</link>
+    <link>http://localhost:1313/posts/2022/postgresql-%E5%88%9B%E5%BB%BA%E4%B8%BB%E9%94%AE%E8%87%AA%E5%A2%9E%E7%9A%84%E8%A1%A8/</link>
     <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2022/postgresql-%E5%88%9B%E5%BB%BA%E4%B8%BB%E9%94%AE%E8%87%AA%E5%A2%9E%E7%9A%84%E8%A1%A8/</guid>
+    <guid>http://localhost:1313/posts/2022/postgresql-%E5%88%9B%E5%BB%BA%E4%B8%BB%E9%94%AE%E8%87%AA%E5%A2%9E%E7%9A%84%E8%A1%A8/</guid>
     <description><![CDATA[方法一： CREATE TABLE test_a ( id serial, name character varying(128), constraint pk_test_a_id primary key( id) ); 方法二： CREATE TABLE test_b( id serial PRIMARY KEY, name character varying(128) ); 这两种方法用的是pg的serial类型实现自增，drop表的时候指定的序]]></description>
 </item>
 <item>
     <title>Liunx Navicat premium 15 激活</title>
-    <link>https://www.chenzqi.cn/posts/2021/20210506_liunx-navicat-premium-15-%E6%BF%80%E6%B4%BB/</link>
+    <link>http://localhost:1313/posts/2021/20210506_liunx-navicat-premium-15-%E6%BF%80%E6%B4%BB/</link>
     <pubDate>Thu, 06 May 2021 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2021/20210506_liunx-navicat-premium-15-%E6%BF%80%E6%B4%BB/</guid>
+    <guid>http://localhost:1313/posts/2021/20210506_liunx-navicat-premium-15-%E6%BF%80%E6%B4%BB/</guid>
     <description><![CDATA[一、相关工具 navicat15-premium-cs.AppImage：Navicat 15 premium 官方简体中文试用版 navicat-patcher：]]></description>
 </item>
 </channel>

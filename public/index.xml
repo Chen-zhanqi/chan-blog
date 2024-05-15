@@ -1,89 +1,89 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>辰深-技术与生活</title>
-        <link>https://www.chenzqi.cn/</link>
+        <link>http://localhost:1313/</link>
         <description>辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
             <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate>
-            <atom:link href="https://www.chenzqi.cn/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Nginx Docker环境配置Certbot</title>
-    <link>https://www.chenzqi.cn/posts/2023/nginx-docker-certbot-scjkba/</link>
+    <link>http://localhost:1313/posts/2023/nginx-docker-certbot-scjkba/</link>
     <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/nginx-docker-certbot-scjkba/</guid>
+    <guid>http://localhost:1313/posts/2023/nginx-docker-certbot-scjkba/</guid>
     <description><![CDATA[安装Certbot #进入nginx容器 docker exec -it nginx /bin/bash #通过apt安装 失败，apt需要升级 apt install certbot -y #升级apt apt update apt full-upgrade #安装Certbot apt install certbot -y]]></description>
 </item>
 <item>
     <title>Centos7Docker自动补全</title>
-    <link>https://www.chenzqi.cn/posts/2023/centos7dockerautocomplete/</link>
+    <link>http://localhost:1313/posts/2023/centos7dockerautocomplete/</link>
     <pubDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/centos7dockerautocomplete/</guid>
+    <guid>http://localhost:1313/posts/2023/centos7dockerautocomplete/</guid>
     <description><![CDATA[TAB键自动补全 #安装bash-completion yum install -y bash-completion #刷新文件 source /usr/share/bash-completion/completions/docker source /usr/share/bash-completion/bash_completion]]></description>
 </item>
 <item>
     <title>测试服务器的网络带宽</title>
-    <link>https://www.chenzqi.cn/posts/2023/test-the-network-bandwidth-of-the-ecs/</link>
+    <link>http://localhost:1313/posts/2023/test-the-network-bandwidth-of-the-ecs/</link>
     <pubDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/test-the-network-bandwidth-of-the-ecs/</guid>
+    <guid>http://localhost:1313/posts/2023/test-the-network-bandwidth-of-the-ecs/</guid>
     <description><![CDATA[CentOS/Fedora yum install speedtest-cli speedtest-cli Ubuntu/Debian apt install speedtest-cli speedtest-cli Windows speedtest]]></description>
 </item>
 <item>
     <title>php容器内安装SG11扩展</title>
-    <link>https://www.chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</link>
+    <link>http://localhost:1313/posts/2023/install-the-sg-11-extension-in-the-php-container/</link>
     <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</guid>
+    <guid>http://localhost:1313/posts/2023/install-the-sg-11-extension-in-the-php-container/</guid>
     <description><![CDATA[查看PHP_VERSION php -v | head -n1 | cut -d&#39; &#39; -f2 | cut -d. -f1-2 安装 mkdir -p /tmp/sourceguardian &amp;&amp; cd /tmp/sourceguardian curl -Os https://www.sourceguardian.com/loaders/download/loaders.linux-x86_64.tar.gz tar xzf loaders.linux-x86_64.tar.gz cp ixed.${PHP_VERSION}.lin &#34;$(php -i | grep &#39;^extension_dir =&#39; | cut -d&#39; &#39; -f3)/sourceguardian.so&#34; echo &#34;extension=sourceguardian.so&#34; &gt; /usr/local/etc/php/conf.d/15-sourceguardian.ini rm -rf /tmp/sourceguardian 重启容器&amp;]]></description>
 </item>
 <item>
     <title>centos7修改服务器时区</title>
-    <link>https://www.chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</link>
+    <link>http://localhost:1313/posts/2023/centos7_changes_the_server_time_zone/</link>
     <pubDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</guid>
+    <guid>http://localhost:1313/posts/2023/centos7_changes_the_server_time_zone/</guid>
     <description><![CDATA[如果服务器上没有 /etc/timezone 文件，您可以尝试以下方法来更改时区为上海： 使用 root 或具有管理员权限的用户登录到服务器上。 运行以下命令以查看当前时区设置： timedatectl 在]]></description>
 </item>
 <item>
     <title>mysql_docker容器之间数据库迁移</title>
-    <link>https://www.chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</link>
+    <link>http://localhost:1313/posts/2023/database-migration-between-mysql_docker-containers/</link>
     <pubDate>Sun, 26 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/database-migration-between-mysql_docker-containers/</guid>
+    <guid>http://localhost:1313/posts/2023/database-migration-between-mysql_docker-containers/</guid>
     <description><![CDATA[将一个 MySQL 容器中的数据库拷贝到另一个 MySQL 容器时，可能会出现表丢失的情况。可能是因为未正确地导出和导入表数据。以下是一些可能的原因和解决方法 检查导]]></description>
 </item>
 <item>
     <title>mac清除navicat残留配置文件</title>
-    <link>https://www.chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</link>
+    <link>http://localhost:1313/posts/2023/macdeletes-residual-navicat-configuration-file/</link>
     <pubDate>Sun, 19 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/macdeletes-residual-navicat-configuration-file/</guid>
+    <guid>http://localhost:1313/posts/2023/macdeletes-residual-navicat-configuration-file/</guid>
     <description><![CDATA[sudo rm -Rf /Applications/Navicat\ Premium.app sudo rm -Rf /private/var/db/BootCaches/CB6F12B3-2C14-461E-B5A7-A8621B7FF130/app.com.prect.NavicatPremium.playlist sudo rm -Rf ~/Library/Caches/com.apple.helpd/SDMHelpData/Other/English/HelpSDMIndexFile/com.prect.NavicatPremium.help sudo rm -Rf ~/Library/Caches/com.apple.helpd/SDMHelpData/Other/zh_CN/HelpSDMIndexFile/com.prect.NavicatPremium.help sudo rm -Rf ~/Library/Preferences/com.prect.NavicatPremium.plist sudo rm -Rf ~/Library/Application\ Support/CrashReporter/Navicat\ Premium_54EDA2E9-528D-5778-A528-BBF9A4CE8BDC.plist sudo rm -Rf ~/Library/Application\ Support/PremiumSoft\ CyberTech]]></description>
 </item>
 <item>
     <title>docker-compose安装nginx,mysql,redis,postgres</title>
-    <link>https://www.chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</link>
+    <link>http://localhost:1313/posts/2023/docker-installs-nginx-redis-mysql-postgres/</link>
     <pubDate>Sat, 18 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/docker-installs-nginx-redis-mysql-postgres/</guid>
+    <guid>http://localhost:1313/posts/2023/docker-installs-nginx-redis-mysql-postgres/</guid>
     <description><![CDATA[tree结构 docker ├── compose │ ├── db │ └── nginx ├── mysql │ ├── data │ └── my.cnf ├── nginx │ ├── conf.d │ ├── etc │ ├── html │ ├── logs │ ├── nginx.conf │ └── www └]]></description>
 </item>
 <item>
     <title>ChatGPT接入微信机器人</title>
-    <link>https://www.chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
+    <link>http://localhost:1313/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
     <pubDate>Fri, 20 Jan 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
+    <guid>http://localhost:1313/posts/2023/chatgpt%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
     <description><![CDATA[网页版体验 微信小程序体验 如果没有编程基础，可以直接WX扫码使用封装好ChatGPT的小程序体验 1. OpenAI账号注册 OpenAI注册地址需要]]></description>
 </item>
 <item>
     <title>macos升级后git相关命令错误</title>
-    <link>https://www.chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</link>
+    <link>http://localhost:1313/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</guid>
+    <guid>http://localhost:1313/posts/2022/macos%E5%8D%87%E7%BA%A7%E5%90%8Egit%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF/</guid>
     <description><![CDATA[场景 macbook升级到macos big sur 11.7.6，git clone、push相关命令突然报错:kex_exchange_identific]]></description>
 </item>
 </channel>

@@ -34,6 +34,14 @@ word="GVA二开项目-后台管理系统"
 screenshot=""
 group="Java" >}}
 
+{{< friend
+name="CSMsgPusher"
+url="https://msgpusher.chenzqi.cn/"
+logo="https://msgpusher.chenzqi.cn/logo.png"
+word="消息推送服务"
+screenshot=""
+group="Java" >}}
+
 ## <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📚</font></font> 收藏站
 
 ### 在线工具

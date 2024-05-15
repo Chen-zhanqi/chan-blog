@@ -1,63 +1,63 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - Category - 辰深-技术与生活</title>
-        <link>https://www.chenzqi.cn/categories/</link>
+        <link>http://localhost:1313/categories/</link>
         <description>Categories - Category - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
     <title>2023</title>
-    <link>https://www.chenzqi.cn/categories/2023/</link>
+    <link>http://localhost:1313/categories/2023/</link>
     <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/categories/2023/</guid>
+    <guid>http://localhost:1313/categories/2023/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>技术</title>
-    <link>https://www.chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/</link>
+    <link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</link>
     <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/categories/%E6%8A%80%E6%9C%AF/</guid>
+    <guid>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>2022</title>
-    <link>https://www.chenzqi.cn/categories/2022/</link>
+    <link>http://localhost:1313/categories/2022/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/categories/2022/</guid>
+    <guid>http://localhost:1313/categories/2022/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>教程</title>
-    <link>https://www.chenzqi.cn/categories/%E6%95%99%E7%A8%8B/</link>
+    <link>http://localhost:1313/categories/%E6%95%99%E7%A8%8B/</link>
     <pubDate>Tue, 25 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/categories/%E6%95%99%E7%A8%8B/</guid>
+    <guid>http://localhost:1313/categories/%E6%95%99%E7%A8%8B/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>2021</title>
-    <link>https://www.chenzqi.cn/categories/2021/</link>
+    <link>http://localhost:1313/categories/2021/</link>
     <pubDate>Sun, 20 Jun 2021 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/categories/2021/</guid>
+    <guid>http://localhost:1313/categories/2021/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>2020</title>
-    <link>https://www.chenzqi.cn/categories/2020/</link>
+    <link>http://localhost:1313/categories/2020/</link>
     <pubDate>Mon, 10 Aug 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/categories/2020/</guid>
+    <guid>http://localhost:1313/categories/2020/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>2019</title>
-    <link>https://www.chenzqi.cn/categories/2019/</link>
+    <link>http://localhost:1313/categories/2019/</link>
     <pubDate>Thu, 20 Jun 2019 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>https://www.chenzqi.cn/categories/2019/</guid>
+    <guid>http://localhost:1313/categories/2019/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -4,7 +4,15 @@
         <link>https://www.chenzqi.cn/tags/linux/</link>
         <description>Linux - Tag - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>测试服务器的网络带宽</title>
+    <link>https://www.chenzqi.cn/posts/2023/test-the-network-bandwidth-of-the-ecs/</link>
+    <pubDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</pubDate>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/test-the-network-bandwidth-of-the-ecs/</guid>
+    <description><![CDATA[CentOS/Fedora yum install speedtest-cli speedtest-cli Ubuntu/Debian apt install speedtest-cli speedtest-cli Windows speedtest]]></description>
+</item>
+<item>
     <title>centos7修改服务器时区</title>
     <link>https://www.chenzqi.cn/posts/2023/centos7_changes_the_server_time_zone/</link>
     <pubDate>Wed, 01 Mar 2023 00:00:00 &#43;0000</pubDate>

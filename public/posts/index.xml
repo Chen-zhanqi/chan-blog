@@ -4,7 +4,15 @@
         <link>https://www.chenzqi.cn/posts/</link>
         <description>All Posts | 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>测试服务器的网络带宽</title>
+    <link>https://www.chenzqi.cn/posts/2023/test-the-network-bandwidth-of-the-ecs/</link>
+    <pubDate>Sat, 25 Mar 2023 00:00:00 &#43;0000</pubDate>
+    <author>辰深</author>
+    <guid>https://www.chenzqi.cn/posts/2023/test-the-network-bandwidth-of-the-ecs/</guid>
+    <description><![CDATA[CentOS/Fedora yum install speedtest-cli speedtest-cli Ubuntu/Debian apt install speedtest-cli speedtest-cli Windows speedtest]]></description>
+</item>
+<item>
     <title>php容器内安装SG11扩展</title>
     <link>https://www.chenzqi.cn/posts/2023/install-the-sg-11-extension-in-the-php-container/</link>
     <pubDate>Fri, 10 Mar 2023 00:00:00 &#43;0000</pubDate>
@@ -75,14 +83,6 @@
     <author>辰深</author>
     <guid>https://www.chenzqi.cn/posts/2022/docker-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</guid>
     <description><![CDATA[备份脚本 #!/bin/sh # 备份存放位置 BACKUP_DIR=/data/backup/pg/ file=$BACKUP_DIR&#34;gin_server_$(date +&#34;%Y%m%d&#34;).sql&#34; docker exec -t postgres pg_dump -U pq_user -d db_name &gt; &#34;${file}&#34; # 删除7天之前的备份 deleteDIR=$BACKUP_DIR&#34;gin_server_$(date --date=&#39;7 day ago&#39; +%Y%m%d).sql&#34; rm -rf $deleteDIR 恢复数据 正式数据库 cat gin_server_20190801.sql| docker exec -i postgres psql -U pq_user 其他数据库 创建数]]></description>
-</item>
-<item>
-    <title>Docker容器下PHP扩展操作</title>
-    <link>https://www.chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</link>
-    <pubDate>Mon, 20 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>辰深</author>
-    <guid>https://www.chenzqi.cn/posts/2022/docker%E5%AE%B9%E5%99%A8%E4%B8%8Bphp%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C/</guid>
-    <description><![CDATA[常用操作 docker容器下的PHP有自己特有的安装扩展方法： 进入php容器$：docker exec -it php /bin/bash docker-php-source： //在]]></description>
 </item>
 </channel>
 </rss>

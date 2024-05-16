@@ -43,7 +43,7 @@ enableEmoji = true
     [[menu.main]]
         weight = 3
         pre = "<i class='fas fa-fw fa-fan fa-spin'></i>"
-        identifier = ""
+        identifier = "friends"
         url = "/about/friends/"
         name = "友链"
         title = "友链"
@@ -57,17 +57,24 @@ enableEmoji = true
     [[menu.main]]
         weight = 5
         pre = "<i class='fas fa-fw fa-at'></i>"
-        identifier = ""
+        identifier = "about-photo"
         url = "/about/photo/"
         name = "相册"
         title = "相册"
     [[menu.main]]
         weight = 7
         pre = "<i class='fas fa-address-card fa-fw'></i>"
-        identifier = ""
+        identifier = "about-me"
         url = "/about-me/"
         name = "关于"
         title = "关于"
+    [[menu.main]]
+        weight = 8
+        pre = "<i class='fas fa-chart-simple fa-fw'></i>"
+        identifier = "uptime"
+        url = "https://stats.uptimerobot.com/p5OY7tQW5X"
+        name = "监控"
+        title = "服务监控"
 
     # 二级菜单
     [[menu.main]]

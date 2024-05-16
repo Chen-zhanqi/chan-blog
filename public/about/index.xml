@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abouts on 辰深-技术与生活</title>
-    <link>http://localhost:1313/about/</link>
+    <link>https://www.chenzqi.cn/about/</link>
     <description>Recent content in Abouts on 辰深-技术与生活</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <managingEditor>czq181020@gmail.com (辰深)</managingEditor>
     <webMaster>czq181020@gmail.com (辰深)</webMaster>
-    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.chenzqi.cn/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
-      <link>http://localhost:1313/about/%E5%85%B3%E4%BA%8E/</link>
+      <link>https://www.chenzqi.cn/about/%E5%85%B3%E4%BA%8E/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>czq181020@gmail.com (辰深)</author>
-      <guid>http://localhost:1313/about/%E5%85%B3%E4%BA%8E/</guid>
+      <guid>https://www.chenzqi.cn/about/%E5%85%B3%E4%BA%8E/</guid>
       <description>年轻的时候，我们都有一个梦想，长大以后要带着父母环游世界。 但是等我们真正成年或者娶妻生子了，却总是忘了和父母联系。 不记得他们的生日，也不关心</description>
     </item>
     <item>
       <title>友链墙</title>
-      <link>http://localhost:1313/about/friends/</link>
+      <link>https://www.chenzqi.cn/about/friends/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>czq181020@gmail.com (辰深)</author>
-      <guid>http://localhost:1313/about/friends/</guid>
+      <guid>https://www.chenzqi.cn/about/friends/</guid>
       <description>😺 小伙伴 极客小祥的博客 &#34;永远相信美好的事情即将发生&#34; Sulv&amp;#39;s Blog &#34;简洁、功能齐全、快速、有营养&#34; 📦 个人项目 CSAdmin &#34;GVA二开项目-后台管理系统&#34; CSMsgPusher &#34;消息</description>
     </item>
     <item>
       <title>相册</title>
-      <link>http://localhost:1313/about/photo/</link>
+      <link>https://www.chenzqi.cn/about/photo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>czq181020@gmail.com (辰深)</author>
-      <guid>http://localhost:1313/about/photo/</guid>
+      <guid>https://www.chenzqi.cn/about/photo/</guid>
       <description>随着快门📸的开启，时间被凝固下来，作为”此时此刻”的记录是不可重复的，也就成为永远。🏞 迪士尼 迪士尼之旅 🎡🎢 交通：🚅 🚇 天气：🌦 chatgpt：</description>
     </item>
   </channel>

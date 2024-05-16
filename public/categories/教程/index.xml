@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>教程 - Category - 辰深-技术与生活</title>
-        <link>http://localhost:1313/categories/%E6%95%99%E7%A8%8B/</link>
+        <link>https://www.chenzqi.cn/categories/%E6%95%99%E7%A8%8B/</link>
         <description>教程 - Category - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Tue, 25 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%95%99%E7%A8%8B/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Tue, 25 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/categories/%E6%95%99%E7%A8%8B/" rel="self" type="application/rss+xml" /><item>
     <title>国内用户订阅土耳其iCloud攻略</title>
-    <link>http://localhost:1313/posts/2022/subscribe-turkey-icloud/</link>
+    <link>https://www.chenzqi.cn/posts/2022/subscribe-turkey-icloud/</link>
     <pubDate>Tue, 25 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2022/subscribe-turkey-icloud/</guid>
+    <guid>https://www.chenzqi.cn/posts/2022/subscribe-turkey-icloud/</guid>
     <description><![CDATA[🍺看完本教程你有任何问题可以通过右下角联系我 为什么订阅土耳其区的iCloud+ 因为很便宜。 iCloud+ 国区与土区定价对比如下： 50GB 国区¥6/月，土区₺6]]></description>
 </item>
 <item>
     <title>App Store 礼品卡兑换</title>
-    <link>http://localhost:1313/posts/2022/app-store-gift-card-redemption/</link>
+    <link>https://www.chenzqi.cn/posts/2022/app-store-gift-card-redemption/</link>
     <pubDate>Thu, 20 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2022/app-store-gift-card-redemption/</guid>
+    <guid>https://www.chenzqi.cn/posts/2022/app-store-gift-card-redemption/</guid>
     <description><![CDATA[App Store 礼品卡兑现 iPhone 手机或 iPad 或其它可登录 Apple Store 终端 登录土区账号。点击个人头像 进入Redeem Gift Card or Code 输入礼品卡卡密兑现即可。]]></description>
 </item>
 </channel>

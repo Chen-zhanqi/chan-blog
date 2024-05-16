@@ -1,63 +1,63 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Web - Tag - 辰深-技术与生活</title>
-        <link>http://localhost:1313/tags/web/</link>
+        <link>https://www.chenzqi.cn/tags/web/</link>
         <description>Web - Tag - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Sat, 20 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/web/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Sat, 20 Mar 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/web/" rel="self" type="application/rss+xml" /><item>
     <title>jwt 生成与验证 - Python</title>
-    <link>http://localhost:1313/posts/2021/20210320_jwt%E7%94%9F%E6%88%90%E4%B8%8E%E9%AA%8C%E8%AF%81/</link>
+    <link>https://www.chenzqi.cn/posts/2021/20210320_jwt%E7%94%9F%E6%88%90%E4%B8%8E%E9%AA%8C%E8%AF%81/</link>
     <pubDate>Sat, 20 Mar 2021 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2021/20210320_jwt%E7%94%9F%E6%88%90%E4%B8%8E%E9%AA%8C%E8%AF%81/</guid>
+    <guid>https://www.chenzqi.cn/posts/2021/20210320_jwt%E7%94%9F%E6%88%90%E4%B8%8E%E9%AA%8C%E8%AF%81/</guid>
     <description><![CDATA[生成与验证 data: 自定义数据, 如 {'username':user_name, 'user_id': user_info.id} 验证通过后在payload中获取 import jwt from datetime import datetime,timedelta SECRECT_KEY = b&#39;\x92R!\x8e\xc6\x9c\xb3\x89#\xa6\x0c\xcb\xf6\xcb\xd7\xc&#39; def genToken(data): expInt = datetime.utcnow() + timedelta(days=1) iat = datetime.utcnow() payload = { &#39;exp&#39;: expInt, &#39;iat&#39;: iat, &#39;data&#39;: data } token = jwt.encode(payload, key = SECRECT_KEY, algorithm=&#39;HS256&#39;) return bytes.decode(token)]]></description>
 </item>
 <item>
     <title>Django服务器端跨域</title>
-    <link>http://localhost:1313/posts/2020/20200625_django%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%A8%E5%9F%9F/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200625_django%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%A8%E5%9F%9F/</link>
     <pubDate>Thu, 25 Jun 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2020/20200625_django%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%A8%E5%9F%9F/</guid>
+    <guid>https://www.chenzqi.cn/posts/2020/20200625_django%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%A8%E5%9F%9F/</guid>
     <description><![CDATA[:::tip 服务器端解决跨域问题: django-cors-headers ::: 文档 django-cors-headers 安装 pip install -i https://pypi.douban.com/simple django-cors-headers 配置 settings.py 添加到已安装的应用程序中： INSTALLED_APPS = [ ... &#39;corsheaders&#39;， ... ] 确保]]></description>
 </item>
 <item>
     <title>JSON Web Token</title>
-    <link>http://localhost:1313/posts/2020/20200625_jsonwebtoken%E5%9F%BA%E7%A1%80/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200625_jsonwebtoken%E5%9F%BA%E7%A1%80/</link>
     <pubDate>Thu, 25 Jun 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2020/20200625_jsonwebtoken%E5%9F%BA%E7%A1%80/</guid>
+    <guid>https://www.chenzqi.cn/posts/2020/20200625_jsonwebtoken%E5%9F%BA%E7%A1%80/</guid>
     <description><![CDATA[::: tip 流行的跨域认证解决方案, JWT原理和用法 ::: JWT ::: tip Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 751]]></description>
 </item>
 <item>
     <title>自定义常用后端响应码</title>
-    <link>http://localhost:1313/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/</link>
     <pubDate>Fri, 29 May 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/</guid>
+    <guid>https://www.chenzqi.cn/posts/2020/20200529_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E7%94%A8%E5%90%8E%E7%AB%AF%E5%93%8D%E5%BA%94%E7%A0%81/</guid>
     <description><![CDATA[:::tip 后端常用响应码 ::: &#34;&#34;&#34;共用的一些数字约定含义&#34;&#34;&#34; class RET: OK = &#34;0&#34; DBERR = &#34;4001&#34; NODATA = &#34;4002&#34; DATAEXIST = &#34;4003&#34; DATAERR = &#34;4004&#34; SESSIONERR = &#34;4101&#34;]]></description>
 </item>
 <item>
     <title>微信小程序登录详解及Flask API实现</title>
-    <link>http://localhost:1313/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/</link>
     <pubDate>Sat, 23 May 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/</guid>
+    <guid>https://www.chenzqi.cn/posts/2020/20200523_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95/</guid>
     <description><![CDATA[:::tip 微信小程序登录API实现 ::: 小程序登录流程 小程序端调用 wx.login 判断用户是否授权 小程序端访问 wx.getUserInfo 小程序端js代码 wx.login({ success: resp =&gt; { // 发送 res.code 到后台换取 openId, sessionKey, unionId console.log(resp); var]]></description>
 </item>
 <item>
     <title>Live Server 实时服务器</title>
-    <link>http://localhost:1313/posts/2020/20200504_live-server/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200504_live-server/</link>
     <pubDate>Mon, 04 May 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2020/20200504_live-server/</guid>
+    <guid>https://www.chenzqi.cn/posts/2020/20200504_live-server/</guid>
     <description><![CDATA[:::tip 一个具有实时重新加载功能的小型开发服务器 ::: 简介 这是一个具有实时重新加载功能的小型开发服务器。使用它来入侵您的HTML / JavaScript / CSS文件，而不]]></description>
 </item>
 <item>
     <title>Elasticsearch介绍与Python实现</title>
-    <link>http://localhost:1313/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/</link>
+    <link>https://www.chenzqi.cn/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/</link>
     <pubDate>Mon, 10 Jun 2019 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/</guid>
+    <guid>https://www.chenzqi.cn/posts/2019/20190610_elasticsearch%E4%BB%8B%E7%BB%8D%E4%B8%8Epython%E5%AE%9E%E7%8E%B0/</guid>
     <description><![CDATA[简介 分布式的实时文档存储，每个字段可以被索引与搜索 分布式实时分析搜索引擎 胜任上百个服务节点的扩展，支持 PB 级别的结构化或者非结构化数据 Elasticsearch 的安装]]></description>
 </item>
 </channel>

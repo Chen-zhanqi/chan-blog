@@ -6,6 +6,7 @@ title: "友链墙"
 
 {{< friend-css >}}
 
+
 ## <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">😺</font></font> 小伙伴
 
 {{< friend
@@ -24,6 +25,7 @@ word="简洁、功能齐全、快速、有营养"
 screenshot=""
 group="Java" >}}
 
+
 ## <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📦</font></font> 个人项目
 
 {{< friend
@@ -41,6 +43,7 @@ logo="https://msgpusher.chenzqi.cn/logo.png"
 word="消息推送服务"
 screenshot=""
 group="Java" >}}
+
 
 ## <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📚</font></font> 收藏站
 

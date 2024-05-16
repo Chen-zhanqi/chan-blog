@@ -8,7 +8,9 @@ featuredImage: https://hakula-1257872502.file.myqcloud.com/images/article-covers
 
 {{< friend-css >}}
 
-{{< image src="assets/you-need-more-practice.webp" alt="不为所动，做更专业的自己" >}}
+[//]: # ({{< image src="assets/you-need-more-practice.webp" alt="不为所动，做更专业的自己" >}})
+
+<iframe width="100%" height="320" name="iframe" src="https://single-page.chenzqi.cn/dancing-flower/" style="border: none;"></iframe>
 
 
 ## :hammer_and_wrench: 技术

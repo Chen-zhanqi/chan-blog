@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>DRF - Tag - 辰深-技术与生活</title>
-        <link>http://localhost:1313/tags/drf/</link>
+        <link>https://www.chenzqi.cn/tags/drf/</link>
         <description>DRF - Tag - 辰深-技术与生活</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>czq181020@gmail.com (辰深)</managingEditor>
-            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Mon, 22 Jun 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/drf/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>czq181020@gmail.com (辰深)</webMaster><lastBuildDate>Mon, 22 Jun 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.chenzqi.cn/tags/drf/" rel="self" type="application/rss+xml" /><item>
     <title>DRF 过滤器组件</title>
-    <link>http://localhost:1313/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/</link>
     <pubDate>Mon, 22 Jun 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/</guid>
+    <guid>https://www.chenzqi.cn/posts/2020/20200622_drf%E8%BF%87%E6%BB%A4%E5%99%A8%E7%BB%84%E4%BB%B6/</guid>
     <description><![CDATA[:::tip Django REST Framework. Filters ::: 基本信息 源码 rest_framework.filters 官方文档 DRF API Guide-Filtering django-filter DRF 过滤组件 DRF 搜索过滤组件 urls.py from django.urls import path from . import views urlpatterns = [ path(&#39;cars/&#39;, views.CarListAPIView.as_view()), # SearchFilter ] views.py # drf的SearchFilter # 第]]></description>
 </item>
 <item>
     <title>DRF 通用视图-视图工具类-视图集以及路由</title>
-    <link>http://localhost:1313/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/</link>
+    <link>https://www.chenzqi.cn/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/</link>
     <pubDate>Sun, 21 Jun 2020 00:00:00 &#43;0000</pubDate>
     <author>辰深</author>
-    <guid>http://localhost:1313/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/</guid>
+    <guid>https://www.chenzqi.cn/posts/2020/20200621_drf%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE-%E8%A7%86%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%B1%BB-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1/</guid>
     <description><![CDATA[:::tip Django REST Framework. Generic Views, MixIns, ViewSets and Routers ::: 基本信息 源码仓库 rest_framework.views rest_framework.generics rest_framework.viewsets rest_framework.routers 官方文档 API Guide-Generic views API Guide-ViewSets API Guide-Routers 关系图 ::: details View继承图与View图谱 ::: AIPView-API视图类 APIView 是]]></description>
 </item>
 </channel>
